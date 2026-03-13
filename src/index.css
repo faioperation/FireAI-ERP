@@ -2,6 +2,7 @@
 /* google font end */
 
 @import "tailwindcss";
+/* @plugin "daisyui"; */
 
 * {
   font-family: "Inter", sans-serif;
