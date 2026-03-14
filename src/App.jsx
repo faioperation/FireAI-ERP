@@ -1,9 +1,16 @@
+import { Routes, Route } from "react-router";
+import CommonLayouts from "./components/CommonLayouts";
+import DashboardPage from "./pages/DashboardPage";
+
 const App = () => {
   return (
-    <div className='bg-purple-500 text-3xl'>
-      FAI-Dashboard
-    </div>
-  )
-}
+    <Routes>
+      <Route element={<CommonLayouts />}>
+        <Route index element={<DashboardPage />} />
+        {/* <Route path="/settings/profile" element={<EdittProfilePage />} /> */}
+      </Route>
+    </Routes>
+  );
+};
 
-export default App
+export default App;
