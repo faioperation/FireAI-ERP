@@ -4,12 +4,12 @@ import Sidebar from "./Sidebar";
 
 const CommonLayouts = () => {
   return (
-    <div className="flex mx-auto w-full bg-red-400">
+    <div className="flex mx-auto w-full">
       {/* =============== Common layout starts =============== */}
       <Sidebar />
       <div className=" w-full">
         <Header />
-        <div className="">
+        <div className="bg-[#FFFFFF] p-8 text-black">
           <Outlet />
         </div>
       </div>

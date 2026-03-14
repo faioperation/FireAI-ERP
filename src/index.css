@@ -2,10 +2,30 @@
 /* google font end */
 
 @import "tailwindcss";
-/* @plugin "daisyui"; */
+@plugin "daisyui"{
+  themes: all;
+}
 
 * {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
+.sub{
+  font-size: medium;
+  color: #1F2937;
+}
+
+.lgHead{
+  font-size: large;
+  color: black;
+  margin-bottom: 6px;
+}
+ .text-primary{
+  font-size: small;
+  color: black;
+ }
+
+
+

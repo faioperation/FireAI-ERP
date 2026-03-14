@@ -75,7 +75,7 @@ export default function Sidebar() {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
-    <div className="flex h-screen bg-[#f8f9fa] font-sans">
+    <div  className="flex h-screen  font-sans">
       {/* Sidebar Navigation */}
       <aside
         className={`${isCollapsed ? "w-20" : "w-64"} bg-white border-r border-gray-100 flex flex-col transition-all duration-300 relative z-30`}

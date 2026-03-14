@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Total Orders",
+    "value": 54,
+    "growth": "+12%",
+    "icon": "shopping-cart",
+    "status": "increase"
+  },
+  {
+    "id": 2,
+    "title": "Active Projects",
+    "value": 30,
+    "growth": "+8%",
+    "icon": "folder",
+    "status": "increase"
+  },
+  {
+    "id": 3,
+    "title": "Completed Projects",
+    "value": 24,
+    "growth": "+5%",
+    "icon": "check-circle",
+    "status": "increase"
+  },
+  {
+    "id": 4,
+    "title": "Avg Rating",
+    "value": 4.8,
+    "growth": null,
+    "icon": "star",
+    "status": null
+  },
+  {
+    "id": 5,
+    "title": "Ongoing Tasks",
+    "value": 127,
+    "growth": null,
+    "icon": "list-todo",
+    "status": null
+  },
+  {
+    "id": 6,
+    "title": "Upcoming Deadlines",
+    "value": "08",
+    "growth": null,
+    "icon": "clock",
+    "status": null
+  }
+]
