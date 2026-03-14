@@ -1,15 +1,18 @@
-import { ThemeContext } from "./Componants/Themes/ThemeContext"
-import Dashboard from "./Dashboard/Dashboard"
+// import { ThemeContext } from "./Componants/Themes/ThemeContext"
+// import Dashboard from "./Dashboard/Dashboard"
 
-import { useContext } from "react"
+// import { useContext } from "react"
 
 
 
 
 const App = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
+    // const { theme, toggleTheme } = useContext(ThemeContext)
   return (
-    <div  className={theme === "dark" ? "bg-[#0B1220] text-white" : "bg-white text-black"}>
+  <div>
+
+ 
+    {/* <div  className={theme === "dark" ? "bg-[#0B1220] text-white" : "bg-white text-black"}>
         <div className='min-h-screen'>
       <h2>FAI Dashboard</h2>
      
@@ -19,10 +22,11 @@ const App = () => {
       
         <Dashboard></Dashboard>
     </div>
-    
+     */}
      
     
-    </div>
+    {/* </div> */}
+     </div>
   )
 }
 
