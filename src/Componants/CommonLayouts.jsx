@@ -9,7 +9,7 @@ const CommonLayouts = () => {
       <Sidebar />
       <div className=" w-full">
         <Header />
-        <div className="bg-[#FFFFFF] p-8 text-black">
+        <div className="bg-[#FFFFFF] p-12 text-black">
           <Outlet />
         </div>
       </div>

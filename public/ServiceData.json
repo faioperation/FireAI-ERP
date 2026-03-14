@@ -1,0 +1,34 @@
+{
+  "title": "Service Line Breakdown",
+  "filter_options": ["Month", "Year", "Week"],
+  "chart_data": [
+    {
+      "service": "AI Agent",
+      "projects": 12,
+      "revenue": 45000,
+      "revenue_display": "$45K"
+    },
+    {
+      "service": "AI Chatbot",
+      "projects": 18,
+      "revenue": 38000,
+      "revenue_display": "$38K"
+    },
+    {
+      "service": "App Application",
+      "projects": 9,
+      "revenue": 62000,
+      "revenue_display": "$62K"
+    },
+    {
+      "service": "Website Application",
+      "projects": 15,
+      "revenue": 52000,
+      "revenue_display": "$52K"
+    }
+  ],
+  "legend": [
+    { "label": "projects", "color": "#00FFFF" },
+    { "label": "revenue", "color": "#22C55E" }
+  ]
+}

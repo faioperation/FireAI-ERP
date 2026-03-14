@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "company": "Byte Craft",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=bytecraft",
+    "summary": {
+      "total_projects": 32,
+      "active": 18,
+      "revenue": "$195K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 6, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 12, "color": "#22C55E" },
+      { "label": "App Application", "count": 8, "color": "#F97316" },
+      { "label": "Website Application", "count": 6, "color": "#FB923C" }
+    ]
+  },
+  {
+    "id": 2,
+    "company": "AI Nest",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=ainest",
+    "summary": {
+      "total_projects": 22,
+      "active": 12,
+      "revenue": "$280K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 5, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 8, "color": "#22C55E" },
+      { "label": "App Application", "count": 3, "color": "#F97316" },
+      { "label": "Website Application", "count": 6, "color": "#FB923C" }
+    ]
+  },
+  {
+    "id": 3,
+    "company": "Tech Flow",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=techflow",
+    "summary": {
+      "total_projects": 45,
+      "active": 25,
+      "revenue": "$180K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 15, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 10, "color": "#22C55E" },
+      { "label": "App Application", "count": 12, "color": "#F97316" },
+      { "label": "Website Application", "count": 8, "color": "#FB923C" }
+    ]
+  },
+  {
+    "id": 4,
+    "company": "Data Prism",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=dataprism",
+    "summary": {
+      "total_projects": 18,
+      "active": 7,
+      "revenue": "$55K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 3, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 5, "color": "#22C55E" },
+      { "label": "App Application", "count": 6, "color": "#F97316" },
+      { "label": "Website Application", "count": 4, "color": "#FB923C" }
+    ]
+  },
+  {
+    "id": 5,
+    "company": "Cloud Sync",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=cloudsync",
+    "summary": {
+      "total_projects": 60,
+      "active": 42,
+      "revenue": "$140K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 20, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 15, "color": "#22C55E" },
+      { "label": "App Application", "count": 15, "color": "#F97316" },
+      { "label": "Website Application", "count": 10, "color": "#FB923C" }
+    ]
+  },
+  {
+    "id": 6,
+    "company": "Vision AI",
+    "category": "Profile Overview",
+    "avatar": "https://i.pravatar.cc/150?u=visionai",
+    "summary": {
+      "total_projects": 28,
+      "active": 15,
+      "revenue": "$95K"
+    },
+    "service_distribution": [
+      { "label": "AI Agent", "count": 10, "color": "#00FFFF" },
+      { "label": "AI Chatbot", "count": 8, "color": "#22C55E" },
+      { "label": "App Application", "count": 5, "color": "#F97316" },
+      { "label": "Website Application", "count": 5, "color": "#FB923C" }
+    ]
+  }
+]
