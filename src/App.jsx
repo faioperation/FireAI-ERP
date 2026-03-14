@@ -5,11 +5,16 @@
 
 
 
+import { Routes, Route } from "react-router";
 
-const App = () => {
+import Dashboard from "./pages/Dashboard/Dashboard";
+import CommonLayouts from "./Componants/CommonLayouts";
+
+
+// const App = () => {
     // const { theme, toggleTheme } = useContext(ThemeContext)
-  return (
-  <div>
+  // return (
+  // <div>
 
  
     {/* <div  className={theme === "dark" ? "bg-[#0B1220] text-white" : "bg-white text-black"}>
@@ -20,15 +25,26 @@ const App = () => {
        Theme
       </button>
       
-        <Dashboard></Dashboard>
+   
     </div>
      */}
      
     
     {/* </div> */}
-     </div>
+     {/* </div>
   )
-}
+} */}
+const App = () =>{ 
+  return(
 
-export default App
+
+    <Routes>
+      <Route element={<CommonLayouts/>}>
+        <Route index element={<Dashboard/>} />
+        {/* <Route path="/settings/profile" element={<EdittProfilePage />} /> */}
+      </Route>
+    </Routes>
+  );
+};
+export default App;
 

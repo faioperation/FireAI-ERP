@@ -1,5 +1,5 @@
 import React from 'react'
-import Heading from '../SharedComponants/Heading'
+import Heading from '../../SharedComponants/Heading'
 
 
 export default function Dashboard() {
