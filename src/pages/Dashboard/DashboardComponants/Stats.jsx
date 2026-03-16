@@ -38,7 +38,7 @@ const Stats = () => {
         return (
           <div
             key={stat.id}
-            className="bg-white border border-gray-100 rounded-3xl p-4 shadow-sm flex flex-col "
+            className="bg-white border hover hover:shadow hover:shadow-teal-400 duration-500 border-gray-100 rounded-3xl p-4 shadow-sm flex flex-col "
           >
             {/* Upper Section: Icon and Growth */}
             <div className="flex justify-between items-start mb-4">
@@ -46,12 +46,7 @@ const Stats = () => {
                 <IconComponent className="w-6 h-6 text-orange-500" />
               </div>
 
-              {stat.growth && (
-                <div className="flex items-center gap-1 bg-green-50 text-green-600 px-2 py-1 rounded-lg text-xs font-semibold">
-                  <ArrowUp size={12} strokeWidth={3} />
-                  {stat.growth}
-                </div>
-              )}
+              
             </div>
 
             {/* Lower Section: Labels and Value */}
@@ -59,7 +54,7 @@ const Stats = () => {
               <p className="text-gray-500 text-sm font-medium mb-2">
                 {stat.title}
               </p>
-              <h2 className="text-2xl font-bold text-gray-900">{stat.value}</h2>
+              <h2 className="text-xl font-semibold text-gray-900">{stat.value}</h2>
             </div>
             {}
           </div>
