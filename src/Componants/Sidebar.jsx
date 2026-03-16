@@ -23,49 +23,15 @@ const menuData = [
     icon: Briefcase,
     children: [
       { id: "p1", label: "Project", sub: [] },
-      {
-        id: "p2",
-        label: "Order",
-        sub: ["New Order", "Order In Progress", "Completed Order"],
-      },
+      { id: "p2", label: "Order", sub: ["New Order", "Order In Progress", "Completed Order"] },
     ],
   },
-  {
-    id: "todo",
-    label: "To-do Management",
-    icon: ClipboardList,
-    children: ["Daily To-do", "Task-Tracker"],
-  },
-  {
-    id: "sales",
-    label: "Sales & OP Collaboration",
-    icon: Users,
-    children: ["Meeting", "Message", "Notice"],
-  },
-  {
-    id: "workforce",
-    label: "Work Force Management",
-    icon: Share2,
-    children: ["Team Management", "Employee Management"],
-  },
-  {
-    id: "monitoring",
-    label: "Monitoring Dashboard",
-    icon: BarChart3,
-    children: [],
-  },
-  {
-    id: "diagram",
-    label: "Diagram",
-    icon: ChartNoAxesCombined,
-    children: ["Management", "Sit plan"],
-  },
-  {
-    id: "settings",
-    label: "Settings",
-    icon: Settings,
-    children: ["Profile", "Password"],
-  },
+  { id: "todo", label: "To-do Management", icon: ClipboardList, children: ["Daily To-do", "Task-Tracker"] },
+  { id: "sales", label: "Sales & OP Collaboration", icon: Users, children: ["Meeting", "Message", "Notice"] },
+  { id: "workforce", label: "Work Force Management", icon: Share2, children: ["Team Management", "Employee Management"] },
+  { id: "monitoring", label: "Monitoring Dashboard", icon: BarChart3, children: [] },
+  { id: "diagram", label: "Diagram", icon: ChartNoAxesCombined, children: ["Management", "Sit plan"] },
+  { id: "settings", label: "Settings", icon: Settings, children: ["Profile", "Password"] },
 ];
 
 export default function Sidebar() {
@@ -95,47 +61,23 @@ export default function Sidebar() {
   const currentItem = menuData.find((m) => m.id === activeParent);
 
   return (
-    <div className="font-['Inter',_sans-serif] bg-white h-screen overflow-hidden">
+    <div className="font-['Inter',_sans-serif] bg-white">
       {/* Mobile Toggle Button */}
       <div className="lg:hidden fixed top-4 left-4 z-[60]">
-        <button
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="p-2 bg-[#F97316] text-white rounded-lg shadow-lg cursor-pointer"
-        >
-          {isMobileOpen ? (
-            <X size={20} className="cursor-pointer" />
-          ) : (
-            <Menu size={20} className="cursor-pointer" />
-          )}
+        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-2 bg-[#F97316] text-white rounded-lg shadow-lg cursor-pointer">
+          {isMobileOpen ? <X size={20} className="cursor-pointer" /> : <Menu size={20} className="cursor-pointer" />}
         </button>
       </div>
 
-      <div
-        className={`fixed inset-y-0 left-0 z-50 flex transition-transform duration-300 lg:relative lg:translate-x-0 h-full bg-white ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}`}
-      >
+      <div className={`fixed inset-y-0 left-0 z-50 flex transition-transform duration-300 lg:relative lg:translate-x-0 h-screen bg-white ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        
         {/* --- Main Sidebar --- */}
-        <aside
-          className={`${isCollapsed ? "w-20" : "w-64"} bg-white border-r border-gray-200 flex flex-col h-full transition-all duration-300 relative z-[55]`}
-        >
+        <aside className={`${isCollapsed ? "w-20" : "w-64"} bg-white border-r border-gray-200 flex flex-col h-full transition-all duration-300 relative z-[55]`}>
           <div className="h-16 flex items-center px-5 mb-4 shrink-0">
-            <button
-              onClick={() => {
-                setIsCollapsed(!isCollapsed);
-                setActiveParent(null);
-              }}
-              className="cursor-pointer"
-            >
-              <img
-                src={logo}
-                alt="logo"
-                className="w-8 h-8 object-contain cursor-pointer"
-              />
+            <button onClick={() => { setIsCollapsed(!isCollapsed); setActiveParent(null); }} className="cursor-pointer">
+              <img src={logo} alt="logo" className="w-8 h-8 object-contain cursor-pointer" />
             </button>
-            {!isCollapsed && (
-              <span className="ml-3 font-bold text-gray-800 text-sm truncate cursor-pointer">
-                Operations Dashboard
-              </span>
-            )}
+            {!isCollapsed && <span className="ml-3 font-bold text-gray-800 text-sm truncate cursor-pointer">Operations Dashboard</span>}
           </div>
 
           <nav className="flex-1 px-3 space-y-1 overflow-y-auto no-scrollbar pb-20">
@@ -147,16 +89,8 @@ export default function Sidebar() {
                     ${activeParent === item.id ? "bg-[#F97316] text-white shadow-md" : "text-gray-500 hover:bg-orange-50 hover:text-[#F97316]"}
                   `}
                 >
-                  <item.icon
-                    size={22}
-                    strokeWidth={activeParent === item.id ? 2 : 1.5}
-                    className="cursor-pointer"
-                  />
-                  {!isCollapsed && (
-                    <span className="text-[13px] font-medium whitespace-nowrap cursor-pointer">
-                      {item.label}
-                    </span>
-                  )}
+                  <item.icon size={22} strokeWidth={activeParent === item.id ? 2 : 1.5} className="cursor-pointer" />
+                  {!isCollapsed && <span className="text-[13px] font-medium whitespace-nowrap cursor-pointer">{item.label}</span>}
                 </button>
 
                 {/* --- Hover Tooltip --- */}
@@ -171,36 +105,30 @@ export default function Sidebar() {
             ))}
           </nav>
 
-          {/* Footer Section - Fixed at bottom */}
-          <div className="p-4 space-y-2 shrink-0 bg-white">
-            {/* <button className="flex items-center gap-3 w-full p-2 text-gray-400 hover:text-[#F97316] transition-colors cursor-pointer">
+          {/* Footer Section - Bottom */}
+          <div className="p-4 border-t border-gray-100 space-y-2 shrink-0 bg-white">
+            <button className="flex items-center gap-3 w-full p-2 text-gray-400 hover:text-[#F97316] transition-colors cursor-pointer">
               <HelpCircle size={20} className="cursor-pointer" />
-              {!isCollapsed && <span className="text-sm cursor-pointer">Help</span>}
-            </button> */}
+              {!isCollapsed && <span className="text-sm cursor-pointer">Help Center</span>}
+            </button>
             <button className="flex items-center gap-3 w-full p-2 text-red-400 hover:bg-[#F97316] hover:text-white rounded-lg transition-colors cursor-pointer">
               <LogOut size={20} className="cursor-pointer" />
-              {!isCollapsed && (
-                <span className="text-sm font-medium cursor-pointer">
-                  Logout Account
-                </span>
-              )}
+              {!isCollapsed && <span className="text-sm font-medium cursor-pointer">Logout Account</span>}
             </button>
           </div>
         </aside>
 
         {/* --- Secondary Sidebar (Drawer) --- */}
-        <aside
+        <aside 
           className={`h-screen bg-white transition-all duration-300 overflow-hidden relative z-40
           ${activeParent && currentItem?.children.length > 0 ? "w-64 border-r border-gray-200" : "w-0"}`}
         >
           <div className="w-64 flex flex-col h-full bg-white">
-            <div className="py-4 flex items-center px-6 shrink-0">
-              <h2 className="font-bold text-gray-800 text-sm uppercase tracking-wider cursor-pointer">
-                {currentItem?.label}
-              </h2>
+            <div className="h-16 flex items-center px-6 border-b border-gray-100 shrink-0">
+              <h2 className="font-bold text-gray-800 text-sm uppercase tracking-wider cursor-pointer">{currentItem?.label}</h2>
             </div>
             <div className="flex-1 p-4 space-y-2 overflow-y-auto no-scrollbar bg-white">
-              {currentItem?.children.map((child, idx) =>
+              {currentItem?.children.map((child, idx) => (
                 typeof child === "string" ? (
                   <button
                     key={idx}
@@ -212,7 +140,7 @@ export default function Sidebar() {
                   </button>
                 ) : (
                   <div key={idx} className="space-y-1">
-                    <button
+                    <button 
                       onClick={() => handleChildClick(child.label)}
                       className={`w-full text-left px-4 py-2 text-[13px] font-bold uppercase rounded-xl transition-all cursor-pointer
                         ${activeChild === child.label ? "bg-[#F97316] text-white shadow-md" : "text-gray-800 hover:bg-orange-50 hover:text-[#F97316]"}
@@ -231,8 +159,8 @@ export default function Sidebar() {
                       </button>
                     ))}
                   </div>
-                ),
-              )}
+                )
+              ))}
             </div>
           </div>
         </aside>
@@ -240,10 +168,7 @@ export default function Sidebar() {
 
       {/* Background Overlay for Mobile */}
       {isMobileOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[45] lg:hidden cursor-pointer"
-          onClick={() => setIsMobileOpen(false)}
-        />
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[45] lg:hidden cursor-pointer" onClick={() => setIsMobileOpen(false)} />
       )}
     </div>
   );
