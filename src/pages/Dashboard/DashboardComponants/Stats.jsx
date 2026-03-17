@@ -38,12 +38,12 @@ const Stats = () => {
         return (
           <div
             key={stat.id}
-            className="bg-white border hover hover:shadow hover:shadow-teal-400 duration-500 border-gray-100 rounded-3xl p-4 shadow-sm flex flex-col "
+            className=" border hover hover:shadow hover:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col dark:bg-darkSecBG  "
           >
             {/* Upper Section: Icon and Growth */}
             <div className="flex justify-between items-start mb-4">
-              <div className="p-3 bg-orange-50 rounded-xl">
-                <IconComponent className="w-6 h-6 text-orange-500" />
+              <div className="p-3 bg-orange-50 dark:bg-[#102E3C] rounded-xl">
+                <IconComponent className="w-6 h-6 text-orange-500  dark:text-textTeal" />
               </div>
 
               
@@ -51,10 +51,10 @@ const Stats = () => {
 
             {/* Lower Section: Labels and Value */}
             <div>
-              <p className="text-gray-500 text-sm font-medium mb-2">
+              <p className="text-gray-500 dark:text-darkSecText  text-sm font-medium mb-2">
                 {stat.title}
               </p>
-              <h2 className="text-xl font-semibold text-gray-900">{stat.value}</h2>
+              <h2 className="text-xl  font-semibold text-gray-900 dark:text-white">{stat.value}</h2>
             </div>
             {}
           </div>
@@ -62,27 +62,20 @@ const Stats = () => {
       })}
       <div>
     
-        <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm shadow-red-400 flex flex-col ">
+        <div className="bg-white dark:bg-darkSecBG border border-gray-100 rounded-3xl dark:border-none p-6 shadow-sm shadow-red-400 flex flex-col ">
           {/* Upper Section: Icon and Growth */}
           <div className="flex justify-between items-start mb-3">
-            <div className="p-3 bg-orange-50 rounded-xl">
+            <div className="p-3 bg-orange-50 dark:bg-[#271D2B]  rounded-xl">
               <Clock className="text-red-500" />
             </div>
-
-            {statsData[statsData.length-1]?.growth && (
-              <div className="flex items-center gap-1 bg-green-50 text-green-600 px-2 py-1 rounded-lg text-xs font-semibold">
-                <ArrowUp size={12} strokeWidth={3} />
-                {statsData[statsData.length-1]?.growth}
-              </div>
-            )}
           </div>
 
           {/* Lower Section: Labels and Value */}
           <div>
-            <p className="text-gray-500 text-sm font-medium mb-2">
+            <p className="text-gray-500 dark:text-darkSecText text-sm font-medium mb-2">
               {statsData[statsData.length-1]?.title}
             </p>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold dark:text-white text-gray-900">
               {statsData[statsData.length-1]?.value}
             </h2>
           </div>

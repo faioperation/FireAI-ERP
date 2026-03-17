@@ -114,7 +114,15 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
+@theme {
+  --color-darkBG: #0B1220;
+  --color-textTeal: #00F5FF;
+  --color-textOrange: #F97316;
+  --color-textGreen: #22C55E;
+  --color-lightSecText:#99a2b1;
+  --color-darkSecText:#b7beca;
+  --color-darkSecBG:#1F2937;   
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
