@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Bell, Settings } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "./Themes/ThemeContext";
+import { Switch } from "@/components/ui/switch";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -9,13 +10,10 @@ const Header = () => {
     <nav className="w-full bg-white border-b border-gray-200 px-4 py-3 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between">
         <div className="flex-1"></div>
-        <Button
-          onClick={toggleTheme}
-          className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600"
-        >
-          Switch to {theme === "light" ? "Dark" : "Light"} Mode
-        </Button>
+        
         <div className="flex items-center space-x-4 sm:space-x-6">
+            <Switch  checked={theme === "dark"}
+  onCheckedChange={toggleTheme}></Switch>
           <button className="relative p-1 text-black hover:text-[#F97316] transition-colors focus:outline-none cursor-pointer">
             <Bell size={24} strokeWidth={1.5} />
             <span className="absolute top-1 right-1 flex h-2.5 w-2.5">
