@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Bell, Settings, Sun, Moon } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "./Themes/ThemeContext";
+import { Switch } from "@/components/ui/switch";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

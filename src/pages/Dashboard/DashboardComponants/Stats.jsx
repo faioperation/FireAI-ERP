@@ -38,7 +38,7 @@ const Stats = () => {
         return (
           <div
             key={stat.id}
-            className=" border hover hover:shadow hover:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col dark:bg-darkSecBG  "
+            className=" border hover hover:shadow hover:shadow-orange-300 dark:hover:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col dark:bg-darkSecBG  "
           >
             {/* Upper Section: Icon and Growth */}
             <div className="flex justify-between items-start mb-4">
