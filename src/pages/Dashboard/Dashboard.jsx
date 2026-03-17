@@ -1,8 +1,9 @@
 import React from 'react'
 import Heading from '../../SharedComponants/Heading'
 import Stats from './DashboardComponants/Stats'
-import Graph from './DashboardComponants/Graph'
+
 import TopProfile from './DashboardComponants/TopProfile'
+import ServiceBreakdown from './DashboardComponants/ServiceBreakdown'
 
 
 export default function Dashboard() {
@@ -12,8 +13,8 @@ export default function Dashboard() {
       <div>
         <Stats></Stats>
       </div>
-      <div>
-        <Graph></Graph>
+      <div className='my-12'>
+        <ServiceBreakdown></ServiceBreakdown>
       </div>
       <div>
         <TopProfile></TopProfile>

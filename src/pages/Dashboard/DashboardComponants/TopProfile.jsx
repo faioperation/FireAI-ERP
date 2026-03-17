@@ -42,15 +42,15 @@ const TopProfile = () => {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-2 mb-8">
-              <div className=" p-3 bg-[#F6F6F6] dark:bg-darkSecBG rounded-xl">
+              <div className=" p-3 bg-[#F6F6F6] shadow  shadow-gray-300 dark:bg-darkSecBG rounded-xl">
                 <p className="text-[10px]    xl:text-[12px] uppercase">Total Projects</p>
                 <p className="md:text-lg text-sm font-bold">{profile.summary.total_projects}</p>
               </div>
-              <div className=" p-3 rounded-xl bg-[#F6F6F6]  dark:bg-darkSecBG  ">
+              <div className=" p-3 rounded-xl bg-[#F6F6F6] shadow  shadow-gray-300 dark:bg-darkSecBG  ">
                 <p className="text-[10px] md:text-[10px] xl:text-[12px]  uppercase">Active</p>
                 <p className="md:text-lg text-orange-400 text-sm font-bold">{profile.summary.active}</p>
               </div>
-              <div className=" p-3 rounded-xl bg-[#F6F6F6] dark:bg-darkSecBG  ">
+              <div className=" p-3 rounded-xl bg-[#F6F6F6] shadow  shadow-gray-300 dark:bg-darkSecBG  ">
                 <p className="text-[10px] xl:text-[12px]   md:text-[10px]  uppercase">Revenue</p>
                 <p className=" text-sm md:text-lg font-bold text-green-400">{profile.summary.revenue}</p>
               </div>

@@ -1,34 +1,76 @@
 {
-  "title": "Service Line Breakdown",
-  "filter_options": ["Month", "Year", "Week"],
-  "chart_data": [
-    {
-      "service": "AI Agent",
-      "projects": 12,
-      "revenue": 45000,
-      "revenue_display": "$45K"
-    },
-    {
-      "service": "AI Chatbot",
-      "projects": 18,
-      "revenue": 38000,
-      "revenue_display": "$38K"
-    },
-    {
-      "service": "App Application",
-      "projects": 9,
-      "revenue": 62000,
-      "revenue_display": "$62K"
-    },
-    {
-      "service": "Website Application",
-      "projects": 15,
-      "revenue": 52000,
-      "revenue_display": "$52K"
-    }
-  ],
-  "legend": [
-    { "label": "projects", "color": "#00FFFF" },
-    { "label": "revenue", "color": "#22C55E" }
-  ]
+  "months": {
+    "January": [
+      { "service": "AI Agent", "projects": 12, "revenue": 45000, "revenue_display": "$45K" },
+      { "service": "AI Chatbot", "projects": 18, "revenue": 38000, "revenue_display": "$38K" },
+      { "service": "App Application", "projects": 9, "revenue": 62000, "revenue_display": "$62K" },
+      { "service": "Website Application", "projects": 15, "revenue": 52000, "revenue_display": "$52K" }
+    ],
+    "February": [
+      { "service": "AI Agent", "projects": 15, "revenue": 50000, "revenue_display": "$50K" },
+      { "service": "AI Chatbot", "projects": 10, "revenue": 30000, "revenue_display": "$30K" },
+      { "service": "App Application", "projects": 14, "revenue": 70000, "revenue_display": "$70K" },
+      { "service": "Website Application", "projects": 12, "revenue": 48000, "revenue_display": "$48K" }
+    ],
+    "March": [
+      { "service": "AI Agent", "projects": 20, "revenue": 65000, "revenue_display": "$65K" },
+      { "service": "AI Chatbot", "projects": 22, "revenue": 45000, "revenue_display": "$45K" },
+      { "service": "App Application", "projects": 18, "revenue": 82000, "revenue_display": "$82K" },
+      { "service": "Website Application", "projects": 16, "revenue": 58000, "revenue_display": "$58K" }
+    ],
+    "April": [
+      { "service": "AI Agent", "projects": 10, "revenue": 42000, "revenue_display": "$42K" },
+      { "service": "AI Chatbot", "projects": 15, "revenue": 35000, "revenue_display": "$35K" },
+      { "service": "App Application", "projects": 11, "revenue": 55000, "revenue_display": "$55K" },
+      { "service": "Website Application", "projects": 14, "revenue": 49000, "revenue_display": "$49K" }
+    ],
+    "May": [
+      { "service": "AI Agent", "projects": 25, "revenue": 75000, "revenue_display": "$75K" },
+      { "service": "AI Chatbot", "projects": 20, "revenue": 40000, "revenue_display": "$40K" },
+      { "service": "App Application", "projects": 22, "revenue": 95000, "revenue_display": "$95K" },
+      { "service": "Website Application", "projects": 19, "revenue": 68000, "revenue_display": "$68K" }
+    ],
+    "June": [
+      { "service": "AI Agent", "projects": 18, "revenue": 60000, "revenue_display": "$60K" },
+      { "service": "AI Chatbot", "projects": 25, "revenue": 50000, "revenue_display": "$50K" },
+      { "service": "App Application", "projects": 16, "revenue": 80000, "revenue_display": "$80K" },
+      { "service": "Website Application", "projects": 15, "revenue": 52000, "revenue_display": "$52K" }
+    ],
+    "July": [
+      { "service": "AI Agent", "projects": 14, "revenue": 48000, "revenue_display": "$48K" },
+      { "service": "AI Chatbot", "projects": 16, "revenue": 32000, "revenue_display": "$32K" },
+      { "service": "App Application", "projects": 12, "revenue": 64000, "revenue_display": "$64K" },
+      { "service": "Website Application", "projects": 18, "revenue": 55000, "revenue_display": "$55K" }
+    ],
+    "August": [
+      { "service": "AI Agent", "projects": 19, "revenue": 58000, "revenue_display": "$58K" },
+      { "service": "AI Chatbot", "projects": 21, "revenue": 42000, "revenue_display": "$42K" },
+      { "service": "App Application", "projects": 15, "revenue": 72000, "revenue_display": "$72K" },
+      { "service": "Website Application", "projects": 20, "revenue": 60000, "revenue_display": "$60K" }
+    ],
+    "September": [
+      { "service": "AI Agent", "projects": 22, "revenue": 70000, "revenue_display": "$70K" },
+      { "service": "AI Chatbot", "projects": 18, "revenue": 39000, "revenue_display": "$39K" },
+      { "service": "App Application", "projects": 19, "revenue": 88000, "revenue_display": "$88K" },
+      { "service": "Website Application", "projects": 14, "revenue": 50000, "revenue_display": "$50K" }
+    ],
+    "October": [
+      { "service": "AI Agent", "projects": 16, "revenue": 52000, "revenue_display": "$52K" },
+      { "service": "AI Chatbot", "projects": 14, "revenue": 31000, "revenue_display": "$31K" },
+      { "service": "App Application", "projects": 20, "revenue": 85000, "revenue_display": "$85K" },
+      { "service": "Website Application", "projects": 17, "revenue": 59000, "revenue_display": "$59K" }
+    ],
+    "November": [
+      { "service": "AI Agent", "projects": 28, "revenue": 90000, "revenue_display": "$90K" },
+      { "service": "AI Chatbot", "projects": 24, "revenue": 48000, "revenue_display": "$48K" },
+      { "service": "App Application", "projects": 25, "revenue": 110000, "revenue_display": "$110K" },
+      { "service": "Website Application", "projects": 22, "revenue": 75000, "revenue_display": "$75K" }
+    ],
+    "December": [
+      { "service": "AI Agent", "projects": 30, "revenue": 100000, "revenue_display": "$100K" },
+      { "service": "AI Chatbot", "projects": 28, "revenue": 55000, "revenue_display": "$55K" },
+      { "service": "App Application", "projects": 26, "revenue": 120000, "revenue_display": "$120K" },
+      { "service": "Website Application", "projects": 25, "revenue": 85000, "revenue_display": "$85K" }
+    ]
+  }
 }
