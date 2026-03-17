@@ -14,8 +14,59 @@
       { "label": "AI Chatbot", "count": 12, "color": "#22C55E" },
       { "label": "App Application", "count": 8, "color": "#F97316" },
       { "label": "Website Application", "count": 6, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "BC101",
+        "order_value": "2100",
+        "service_line": "App",
+        "assigned_team": "AI Wavers",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "02",
+        "order_id": "BC102",
+        "order_value": "1800",
+        "service_line": "Web",
+        "assigned_team": "Code Masters",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "03",
+        "order_id": "BC103",
+        "order_value": "2500",
+        "service_line": "AI Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "04",
+        "order_id": "BC104",
+        "order_value": "3200",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "05",
+        "order_id": "BC105",
+        "order_value": "1500",
+        "service_line": "Web",
+        "assigned_team": "Frontend Ninjas",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "06",
+        "order_id": "BC106",
+        "order_value": "2700",
+        "service_line": "App",
+        "assigned_team": "Backend Bros",
+        "order_status": "WIP"
+      }
     ]
   },
+
   {
     "id": 2,
     "company": "AI Nest",
@@ -31,8 +82,59 @@
       { "label": "AI Chatbot", "count": 8, "color": "#22C55E" },
       { "label": "App Application", "count": 3, "color": "#F97316" },
       { "label": "Website Application", "count": 6, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "AN201",
+        "order_value": "1500",
+        "service_line": "AI Agent",
+        "assigned_team": "Neural Team",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "02",
+        "order_id": "AN202",
+        "order_value": "2700",
+        "service_line": "Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "03",
+        "order_id": "AN203",
+        "order_value": "3200",
+        "service_line": "Web",
+        "assigned_team": "Code Masters",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "04",
+        "order_id": "AN204",
+        "order_value": "2100",
+        "service_line": "App",
+        "assigned_team": "App Devs",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "05",
+        "order_id": "AN205",
+        "order_value": "1900",
+        "service_line": "AI Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "06",
+        "order_id": "AN206",
+        "order_value": "2800",
+        "service_line": "AI Agent",
+        "assigned_team": "Neural Team",
+        "order_status": "Completed"
+      }
     ]
   },
+
   {
     "id": 3,
     "company": "Tech Flow",
@@ -48,8 +150,59 @@
       { "label": "AI Chatbot", "count": 10, "color": "#22C55E" },
       { "label": "App Application", "count": 12, "color": "#F97316" },
       { "label": "Website Application", "count": 8, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "TF301",
+        "order_value": "3100",
+        "service_line": "Web",
+        "assigned_team": "Frontend Ninjas",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "02",
+        "order_id": "TF302",
+        "order_value": "2200",
+        "service_line": "App",
+        "assigned_team": "Backend Bros",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "03",
+        "order_id": "TF303",
+        "order_value": "2600",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "04",
+        "order_id": "TF304",
+        "order_value": "1800",
+        "service_line": "Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "05",
+        "order_id": "TF305",
+        "order_value": "2900",
+        "service_line": "Web",
+        "assigned_team": "Code Masters",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "06",
+        "order_id": "TF306",
+        "order_value": "3400",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "Completed"
+      }
     ]
   },
+
   {
     "id": 4,
     "company": "Data Prism",
@@ -65,8 +218,59 @@
       { "label": "AI Chatbot", "count": 5, "color": "#22C55E" },
       { "label": "App Application", "count": 6, "color": "#F97316" },
       { "label": "Website Application", "count": 4, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "DP401",
+        "order_value": "900",
+        "service_line": "Data AI",
+        "assigned_team": "Data Wizards",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "02",
+        "order_id": "DP402",
+        "order_value": "1200",
+        "service_line": "Web",
+        "assigned_team": "Frontend Ninjas",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "03",
+        "order_id": "DP403",
+        "order_value": "1500",
+        "service_line": "App",
+        "assigned_team": "Backend Bros",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "04",
+        "order_id": "DP404",
+        "order_value": "1100",
+        "service_line": "Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "05",
+        "order_id": "DP405",
+        "order_value": "1700",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "06",
+        "order_id": "DP406",
+        "order_value": "1300",
+        "service_line": "Web",
+        "assigned_team": "Code Masters",
+        "order_status": "Pending"
+      }
     ]
   },
+
   {
     "id": 5,
     "company": "Cloud Sync",
@@ -82,8 +286,59 @@
       { "label": "AI Chatbot", "count": 15, "color": "#22C55E" },
       { "label": "App Application", "count": 15, "color": "#F97316" },
       { "label": "Website Application", "count": 10, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "CS501",
+        "order_value": "4000",
+        "service_line": "Cloud App",
+        "assigned_team": "Cloud Ops",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "02",
+        "order_id": "CS502",
+        "order_value": "3500",
+        "service_line": "Web",
+        "assigned_team": "Code Masters",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "03",
+        "order_id": "CS503",
+        "order_value": "2800",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "04",
+        "order_id": "CS504",
+        "order_value": "3100",
+        "service_line": "App",
+        "assigned_team": "Backend Bros",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "05",
+        "order_id": "CS505",
+        "order_value": "2600",
+        "service_line": "Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "06",
+        "order_id": "CS506",
+        "order_value": "4200",
+        "service_line": "Cloud",
+        "assigned_team": "Cloud Ops",
+        "order_status": "Completed"
+      }
     ]
   },
+
   {
     "id": 6,
     "company": "Vision AI",
@@ -99,6 +354,56 @@
       { "label": "AI Chatbot", "count": 8, "color": "#22C55E" },
       { "label": "App Application", "count": 5, "color": "#F97316" },
       { "label": "Website Application", "count": 5, "color": "#FB923C" }
+    ],
+    "orders": [
+      {
+        "project_id": "01",
+        "order_id": "VA601",
+        "order_value": "2200",
+        "service_line": "Vision AI",
+        "assigned_team": "Vision Team",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "02",
+        "order_id": "VA602",
+        "order_value": "1800",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "03",
+        "order_id": "VA603",
+        "order_value": "2000",
+        "service_line": "App",
+        "assigned_team": "Backend Bros",
+        "order_status": "Completed"
+      },
+      {
+        "project_id": "04",
+        "order_id": "VA604",
+        "order_value": "2400",
+        "service_line": "Web",
+        "assigned_team": "Frontend Ninjas",
+        "order_status": "Pending"
+      },
+      {
+        "project_id": "05",
+        "order_id": "VA605",
+        "order_value": "2600",
+        "service_line": "Chatbot",
+        "assigned_team": "Bot Squad",
+        "order_status": "WIP"
+      },
+      {
+        "project_id": "06",
+        "order_id": "VA606",
+        "order_value": "3000",
+        "service_line": "AI Agent",
+        "assigned_team": "AI Wavers",
+        "order_status": "Completed"
+      }
     ]
   }
 ]
