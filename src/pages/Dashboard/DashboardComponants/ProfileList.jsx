@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const TopProfile = () => {
+const ProfileList = () => {
   const [topProfiles, setTopProfiles] = useState([]);
 
   useEffect(() => {
@@ -18,15 +18,15 @@ const TopProfile = () => {
         });
 
         // 2. Prothom 2-ti profile neya
-        setTopProfiles(sorted.slice(0, 2));
+        setTopProfiles(sorted);
       });
   }, []);
 
   return (
     <div className="  rounded-3xl">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold">Top Profile Overview</h2>
-        <Link to="/profilelist"><button className="text-gray-600 dark:text-darkSecText text-lg hover:scale-120 duration-500 hover:text-textTeal dark:hover:text-textTeal transition cursor-pointer">See more</button></Link>
+        <h2 className="text-xl font-semibold">Profile List</h2>
+       
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -97,4 +97,4 @@ const TopProfile = () => {
   );
 };
 
-export default TopProfile;
+export default ProfileList;
