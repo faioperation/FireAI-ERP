@@ -38,7 +38,7 @@ const Stats = () => {
         return (
           <div
             key={stat.id}
-            className=" border hover hover:shadow hover:shadow-orange-300 dark:hover:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col dark:bg-darkSecBG  "
+            className=" border shadow shadow-orange-300 dark:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col lg:items-start lg:text-start items-center text-center dark:bg-darkSecBG  "
           >
             {/* Upper Section: Icon and Growth */}
             <div className="flex justify-between items-start mb-4">
@@ -61,7 +61,7 @@ const Stats = () => {
       })}
       <div>
 
-        <div className="bg-white dark:bg-darkSecBG border border-gray-100 rounded-3xl dark:border-none p-6 shadow-sm shadow-red-400 flex flex-col ">
+        <div className="bg-white dark:bg-darkSecBG border border-gray-100 rounded-3xl dark:border-none p-6 shadow-sm shadow-red-400 flex flex-col lg:items-start lg:text-start items-center text-center  ">
           {/* Upper Section: Icon and Growth */}
           <div className="flex justify-between items-start mb-3">
             <div className="p-3 bg-orange-50 dark:bg-[#271D2B]  rounded-xl">
