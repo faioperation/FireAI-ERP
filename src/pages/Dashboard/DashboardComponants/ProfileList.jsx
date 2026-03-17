@@ -31,7 +31,7 @@ const ProfileList = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {topProfiles.map((profile) => (
-          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] rounded-2xl p-6">
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] hover hover:shadow hover:shadow-gray-400 rounded-2xl duration-500 p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
              
