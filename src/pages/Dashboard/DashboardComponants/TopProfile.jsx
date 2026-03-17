@@ -1,3 +1,4 @@
+import Heading from '@/SharedComponants/Heading';
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
@@ -24,34 +25,34 @@ const TopProfile = () => {
     <div className="  rounded-3xl">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Top Profile Overview</h2>
-        <button className="text-gray-600 text-lg hover:scale-120 duration-500 hover:text-teal-500 transition">See more</button>
+        <button className="text-gray-600 dark:text-darkSecText text-lg hover:scale-120 duration-500 hover:text-textTeal dark:hover:text-textTeal transition">See more</button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {topProfiles.map((profile) => (
-          <div key={profile.id} className=" border border-gray-200 rounded-2xl p-6">
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] rounded-2xl p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
+             
               <div>
-                <h3 className="text-lg font-semibold">{profile.company}</h3>
-                <p className="text-sm text-gray-500">{profile.category}</p>
+                <Heading heading={profile.company} subHeading={profile.category}></Heading>
               </div>
               <img src={profile.avatar} alt="avatar" className="w-10 h-10 rounded-lg border border-cyan-500/30" />
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-2 mb-8">
-              <div className=" p-3 bg-[#F6F6F6] rounded-xl">
+              <div className=" p-3 bg-[#F6F6F6] dark:bg-darkSecBG rounded-xl">
                 <p className="text-[10px]    xl:text-[12px] uppercase">Total Projects</p>
-                <p className="md:text-lg text-md font-bold">{profile.summary.total_projects}</p>
+                <p className="md:text-lg text-sm font-bold">{profile.summary.total_projects}</p>
               </div>
-              <div className=" p-3 rounded-xl bg-[#F6F6F6] text-orange-400">
-                <p className="text-[12px] md:text-[10px] xl:text-[12px]  uppercase">Active</p>
-                <p className="md:text-lg text-md font-bold">{profile.summary.active}</p>
+              <div className=" p-3 rounded-xl bg-[#F6F6F6]  dark:bg-darkSecBG  ">
+                <p className="text-[10px] md:text-[10px] xl:text-[12px]  uppercase">Active</p>
+                <p className="md:text-lg text-orange-400 text-sm font-bold">{profile.summary.active}</p>
               </div>
-              <div className=" p-3 rounded-xl bg-[#F6F6F6] text-green-400">
-                <p className="text-[12px] xl:text-[12px]   md:text-[10px]  uppercase">Revenue</p>
-                <p className=" text-md font-bold">{profile.summary.revenue}</p>
+              <div className=" p-3 rounded-xl bg-[#F6F6F6] dark:bg-darkSecBG  ">
+                <p className="text-[10px] xl:text-[12px]   md:text-[10px]  uppercase">Revenue</p>
+                <p className=" text-sm md:text-lg font-bold text-green-400">{profile.summary.revenue}</p>
               </div>
             </div>
 
@@ -63,7 +64,7 @@ const TopProfile = () => {
                     <Pie
                       data={profile.service_distribution}
                       innerRadius={35}
-                      outerRadius={56}
+                      outerRadius={52}
                       paddingAngle={5}
                       dataKey="count"
                     >
@@ -81,9 +82,9 @@ const TopProfile = () => {
                   <div key={idx} className="flex justify-between items-center text-[12px] md:text-[14px]">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                      <span className="">{item.label}</span>
+                      <span className="dark:text-darkSecText">{item.label}</span>
                     </div>
-                    <span className="font-mono">{item.count}</span>
+                    <span className="font-mono md:pr-4">{item.count}</span>
                   </div>
                 ))}
               </div>
