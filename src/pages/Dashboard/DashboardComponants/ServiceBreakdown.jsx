@@ -181,7 +181,7 @@ const ServiceBreakdown = () => {
         {currentData.map((item, i) => (
           <div
             key={i}
-            className="rounded-[14px] shadow shadow-gray-200  bg-white dark:bg-darkBG   px-3 py-[14px] text-center transition hover:shadow-md"
+            className="rounded-[14px] shadow shadow-gray-400  bg-white dark:bg-darkBG   px-3 py-[14px] text-center transition hover:shadow-md"
           >
             <p className="text-[10.5px] font-semibold tracking-[0.08em] uppercase text-slate-400 mb-2">
               {item.service}

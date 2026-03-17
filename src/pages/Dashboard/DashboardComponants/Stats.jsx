@@ -46,7 +46,6 @@ const Stats = () => {
                 <IconComponent className="w-6 h-6 text-orange-500  dark:text-textTeal" />
               </div>
 
-              
             </div>
 
             {/* Lower Section: Labels and Value */}
@@ -61,7 +60,7 @@ const Stats = () => {
         );
       })}
       <div>
-    
+
         <div className="bg-white dark:bg-darkSecBG border border-gray-100 rounded-3xl dark:border-none p-6 shadow-sm shadow-red-400 flex flex-col ">
           {/* Upper Section: Icon and Growth */}
           <div className="flex justify-between items-start mb-3">
@@ -87,3 +86,5 @@ const Stats = () => {
 };
 
 export default Stats;
+
+
