@@ -15,6 +15,7 @@ import WorkForce from "./pages/WorkForce/WorkForce";
 import Monitoring from "./pages/Monitoring/Monitoring";
 import Diagram from "./pages/Diagram/Diagram";
 import Settings from "./pages/Settings/Settings";
+import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
 
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
       <Routes>
         <Route element={<CommonLayouts />}>
           <Route index element={<Dashboard />} />
+          <Route path="/profilelist" element={<ProfileList></ProfileList>}></Route>
+          
           <Route path="/project" element={<ProjectManagement />} />
           <Route path="/todo" element={<TodoManagement />} />
           <Route path="/sales" element={<SalesOPCollaboration />} />

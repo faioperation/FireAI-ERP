@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const TopProfile = () => {
+const ProfileList = () => {
   const [topProfiles, setTopProfiles] = useState([]);
 
   useEffect(() => {
@@ -18,20 +18,20 @@ const TopProfile = () => {
         });
 
         // 2. Prothom 2-ti profile neya
-        setTopProfiles(sorted.slice(0, 2));
+        setTopProfiles(sorted);
       });
   }, []);
 
   return (
     <div className="  rounded-3xl">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold">Top Profile Overview</h2>
-        <Link to="/profilelist"><button className="text-gray-600 dark:text-darkSecText text-lg hover:scale-120 duration-500 hover:text-textTeal dark:hover:text-textTeal transition cursor-pointer">See more</button></Link>
+        <h2 className="text-xl font-semibold">Profile List</h2>
+       
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {topProfiles.map((profile) => (
-          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] rounded-2xl p-6">
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] hover hover:shadow hover:shadow-gray-400 rounded-2xl duration-500 p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
              
@@ -97,4 +97,4 @@ const TopProfile = () => {
   );
 };
 
-export default TopProfile;
+export default ProfileList;
