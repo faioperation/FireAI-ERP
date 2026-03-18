@@ -1,6 +1,7 @@
+import { Funnel } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
-
+import { CiFilter } from "react-icons/ci";
 const ProfileDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -66,21 +67,21 @@ const ProfileDetails = () => {
 
         {/* 📊 Stats */}
         <div className="grid grid-cols-3 gap-3 mb-6">
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-orange-300 dark:bg-darkSecBG rounded-xl">
+          <div className="p-3 md:text-xl md:p-8 bg-[#F6F6F6] shadow shadow-orange-300 dark:bg-darkSecBG rounded-xl">
             <p className="text-[10px] uppercase">Total</p>
             <p className="font-bold">
               {profile.summary.total_projects}
             </p>
           </div>
 
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-green-300 dark:bg-darkSecBG rounded-xl">
+          <div className="p-3 md:p-8 md:text-xl bg-[#F6F6F6] shadow shadow-green-300 dark:bg-darkSecBG rounded-xl">
             <p className="text-[10px] uppercase">Active</p>
             <p className="font-bold text-orange-400">
               {profile.summary.active}
             </p>
           </div>
 
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-teal-300 dark:bg-darkSecBG rounded-xl">
+          <div className="p-3  md:p-8 md:text-xl bg-[#F6F6F6] shadow shadow-teal-300 dark:bg-darkSecBG rounded-xl">
             <p className="text-[10px] uppercase">Revenue</p>
             <p className="font-bold text-green-400">
               {profile.summary.revenue}
@@ -108,12 +109,12 @@ const ProfileDetails = () => {
 
             <thead className="bg-gray-100 dark:bg-darkSecBG text-left">
               <tr>
-                <th className="p-3">Order ID</th>
-                <th className="p-3">Project ID</th>
-                <th className="p-3">Value</th>
-                <th className="p-3">Service</th>
-                <th className="p-3">Team</th>
-                <th className="p-3">Status</th>
+                <th className="p-3">ORDER LIST <span className="text-gray-400">⇅</span></th>
+                <th className="p-3">PROJECT ID <span className="text-gray-400">⇅</span></th>
+                <th className="p-3 ">ORDER VALUE <span className="text-gray-400"> ⇅</span></th>
+                <th className="p-3 lg:flex items-center gap-2">SERVICE LINE  <span className=""><CiFilter /></span></th>
+                <th className="p-3  ">ASSIGNED TEAM </th>
+                <th className="p-3 lg:flex items-center gap-2">STATUS <span className=""><CiFilter /></span></th>
               </tr>
             </thead>
 
