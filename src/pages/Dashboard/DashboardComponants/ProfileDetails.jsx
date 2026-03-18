@@ -4,7 +4,9 @@ import { useParams, useNavigate } from "react-router";
 const ProfileDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const [profile, setProfile] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("/profileData.json")
@@ -15,21 +17,42 @@ const ProfileDetails = () => {
       });
   }, [id]);
 
-  if (!profile)
-    return <p className="text-center mt-10">Loading...</p>;
+  if (!profile) return <p className="text-center mt-10">Loading...</p>;
+
+  // 🔥 FULL FIELD SEARCH (UPDATED)
+  const sortedOrders = [...profile.orders].sort((a, b) => {
+    const keyword = search.toLowerCase();
+
+    const matchScore = (item) => {
+      let score = 0;
+
+      Object.values(item).forEach((val) => {
+        if (
+          val.toString().toLowerCase().includes(keyword)
+        ) {
+          score += 1;
+        }
+      });
+
+      return score;
+    };
+
+    return matchScore(b) - matchScore(a);
+  });
 
   return (
     <div className="p-4 md:p-8">
-      
-   
 
       {/* 🔷 Main Card */}
-      <div className="border border-gray-200 dark:border-[#1F2937] rounded-2xl p-6 shadow hover:shadow-gray-400 duration-500">
-        
+      <div className="border border-gray-200 dark:border-[#1F2937] 
+      rounded-2xl p-6 shadow hover:shadow-gray-400 duration-300">
+
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-xl font-semibold">{profile.company}</h2>
+            <h2 className="text-xl font-semibold">
+              {profile.company}
+            </h2>
             <p className="text-sm text-gray-500 dark:text-darkSecText">
               {profile.category}
             </p>
@@ -41,92 +64,101 @@ const ProfileDetails = () => {
           />
         </div>
 
-        {/* 🔢 Stats */}
-        <div className="grid grid-cols-3 gap-3 mb-8">
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-gray-300 dark:bg-darkSecBG rounded-xl">
-            <p className="text-[10px] uppercase">Total Projects</p>
-            <p className="text-lg font-bold">
+        {/* 📊 Stats */}
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="p-3 bg-[#F6F6F6] shadow shadow-orange-300 dark:bg-darkSecBG rounded-xl">
+            <p className="text-[10px] uppercase">Total</p>
+            <p className="font-bold">
               {profile.summary.total_projects}
             </p>
           </div>
 
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-gray-300 dark:bg-darkSecBG rounded-xl">
+          <div className="p-3 bg-[#F6F6F6] shadow shadow-green-300 dark:bg-darkSecBG rounded-xl">
             <p className="text-[10px] uppercase">Active</p>
-            <p className="text-lg font-bold text-orange-400">
+            <p className="font-bold text-orange-400">
               {profile.summary.active}
             </p>
           </div>
 
-          <div className="p-3 bg-[#F6F6F6] shadow shadow-gray-300 dark:bg-darkSecBG rounded-xl">
+          <div className="p-3 bg-[#F6F6F6] shadow shadow-teal-300 dark:bg-darkSecBG rounded-xl">
             <p className="text-[10px] uppercase">Revenue</p>
-            <p className="text-lg font-bold text-green-400">
+            <p className="font-bold text-green-400">
               {profile.summary.revenue}
             </p>
           </div>
         </div>
 
-        {/* 📊 Orders Section */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Orders</h3>
+        {/* 🔍 Search */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Search anything (ID, team, status...)"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full px-4 py-2 rounded-xl outline-none
+            border border-gray-300 dark:border-[#1F2937]
+            bg-white dark:bg-darkSecBG
+            focus:ring-2 focus:ring-cyan-400"
+          />
+        </div>
 
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-[#1F2937]">
-            <table className="min-w-full text-sm">
-              
-              {/* Table Head */}
-              <thead className="bg-gray-100 dark:bg-darkSecBG text-left">
-                <tr>
-                  <th className="p-3">Order List</th>
-                  <th className="p-3">Project ID</th>
-                  <th className="p-3">Order Value</th>
-                  <th className="p-3">Service Line</th>
-                  <th className="p-3">Assigned Team</th>
-                  <th className="p-3">Status</th>
+        {/* 📋 Table */}
+        <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-[#1F2937]">
+          <table className="min-w-full text-sm">
+
+            <thead className="bg-gray-100 dark:bg-darkSecBG text-left">
+              <tr>
+                <th className="p-3">Order ID</th>
+                <th className="p-3">Project ID</th>
+                <th className="p-3">Value</th>
+                <th className="p-3">Service</th>
+                <th className="p-3">Team</th>
+                <th className="p-3">Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {sortedOrders.map((order, i) => (
+                <tr
+                  key={i}
+                  className="border-t border-gray-200 dark:border-[#1F2937]
+                  hover:bg-gray-50 dark:hover:bg-[#111827] transition"
+                >
+                  <td className="p-3">{order.order_id}</td>
+                  <td className="p-3">{order.project_id}</td>
+                  <td className="p-3">${order.order_value}</td>
+                  <td className="p-3">{order.service_line}</td>
+                  <td className="p-3">{order.assigned_team}</td>
+                  <td className="p-3">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs ${
+                        order.order_status === "Completed"
+                          ? "bg-green-100 text-green-600"
+                          : order.order_status === "WIP"
+                          ? "bg-orange-100 text-orange-500"
+                          : "bg-gray-200 text-gray-600"
+                      }`}
+                    >
+                      {order.order_status}
+                    </span>
+                  </td>
                 </tr>
-              </thead>
+              ))}
+            </tbody>
 
-              {/* Table Body */}
-              <tbody>
-                {profile.orders.map((order, index) => (
-                  <tr
-                    key={index}
-                    className="border-t hover:bg-gray-50 dark:hover:bg-[#111827] transition"
-                  >
-                    <td className="p-3">{order.order_id}</td>
-                    <td className="p-3">{order.project_id}</td>
-                    <td className="p-3">${order.order_value}</td>
-                    <td className="p-3">{order.service_line}</td>
-                    <td className="p-3">{order.assigned_team}</td>
+          </table>
+        </div>
 
-                    {/* Status Badge */}
-                    <td className="p-3">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          order.order_status === "Completed"
-                            ? "bg-green-100 text-green-600"
-                            : order.order_status === "WIP"
-                            ? "bg-orange-100 text-orange-500"
-                            : "bg-gray-200 text-gray-600"
-                        }`}
-                      >
-                        {order.order_status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-
-            </table>
-            
-          </div>
-             {/* 🔙 Back Button */}
-     <div className="flex  justify-end mt-6">
-         <button
-        onClick={() => navigate(-1)}
-        className="mb-4 text-sm px-4 py-2 rounded-lg bg-gray-200 dark:bg-darkSecBG hover:shadow"
-      >
-        ← Back
-      </button>
-     </div>
+        {/* 🔙 Back */}
+        <div className="flex justify-end mt-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="text-sm px-4 py-2 rounded-xl 
+            bg-gray-200 dark:bg-darkSecBG 
+            hover:shadow-md transition"
+          >
+            ← Back
+          </button>
         </div>
 
       </div>

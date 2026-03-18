@@ -39,7 +39,7 @@ const navigate = useNavigate()
         {topProfiles.map((profile) => (
          <div>
           <Link to={`/profilelist/${profile.id}`} >
-          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] hover hover:shadow hover:shadow-gray-400 rounded-2xl duration-500 p-6">
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] shadow shadow-orange-200 dark:shadow-teal-200 hover:shadow-lg hover:shadow-green-200 rounded-2xl duration-500 p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
              
