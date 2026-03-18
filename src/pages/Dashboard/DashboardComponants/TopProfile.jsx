@@ -31,6 +31,8 @@ const TopProfile = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {topProfiles.map((profile) => (
+          <div>
+            <Link to={`/profilelist/${profile.id}`}>
           <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] rounded-2xl p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
@@ -90,6 +92,8 @@ const TopProfile = () => {
                 ))}
               </div>
             </div>
+          </div>
+          </Link>
           </div>
         ))}
       </div>

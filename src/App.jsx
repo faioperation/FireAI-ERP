@@ -17,6 +17,7 @@ import Diagram from "./pages/Diagram/Diagram";
 import Settings from "./pages/Settings/Settings";
 import Order from "./pages/ProjectManagement/Order";
 import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
+import ProfileDetails from "./pages/Dashboard/DashboardComponants/ProfileDetails";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route element={<CommonLayouts />}>
           <Route index element={<Dashboard />} />
           <Route path="/profilelist" element={<ProfileList></ProfileList>}></Route>
+          <Route path="/profilelist/:id" element={<ProfileDetails/>}></Route>
           
           <Route path="/project" element={<ProjectManagement />} />
           <Route path="/project/order" element={<Order />} />
