@@ -15,6 +15,7 @@ import WorkForce from "./pages/WorkForce/WorkForce";
 import Monitoring from "./pages/Monitoring/Monitoring";
 import Diagram from "./pages/Diagram/Diagram";
 import Settings from "./pages/Settings/Settings";
+import Order from "./pages/ProjectManagement/Order";
 import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
 import ProfileDetails from "./pages/Dashboard/DashboardComponants/ProfileDetails";
 
@@ -29,8 +30,9 @@ const App = () => {
           <Route path="/profilelist/:id" element={<ProfileDetails/>}></Route>
           
           <Route path="/project" element={<ProjectManagement />} />
+          <Route path="/project/order" element={<Order />} />
           <Route path="/todo" element={<TodoManagement />} />
-          <Route path="/sales" element={<SalesOPCollaboration />} />
+          <Route path="/sales" element={<SalesOPCollaboration />} />   
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
