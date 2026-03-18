@@ -1,6 +1,7 @@
 import DynamicButton from "@/SharedComponants/DynamicButton";
 import Heading from "@/SharedComponants/Heading";
 import OrderGridCard from "./OrderComponents/OrderGridCard";
+import OrderList from "./OrderComponents/OrderList";
 
 const Order = () => {
   return (
@@ -10,6 +11,9 @@ const Order = () => {
         <DynamicButton label="Create Order" showIcon={true} />
       </div>
       <OrderGridCard />
+  <div className="mt-10">
+        <OrderList />
+  </div>
     </>
   );
 };

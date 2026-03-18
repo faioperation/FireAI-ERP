@@ -7,7 +7,6 @@ const ProjectGridCardData = [
     id: 1,
     title: "Total Projects",
     value: "54",
-    trend: "+12% from last month",
     icon: Calendar,
     iconColor: "text-orange-500",
     iconBg: "bg-orange-50",
@@ -16,7 +15,6 @@ const ProjectGridCardData = [
     id: 2,
     title: "In Progress",
     value: "30",
-    trend: "Active projects",
     icon: Users,
     iconColor: "text-orange-400",
     iconBg: "bg-orange-50",
@@ -25,7 +23,6 @@ const ProjectGridCardData = [
     id: 3,
     title: "Completed",
     value: "24",
-    trend: "+5% completion rate",
     icon: CheckCircle,
     iconColor: "text-green-500",
     iconBg: "bg-green-50",
@@ -34,7 +31,6 @@ const ProjectGridCardData = [
     id: 4,
     title: "Total Revenue",
     value: "$410K",
-    trend: "This quarter",
     icon: DollarSign,
     iconColor: "text-green-600",
     iconBg: "bg-green-50",
@@ -78,15 +74,6 @@ export default function ProjectGridCard() {
                 >
                   {item.value}
                 </h3>
-                <p
-                  className={`text-xs mt-1 font-medium ${
-                    item.trend.includes("+")
-                      ? "text-green-500"
-                      : "text-gray-400"
-                  }`}
-                >
-                  {item.trend}
-                </p>
               </div>
             </div>
           );
