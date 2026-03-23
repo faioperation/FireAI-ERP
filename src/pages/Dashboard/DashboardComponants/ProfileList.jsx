@@ -1,11 +1,12 @@
 import Heading from '@/SharedComponants/Heading';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const ProfileList = () => {
   const [topProfiles, setTopProfiles] = useState([]);
-
+const navigate = useNavigate()
   useEffect(() => {
     fetch('/profileData.json') // Tomar JSON file-er path
       .then((res) => res.json())
@@ -26,12 +27,19 @@ const ProfileList = () => {
     <div className="  rounded-3xl">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Profile List</h2>
-       
+          <button
+        onClick={() => navigate(-1)}
+        className="mb-4 text-xs px-4 py-2 rounded-lg bg-gray-200 dark:bg-darkSecBG hover:shadow"
+      >
+        ← Back
+      </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {topProfiles.map((profile) => (
-          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] hover hover:shadow hover:shadow-gray-400 rounded-2xl duration-500 p-6">
+         <div>
+          <Link to={`/profilelist/${profile.id}`} >
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] shadow shadow-orange-200 dark:shadow-teal-200 hover:shadow-lg hover:shadow-green-200 rounded-2xl duration-500 p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
              
@@ -90,6 +98,8 @@ const ProfileList = () => {
                 ))}
               </div>
             </div>
+          </div>
+          </Link>
           </div>
         ))}
       </div>
