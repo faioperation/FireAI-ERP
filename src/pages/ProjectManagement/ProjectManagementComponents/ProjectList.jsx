@@ -4,6 +4,7 @@ import { Plus, Eye, Edit, Trash2, Search, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProjectCreateModal from "./ProjectCreateModal";
+import { Link } from "react-router";
 
 const projectsData = [
   {
@@ -156,10 +157,14 @@ export default function ProjectList() {
                   </td>
                   <td className="p-4">
                     <div className="flex justify-center gap-3 text-gray-400">
-                      <Eye
-                        size={18}
-                        className="hover:text-orange-500 cursor-pointer"
-                      />
+                      <Link to="/project/view">
+                        <button>
+                          <Eye
+                            size={18}
+                            className="hover:text-orange-500 cursor-pointer"
+                          />
+                        </button>
+                      </Link>
                       <Edit
                         size={18}
                         className="hover:text-orange-500 cursor-pointer"
