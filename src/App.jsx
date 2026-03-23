@@ -17,6 +17,7 @@ import Diagram from "./pages/Diagram/Diagram";
 import Settings from "./pages/Settings/Settings";
 import Order from "./pages/ProjectManagement/Order";
 import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
+import ProjectView from "./pages/ProjectManagement/ProjectManagementComponents/ProjectView";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/profilelist" element={<ProfileList></ProfileList>}></Route>
           
           <Route path="/project" element={<ProjectManagement />} />
+          <Route path="/project/view" element={<ProjectView  />} />
           <Route path="/project/order" element={<Order />} />
           <Route path="/todo" element={<TodoManagement />} />
           <Route path="/sales" element={<SalesOPCollaboration />} />   

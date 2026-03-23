@@ -11,9 +11,9 @@ const Order = () => {
         <DynamicButton label="Create Order" showIcon={true} />
       </div>
       <OrderGridCard />
-  <div className="mt-10">
+      <div className="mt-10">
         <OrderList />
-  </div>
+      </div>
     </>
   );
 };
