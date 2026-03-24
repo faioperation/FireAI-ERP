@@ -386,24 +386,59 @@ export default function Sidebar() {
   const darkSecBG = "bg-[#111827]";
   const activeDarkClass = `${darkSecBG} border border-[#00d2ff] text-[#00d2ff] shadow-[0_0_15px_rgba(0,210,255,0.3)]`;
 
+  // const handleParentClick = (item) => {
+  //   setActiveParent(item.id === activeParent ? null : item.id);
+
+  //   if (item.children.length > 0) {
+  //     setIsCollapsed(true);
+  //   } else {
+  //     setActiveChild(item.label);
+
+  //     const path = item.id === "dashboard" ? "/" : `/${item.id}`;
+  //     navigate(path);
+  //     if (window.innerWidth < 1024) setIsMobileOpen(false);
+  //   }
+  // };
+
   const handleParentClick = (item) => {
     setActiveParent(item.id === activeParent ? null : item.id);
 
-    if (item.children.length > 0) {
-      setIsCollapsed(true);
-    } else {
-      setActiveChild(item.label);
-
+    if (item.children.length === 0) {
+      setIsCollapsed(false);
       const path = item.id === "dashboard" ? "/" : `/${item.id}`;
       navigate(path);
       if (window.innerWidth < 1024) setIsMobileOpen(false);
+    } else {
+      setIsCollapsed(true);
     }
   };
 
-  const handleChildClick = (child) => {
-    setActiveChild(child);
+  // const handleChildClick = (child) => {
+  //   setActiveChild(child);
 
-    if (activeParent) {
+  //   if (activeParent) {
+  //     navigate(`/${activeParent}`);
+  //   }
+
+  //   if (window.innerWidth < 1024) {
+  //     setIsMobileOpen(false);
+  //     setActiveParent(null);
+  //   }
+  // };
+
+  const handleChildClick = (child) => {
+    // child jodi object hoy (Order er moto) tobe tar label ba id check kora
+    const childLabel = typeof child === "string" ? child : child.label;
+    setActiveChild(childLabel);
+
+    // --- Route Logic Fix ---
+    if (activeParent === "project") {
+      if (childLabel === "Project") {
+        navigate("/project");
+      } else if (childLabel === "Order") {
+        navigate("/order");
+      }
+    } else {
       navigate(`/${activeParent}`);
     }
 
