@@ -20,7 +20,7 @@ import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
 import ProjectView from "./pages/ProjectManagement/ProjectManagementComponents/ProjectView";
 import ProfileDetails from "./pages/Dashboard/DashboardComponants/ProfileDetails";
 import DynamicOrderForm from "./pages/ProjectManagement/OrderComponents/DynamicOrderForm";
-
+import AssignedOrder from "./pages/ProjectManagement/OrderComponents/AssignedOrder";
 
 const App = () => {
   return (
@@ -28,20 +28,23 @@ const App = () => {
       <Routes>
         <Route element={<CommonLayouts />}>
           <Route index element={<Dashboard />} />
-          <Route path="/profilelist" element={<ProfileList></ProfileList>}></Route>
-          <Route path="/profilelist/:id" element={<ProfileDetails/>}></Route>
-          
+          <Route
+            path="/profilelist"
+            element={<ProfileList></ProfileList>}
+          ></Route>
+          <Route path="/profilelist/:id" element={<ProfileDetails />}></Route>
+
           <Route path="/project" element={<ProjectManagement />} />
-          <Route path="/project/view" element={<ProjectView  />} />
+          <Route path="/project/view" element={<ProjectView />} />
           <Route path="/order" element={<Order />} />
           <Route path="/order-value" element={<DynamicOrderForm />} />
+          <Route path="/assign-order" element={<AssignedOrder />} />
           <Route path="/todo" element={<TodoManagement />} />
-          <Route path="/sales" element={<SalesOPCollaboration />} />   
+          <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/settings" element={<Settings />} />
-      
         </Route>
       </Routes>
     </ThemeProvider>
