@@ -7,13 +7,11 @@ const ProjectDetailsPage = () => {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark";
 
-  // Notes state - Default kisu data rakha holo
   const [notes, setNotes] = useState([
     "AI development is the end-to-end process of designing, building, and deploying intelligent software capable of performing human-like cognitive tasks, such as learning, reasoning, and problem-solving.",
     "The redesign includes a simplified navigation system, improved product pages, and a streamlined checkout process.",
   ]);
 
-  // Naya note add korar function
   const handleAddNote = () => {
     const newNoteText = prompt("Enter your new note:");
     if (newNoteText && newNoteText.trim() !== "") {
@@ -25,12 +23,7 @@ const ProjectDetailsPage = () => {
     <div
       className={` transition-colors duration-300 ${isDark ? "bg-[#0B0F1A] text-white" : "bg-gray-50 text-gray-900"}`}
     >
-
-
       <div className="max-w-5xl mx-auto space-y-6">
-   
-
-   
         <div
           className={`p-6 rounded-2xl border ${isDark ? "bg-[#111827] border-gray-800" : "bg-white border-gray-200"}`}
         >
