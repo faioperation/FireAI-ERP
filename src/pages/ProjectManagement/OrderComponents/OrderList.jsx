@@ -10,6 +10,8 @@ import {
   Moon,
   Filter,
 } from "lucide-react";
+import OrderDetailsModal from "./OrderDetailsModal";
+import { Link } from "react-router";
 
 const initialData = [
   {
@@ -142,10 +144,15 @@ const MobileCard = ({ row, dark }) => (
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition">
-          <UserCircle size={16} />
-        </button>
-        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition">
+        <Link to="/order-value">
+          <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition">
+            <UserCircle size={16} />
+          </button>
+        </Link>
+        <button
+          onClick={() => setShowOrderDetails(true)}
+          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition"
+        >
           <Eye size={16} />
         </button>
         <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition">
@@ -216,6 +223,7 @@ export default function OrderList() {
   const [dark, setDark] = useState(false);
   const [data, setData] = useState(initialData);
   const [search, setSearch] = useState("");
+  const [showOrderDetails, setShowOrderDetails] = useState(false);
 
   const filtered = data.filter(
     (r) =>
@@ -297,13 +305,13 @@ export default function OrderList() {
                       </td>
                       <td className="px-4 py-3.5">
                         <div className="flex items-center gap-1">
+                          <Link to="/order-value">
+                            <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition">
+                              <UserCircle size={16} />
+                            </button>
+                          </Link>
                           <button
-                            className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition"
-                            title="Assign"
-                          >
-                            <UserCircle size={16} />
-                          </button>
-                          <button
+                            onClick={() => setShowOrderDetails(true)}
                             className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 transition"
                             title="View"
                           >
@@ -382,7 +390,10 @@ export default function OrderList() {
                     </td>
                     <td className="px-3 py-3">
                       <div className="flex gap-1">
-                        <button className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition">
+                        <button
+                          onClick={() => setShowOrderDetails(true)}
+                          className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition"
+                        >
                           <Eye size={14} />
                         </button>
                         <button className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition">
@@ -416,6 +427,13 @@ export default function OrderList() {
           )}
         </div>
       </div>
+      {/* OrderDetailsModal */}
+      {showOrderDetails && (
+        <OrderDetailsModal
+          isOpen={showOrderDetails}
+          onClose={() => setShowOrderDetails(false)}
+        />
+      )}
     </div>
   );
 }

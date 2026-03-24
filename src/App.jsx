@@ -19,6 +19,7 @@ import Order from "./pages/ProjectManagement/Order";
 import ProfileList from "./pages/Dashboard/DashboardComponants/ProfileList";
 import ProjectView from "./pages/ProjectManagement/ProjectManagementComponents/ProjectView";
 import ProfileDetails from "./pages/Dashboard/DashboardComponants/ProfileDetails";
+import DynamicOrderForm from "./pages/ProjectManagement/OrderComponents/DynamicOrderForm";
 
 
 const App = () => {
@@ -32,14 +33,15 @@ const App = () => {
           
           <Route path="/project" element={<ProjectManagement />} />
           <Route path="/project/view" element={<ProjectView  />} />
-          <Route path="/project/order" element={<Order />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/order-value" element={<DynamicOrderForm />} />
           <Route path="/todo" element={<TodoManagement />} />
           <Route path="/sales" element={<SalesOPCollaboration />} />   
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/settings" element={<Settings />} />
-          {/* <Route path="/settings/profile" element={<EdittProfilePage />} /> */}
+      
         </Route>
       </Routes>
     </ThemeProvider>
