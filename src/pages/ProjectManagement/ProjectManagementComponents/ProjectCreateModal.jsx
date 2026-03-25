@@ -16,7 +16,7 @@
 //   SelectValue,
 // } from "@/components/ui/select";
 // import { Button } from "@/components/ui/button";
-// import { Upload, X, FileText, BadgePlus } from "lucide-react";
+// import { Upload, X, FileText, BadgePlus, Trash2 } from "lucide-react";
 // import DynamicButton from "@/SharedComponants/DynamicButton";
 // import OverviewDescription from "@/SharedComponants/OverviewDescription";
 
@@ -32,12 +32,17 @@
 //     orderId: "",
 //     team: "",
 //     type: "",
-//     phase: "",
 //     status: "",
 //     totalValue: "",
-//     phaseTimeline: "",
-//     phaseValue: "",
+//     phases: [], // Multiple phases array
 //     files: [],
+//   });
+
+//   // Temporary state for the current phase inputs
+//   const [currentPhase, setCurrentPhase] = useState({
+//     name: "",
+//     timeline: "",
+//     value: "",
 //   });
 
 //   const handleFileUpload = (e) => {
@@ -50,14 +55,38 @@
 
 //   const removeFile = (index) => {
 //     setFormData((prev) => ({
-//       ...prev,
+//       ...prev,   
 //       files: prev.files.filter((_, i) => i !== index),
+//     }));
+//   };
+
+//   // Logic to add a phase into the array
+//   const handleAddPhase = () => {
+//     if (currentPhase.name && currentPhase.timeline && currentPhase.value) {
+//       setFormData((prev) => ({
+//         ...prev,
+//         phases: [...prev.phases, currentPhase],
+//       }));
+//       setCurrentPhase({ name: "", timeline: "", value: "" }); // Reset phase inputs
+//     } else {
+//       alert("Please fill Phase, Timeline, and Value before adding.");
+//     }
+//   };
+
+//   const removePhase = (index) => {
+//     setFormData((prev) => ({
+//       ...prev,
+//       phases: prev.phases.filter((_, i) => i !== index),
 //     }));
 //   };
 
 //   const handleSave = (e) => {
 //     e.preventDefault();
-//     console.log("Project Saved:", formData);
+//     if (formData.phases.length === 0) {
+//       alert("Please add at least one phase to the project!");
+//       return;
+//     }
+//     console.log("Project Saved Successfully:", formData);
 //     onClose();
 //   };
 
@@ -78,161 +107,126 @@
 //           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
 //             {/* Project ID */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Project ID*
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Project ID*</Label>
 //               <Input
 //                 placeholder="Project Id"
 //                 required
+//                 value={formData.projectId}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, projectId: e.target.value })
-//                 }
+//                 onChange={(e) => setFormData({ ...formData, projectId: e.target.value })}
 //               />
 //             </div>
 
 //             {/* Client Name */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Client Name*
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Client Name*</Label>
 //               <Input
 //                 placeholder="Enter Client Name"
 //                 required
+//                 value={formData.clientName}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, clientName: e.target.value })
-//                 }
+//                 onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
 //               />
 //             </div>
 
 //             {/* Project Name */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Project Name*
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Project Name*</Label>
 //               <Input
 //                 placeholder="Enter Project title"
 //                 required
+//                 value={formData.projectName}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, projectName: e.target.value })
-//                 }
+//                 onChange={(e) => setFormData({ ...formData, projectName: e.target.value })}
 //               />
 //             </div>
 
 //             {/* Total Timeline */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Total Timeline
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Total Timeline</Label>
 //               <Input
 //                 type="date"
+//                 value={formData.timeline}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, timeline: e.target.value })
-//                 }
+//                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
 //               />
 //             </div>
 
 //             {/* Order ID */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Order ID*
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Order ID*</Label>
 //               <Input
 //                 placeholder="Order Id"
 //                 required
+//                 value={formData.orderId}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, orderId: e.target.value })
-//                 }
+//                 onChange={(e) => setFormData({ ...formData, orderId: e.target.value })}
 //               />
 //             </div>
 
 //             {/* Select Team */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Select Team
-//               </Label>
-//               <Select
-//                 onValueChange={(v) => setFormData({ ...formData, team: v })}
-//               >
-//                 <SelectTrigger
-//                   className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 >
+//               <Label className="text-sm font-normal tracking-wider">Select Team</Label>
+//               <Select onValueChange={(v) => setFormData({ ...formData, team: v })}>
+//                 <SelectTrigger className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
 //                   <SelectValue placeholder="Select Team" />
 //                 </SelectTrigger>
 //                 <SelectContent className="mt-8">
 //                   <SelectItem value="UI/UX">UI/UX Design</SelectItem>
-//                   <SelectItem value="Dev">
-//                     Frontend and Backend Development
-//                   </SelectItem>
-//                   <SelectItem value="AI">AI Development</SelectItem>
-//                 </SelectContent>
-//               </Select>
-//             </div>
-//             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Total Value
-//               </Label>
-//               <Input
-//                 placeholder="Enter Total Value"
-//                 required
-//                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, totalValue: e.target.value })
-//                 }
-//               />
-//             </div>
-//             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Service Type
-//               </Label>
-//               <Select
-//                 onValueChange={(v) => setFormData({ ...formData, type: v })}
-//               >
-//                 <SelectTrigger
-//                   className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 >
-//                   <SelectValue placeholder="Service Type" />
-//                 </SelectTrigger>
-//                 <SelectContent className="mt-8">
-//                   <SelectItem value="UI/UX">UI/UX Design</SelectItem>
-//                   <SelectItem value="Dev">
-//                     Frontend and Backend Development
-//                   </SelectItem>
+//                   <SelectItem value="Dev">Frontend and Backend Development</SelectItem>
 //                   <SelectItem value="AI">AI Development</SelectItem>
 //                 </SelectContent>
 //               </Select>
 //             </div>
 
-//             {/* Phase Section - Phase value saved here */}
+//             <div className="space-y-2">
+//               <Label className="text-sm font-normal tracking-wider">Total Value</Label>
+//               <Input
+//                 placeholder="Enter Total Value"
+//                 required
+//                 value={formData.totalValue}
+//                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
+//                 onChange={(e) => setFormData({ ...formData, totalValue: e.target.value })}
+//               />
+//             </div>
+
+//             <div className="space-y-2">
+//               <Label className="text-sm font-normal tracking-wider">Service Type</Label>
+//               <Select onValueChange={(v) => setFormData({ ...formData, type: v })}>
+//                 <SelectTrigger className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
+//                   <SelectValue placeholder="Service Type" />
+//                 </SelectTrigger>
+//                 <SelectContent className="mt-8">
+//                   <SelectItem value="UI/UX">UI/UX Design</SelectItem>
+//                   <SelectItem value="Dev">Frontend and Backend Development</SelectItem>
+//                   <SelectItem value="AI">AI Development</SelectItem>
+//                 </SelectContent>
+//               </Select>
+//             </div>
+
+//             {/* Phase Selection Logic */}
 //             <div className="flex items-end justify-between gap-4 w-full">
 //               <div className="space-y-2 flex-1">
-//                 <Label className="text-sm font-normal tracking-wider">
-//                   Phase
-//                 </Label>
-//                 <Select
-//                   onValueChange={(v) => setFormData({ ...formData, phase: v })}
+//                 <Label className="text-sm font-normal tracking-wider">Phase</Label>
+//                 <Select 
+//                   value={currentPhase.name} 
+//                   onValueChange={(v) => setCurrentPhase({ ...currentPhase, name: v })}
 //                 >
-//                   <SelectTrigger
-//                     className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                   >
+//                   <SelectTrigger className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
 //                     <SelectValue placeholder="Select Phase" />
 //                   </SelectTrigger>
 //                   <SelectContent className="mt-8">
-//                     <SelectItem value="UI/UX">UI/UX Design</SelectItem>
-//                     <SelectItem value="FullStack">
-//                       FullStack Development
-//                     </SelectItem>
-//                     <SelectItem value="AI">AI Development</SelectItem>
+//                     <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+//                     <SelectItem value="FullStack">FullStack Development</SelectItem>
+//                     <SelectItem value="AI Development">AI Development</SelectItem>
 //                   </SelectContent>
 //                 </Select>
 //               </div>
+//               {/* Plus Button Logic Added Here */}
 //               <button
 //                 type="button"
-//                 className="p-3 bg-orange-50 dark:bg-[#111827] rounded-xl text-orange-500 mb-0.5"
+//                 onClick={handleAddPhase}
+//                 className="p-3 bg-orange-50 dark:bg-[#111827] rounded-xl text-orange-500 mb-0.5 cursor-pointer hover:bg-orange-100 transition-all"
 //               >
 //                 <BadgePlus size={24} />
 //               </button>
@@ -240,15 +234,9 @@
 
 //             {/* Status */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Status
-//               </Label>
-//               <Select
-//                 onValueChange={(v) => setFormData({ ...formData, status: v })}
-//               >
-//                 <SelectTrigger
-//                   className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 >
+//               <Label className="text-sm font-normal tracking-wider">Status</Label>
+//               <Select onValueChange={(v) => setFormData({ ...formData, status: v })}>
+//                 <SelectTrigger className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
 //                   <SelectValue placeholder="Select status" />
 //                 </SelectTrigger>
 //                 <SelectContent className="mt-8">
@@ -259,54 +247,53 @@
 //               </Select>
 //             </div>
 
-//             {/* Phase Timeline with Calendar */}
+//             {/* Phase Timeline */}
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Phase Timeline
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Phase Timeline</Label>
 //               <Input
 //                 type="date"
-//                 required
+//                 value={currentPhase.timeline}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800 text-white" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, phaseTimeline: e.target.value })
-//                 }
+//                 onChange={(e) => setCurrentPhase({ ...currentPhase, timeline: e.target.value })}
 //               />
 //             </div>
+
 //             <div className="space-y-2">
-//               <Label className="text-sm font-normal tracking-wider">
-//                 Phase Value
-//               </Label>
+//               <Label className="text-sm font-normal tracking-wider">Phase Value</Label>
 //               <Input
 //                 placeholder="Phase Value"
-//                 required
+//                 value={currentPhase.value}
 //                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
-//                 onChange={(e) =>
-//                   setFormData({ ...formData, phaseValue: e.target.value })
-//                 }
+//                 onChange={(e) => setCurrentPhase({ ...currentPhase, value: e.target.value })}
 //               />
 //             </div>
 //           </div>
 
-//           <DynamicButton
-//             label="Add Phases"
-//             showIcon={true}
-//             onClick={() => {}}
-//           />
+//           {/* Added Phases List Display (Layout Safe) */}
+//           {formData.phases.length > 0 && (
+//             <div className="space-y-3">
+//               <Label className="text-xs font-bold uppercase text-orange-500">Added Phases:</Label>
+//               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+//                 {formData.phases.map((ph, index) => (
+//                   <div key={index} className={`flex items-center justify-between p-3 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-gray-50 border-gray-100"}`}>
+//                     <div className="text-xs">
+//                       <p className="font-bold">{ph.name}</p>
+//                       <p className="text-gray-400">{ph.timeline} | ${ph.value}</p>
+//                     </div>
+//                     <Trash2 size={16} className="text-red-400 cursor-pointer" onClick={() => removePhase(index)} />
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           )}
+
+//           <DynamicButton label="Add Phases" showIcon={true} onClick={handleAddPhase} />
 
 //           <OverviewDescription />
 
 //           <div className="space-y-3">
-//             <Label className="text-sm font-normal tracking-wider">
-//               Upload Document*
-//             </Label>
-//             <input
-//               type="file"
-//               multiple
-//               className="hidden"
-//               ref={fileInputRef}
-//               onChange={handleFileUpload}
-//             />
+//             <Label className="text-sm font-normal tracking-wider">Upload Document*</Label>
+//             <input type="file" multiple className="hidden" ref={fileInputRef} onChange={handleFileUpload} />
 //             <div
 //               onClick={() => fileInputRef.current.click()}
 //               className={`border-2 border-dashed rounded-2xl p-8 md:p-12 flex flex-col items-center gap-4 cursor-pointer transition-all
@@ -314,33 +301,21 @@
 //             >
 //               <Upload className="text-gray-400" size={40} />
 //               <div className="text-center">
-//                 <p className="font-bold text-base">
-//                   Click to upload or drag and drop
-//                 </p>
-//                 <p className="text-sm text-gray-400 mt-1">
-//                   PDF, img, link (Max 50MB)
-//                 </p>
+//                 <p className="font-bold text-base">Click to upload or drag and drop</p>
+//                 <p className="text-sm text-gray-400 mt-1">PDF, img, link (Max 50MB)</p>
 //               </div>
 //             </div>
 
+//             {/* Uploaded Files Display */}
 //             {formData.files.length > 0 && (
 //               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
 //                 {formData.files.map((file, index) => (
-//                   <div
-//                     key={index}
-//                     className="flex items-center justify-between p-3 rounded-xl border border-gray-100/10 bg-gray-50/5"
-//                   >
+//                   <div key={index} className="flex items-center justify-between p-3 rounded-xl border border-gray-100/10 bg-gray-50/5">
 //                     <div className="flex items-center gap-3">
 //                       <FileText size={18} className="text-orange-500" />
-//                       <span className="text-xs truncate max-w-[150px]">
-//                         {file.name}
-//                       </span>
+//                       <span className="text-xs truncate max-w-[150px]">{file.name}</span>
 //                     </div>
-//                     <X
-//                       size={16}
-//                       className="cursor-pointer hover:text-red-500"
-//                       onClick={() => removeFile(index)}
-//                     />
+//                     <X size={16} className="cursor-pointer hover:text-red-500" onClick={() => removeFile(index)} />
 //                   </div>
 //                 ))}
 //               </div>
@@ -348,18 +323,10 @@
 //           </div>
 
 //           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 border-t border-gray-100/10">
-//             <Button
-//               type="button"
-//               variant="outline"
-//               onClick={onClose}
-//               className="px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[200px]"
-//             >
+//             <Button type="button" variant="outline" onClick={onClose} className="px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[200px]">
 //               Cancel
 //             </Button>
-//             <Button
-//               type="submit"
-//               className="px-12 py-5.5 rounded-xl bg-[#F97316] hover:bg-orange-600 text-white font-bold w-full sm:w-[200px] shadow-lg"
-//             >
+//             <Button type="submit" className="px-12 py-5.5 rounded-xl bg-[#F97316] hover:bg-orange-600 text-white font-bold w-full sm:w-[200px] shadow-lg">
 //               Create Project
 //             </Button>
 //           </div>
@@ -395,7 +362,8 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
   const { theme } = useContext(ThemeContext);
   const fileInputRef = useRef(null);
 
-  const [formData, setFormData] = useState({
+  // Initial state for resetting the form
+  const initialState = {
     projectId: "",
     clientName: "",
     projectName: "",
@@ -405,11 +373,13 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
     type: "",
     status: "",
     totalValue: "",
-    phases: [], // Multiple phases array
+    phases: [],
     files: [],
-  });
+  };
 
-  // Temporary state for the current phase inputs
+  const [formData, setFormData] = useState(initialState);
+
+  // Phase specific state
   const [currentPhase, setCurrentPhase] = useState({
     name: "",
     timeline: "",
@@ -431,16 +401,17 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
     }));
   };
 
-  // Logic to add a phase into the array
+  // 1. Plus Icon Logic: Save phase and CLEAR inputs
   const handleAddPhase = () => {
-    if (currentPhase.name && currentPhase.timeline && currentPhase.value) {
+    if (currentPhase.name) {
       setFormData((prev) => ({
         ...prev,
         phases: [...prev.phases, currentPhase],
       }));
-      setCurrentPhase({ name: "", timeline: "", value: "" }); // Reset phase inputs
+      // Resetting phase inputs
+      setCurrentPhase({ name: "", timeline: "", value: "" });
     } else {
-      alert("Please fill Phase, Timeline, and Value before adding.");
+      alert("Please select a Phase name at least.");
     }
   };
 
@@ -451,15 +422,18 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
     }));
   };
 
+  // 2. Save Logic: Submit and CLEAR the whole form
   const handleSave = (e) => {
     e.preventDefault();
-    if (formData.phases.length === 0) {
-      alert("Please add at least one phase to the project!");
-      return;
-    }
-    console.log("Project Saved Successfully:", formData);
+    console.log("Project Saved:", formData);
+    setFormData(initialState);
     onClose();
   };
+
+  // Custom class for Dark Theme Calendar Icon visibility
+  const calendarIconClass = theme === "dark" 
+    ? "[&::-webkit-calendar-picker-indicator]:invert" 
+    : "";
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -476,7 +450,8 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
 
         <form onSubmit={handleSave} className="p-6 md:p-10 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {/* Project ID */}
+            
+            {/* Project ID - REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Project ID*</Label>
               <Input
@@ -488,7 +463,7 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               />
             </div>
 
-            {/* Client Name */}
+            {/* Client Name - REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Client Name*</Label>
               <Input
@@ -500,7 +475,7 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               />
             </div>
 
-            {/* Project Name */}
+            {/* Project Name - REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Project Name*</Label>
               <Input
@@ -512,18 +487,18 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               />
             </div>
 
-            {/* Total Timeline */}
+            {/* Total Timeline - NOT REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Total Timeline</Label>
               <Input
                 type="date"
                 value={formData.timeline}
-                className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
+                className={`py-5.5 rounded-xl border w-full ${calendarIconClass} ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
               />
             </div>
 
-            {/* Order ID */}
+            {/* Order ID - REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Order ID*</Label>
               <Input
@@ -535,14 +510,13 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               />
             </div>
 
-            {/* Select Team */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Select Team</Label>
-              <Select onValueChange={(v) => setFormData({ ...formData, team: v })}>
+              <Select value={formData.team} onValueChange={(v) => setFormData({ ...formData, team: v })}>
                 <SelectTrigger className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
                   <SelectValue placeholder="Select Team" />
                 </SelectTrigger>
-                <SelectContent className="mt-8">
+                <SelectContent className="mt-6">
                   <SelectItem value="UI/UX">UI/UX Design</SelectItem>
                   <SelectItem value="Dev">Frontend and Backend Development</SelectItem>
                   <SelectItem value="AI">AI Development</SelectItem>
@@ -554,7 +528,6 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               <Label className="text-sm font-normal tracking-wider">Total Value</Label>
               <Input
                 placeholder="Enter Total Value"
-                required
                 value={formData.totalValue}
                 className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}
                 onChange={(e) => setFormData({ ...formData, totalValue: e.target.value })}
@@ -563,11 +536,11 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
 
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Service Type</Label>
-              <Select onValueChange={(v) => setFormData({ ...formData, type: v })}>
+              <Select value={formData.type} onValueChange={(v) => setFormData({ ...formData, type: v })}>
                 <SelectTrigger className={`py-5.5 w-full rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
                   <SelectValue placeholder="Service Type" />
                 </SelectTrigger>
-                <SelectContent className="mt-8">
+                <SelectContent className="mt-6">
                   <SelectItem value="UI/UX">UI/UX Design</SelectItem>
                   <SelectItem value="Dev">Frontend and Backend Development</SelectItem>
                   <SelectItem value="AI">AI Development</SelectItem>
@@ -575,7 +548,7 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               </Select>
             </div>
 
-            {/* Phase Selection Logic */}
+            {/* Phase Section */}
             <div className="flex items-end justify-between gap-4 w-full">
               <div className="space-y-2 flex-1">
                 <Label className="text-sm font-normal tracking-wider">Phase</Label>
@@ -586,31 +559,29 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
                   <SelectTrigger className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
                     <SelectValue placeholder="Select Phase" />
                   </SelectTrigger>
-                  <SelectContent className="mt-8">
+                  <SelectContent className="mt-6">
                     <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
                     <SelectItem value="FullStack">FullStack Development</SelectItem>
                     <SelectItem value="AI Development">AI Development</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
-              {/* Plus Button Logic Added Here */}
               <button
                 type="button"
                 onClick={handleAddPhase}
-                className="p-3 bg-orange-50 dark:bg-[#111827] rounded-xl text-orange-500 mb-0.5 cursor-pointer hover:bg-orange-100 transition-all"
+                className="p-3 bg-orange-50 dark:bg-[#111827] rounded-xl text-orange-500 mb-0.5"
               >
                 <BadgePlus size={24} />
               </button>
             </div>
 
-            {/* Status */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Status</Label>
-              <Select onValueChange={(v) => setFormData({ ...formData, status: v })}>
+              <Select value={formData.status} onValueChange={(v) => setFormData({ ...formData, status: v })}>
                 <SelectTrigger className={`w-full py-5.5 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-transparent border-gray-200"}`}>
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
-                <SelectContent className="mt-8">
+                <SelectContent className="mt-6">
                   <SelectItem value="Active">Active</SelectItem>
                   <SelectItem value="Pending">Pending</SelectItem>
                   <SelectItem value="Completed">Completed</SelectItem>
@@ -618,17 +589,18 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
               </Select>
             </div>
 
-            {/* Phase Timeline */}
+            {/* Phase Timeline - NOT REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Phase Timeline</Label>
               <Input
                 type="date"
                 value={currentPhase.timeline}
-                className={`py-5.5 rounded-xl border w-full ${theme === "dark" ? "bg-[#111827] border-gray-800 text-white" : "bg-transparent border-gray-200"}`}
+                className={`py-5.5 rounded-xl border w-full ${calendarIconClass} ${theme === "dark" ? "bg-[#111827] border-gray-800 text-white" : "bg-transparent border-gray-200"}`}
                 onChange={(e) => setCurrentPhase({ ...currentPhase, timeline: e.target.value })}
               />
             </div>
 
+            {/* Phase Value - NOT REQUIRED */}
             <div className="space-y-2">
               <Label className="text-sm font-normal tracking-wider">Phase Value</Label>
               <Input
@@ -640,21 +612,18 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Added Phases List Display (Layout Safe) */}
+          {/* Added Phases List (Visual confirmation) */}
           {formData.phases.length > 0 && (
-            <div className="space-y-3">
-              <Label className="text-xs font-bold uppercase text-orange-500">Added Phases:</Label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {formData.phases.map((ph, index) => (
-                  <div key={index} className={`flex items-center justify-between p-3 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-gray-50 border-gray-100"}`}>
-                    <div className="text-xs">
-                      <p className="font-bold">{ph.name}</p>
-                      <p className="text-gray-400">{ph.timeline} | ${ph.value}</p>
-                    </div>
-                    <Trash2 size={16} className="text-red-400 cursor-pointer" onClick={() => removePhase(index)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {formData.phases.map((ph, index) => (
+                <div key={index} className={`flex items-center justify-between p-3 rounded-xl border ${theme === "dark" ? "bg-[#111827] border-gray-800" : "bg-gray-50 border-gray-100"}`}>
+                  <div className="text-xs">
+                    <p className="font-bold">{ph.name}</p>
+                    <p className="text-gray-400">{ph.timeline} | {ph.value}</p>
                   </div>
-                ))}
-              </div>
+                  <Trash2 size={16} className="text-red-400 cursor-pointer" onClick={() => removePhase(index)} />
+                </div>
+              ))}
             </div>
           )}
 
@@ -676,21 +645,6 @@ export default function ProjectCreateModal({ isOpen, onClose }) {
                 <p className="text-sm text-gray-400 mt-1">PDF, img, link (Max 50MB)</p>
               </div>
             </div>
-
-            {/* Uploaded Files Display */}
-            {formData.files.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                {formData.files.map((file, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 rounded-xl border border-gray-100/10 bg-gray-50/5">
-                    <div className="flex items-center gap-3">
-                      <FileText size={18} className="text-orange-500" />
-                      <span className="text-xs truncate max-w-[150px]">{file.name}</span>
-                    </div>
-                    <X size={16} className="cursor-pointer hover:text-red-500" onClick={() => removeFile(index)} />
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 border-t border-gray-100/10">
