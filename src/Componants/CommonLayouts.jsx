@@ -1,8 +1,12 @@
-import {  Outlet } from "react-router";
+import {  Navigate, Outlet, useLocation } from "react-router";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 const CommonLayouts = () => {
+  const location = useLocation();
+  if (location.pathname=="/todo"){
+    return<Navigate to="/todo/leader/mytask"/>
+  }
   return (
     <div className="flex mx-auto h-screen w-full  overflow-hidden">
       {/* =============== Common layout starts =============== */}
