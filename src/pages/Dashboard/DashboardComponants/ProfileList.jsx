@@ -29,9 +29,9 @@ const navigate = useNavigate()
         <h2 className="text-xl font-semibold">Profile List</h2>
           <button
         onClick={() => navigate(-1)}
-        className="mb-4 text-xs px-4 py-2 rounded-lg bg-gray-200 dark:bg-darkSecBG hover:shadow"
+        className="mb-4 text-xs px-4 py-2 rounded-lg bg-gray-200 dark:bg-darkSecBG hover:shadow  flex items-center text-sm  gap-1 "
       >
-        ← Back
+        ← <span>Back</span>
       </button>
       </div>
 
@@ -39,7 +39,7 @@ const navigate = useNavigate()
         {topProfiles.map((profile) => (
          <div>
           <Link to={`/profilelist/${profile.id}`} >
-          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] shadow shadow-orange-200 dark:shadow-teal-200 hover:shadow-lg hover:shadow-green-200 rounded-2xl duration-500 p-6">
+          <div key={profile.id} className=" border border-gray-200  dark:border-[#1F2937] shadow shadow-orange-200 dark:shadow-teal-200 hover:shadow-lg hover:scale-101 hover:shadow-green-200 rounded-2xl duration-500 p-6">
             {/* Header: Avatar & Name */}
             <div className="flex justify-between items-start mb-6">
              

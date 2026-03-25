@@ -42,11 +42,11 @@ const ProfileDetails = () => {
   });
 
   return (
-    <div className="p-4 md:p-8">
+    <div className="p-4 md:p-2">
 
       {/* 🔷 Main Card */}
-      <div className="border border-gray-200 dark:border-[#1F2937] 
-      rounded-2xl p-6 shadow hover:shadow-gray-400 duration-300">
+      <div className=" dark:border-[#1F2937] 
+      rounded-2xl p-2  hover:shadow-gray-400 duration-300">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
@@ -68,14 +68,14 @@ const ProfileDetails = () => {
         {/* 📊 Stats */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="p-3 md:text-xl md:p-8 bg-[#F6F6F6] shadow shadow-orange-300 dark:bg-darkSecBG rounded-xl">
-            <p className="text-[10px] uppercase">Total</p>
+            <p className="text-[10px] uppercase">Total Projects</p>
             <p className="font-bold">
               {profile.summary.total_projects}
             </p>
           </div>
 
           <div className="p-3 md:p-8 md:text-xl bg-[#F6F6F6] shadow shadow-green-300 dark:bg-darkSecBG rounded-xl">
-            <p className="text-[10px] uppercase">Active</p>
+            <p className="text-[10px] uppercase">Active Projects</p>
             <p className="font-bold text-orange-400">
               {profile.summary.active}
             </p>
@@ -125,12 +125,12 @@ const ProfileDetails = () => {
                   className="border-t border-gray-200 dark:border-[#1F2937]
                   hover:bg-gray-50 dark:hover:bg-[#111827] transition"
                 >
-                  <td className="p-3">{order.order_id}</td>
-                  <td className="p-3">{order.project_id}</td>
+                  <td className="pl-4">{order.order_id}</td>
+                  <td className="p-5">{order.project_id}</td>
                   <td className="p-3">${order.order_value}</td>
                   <td className="p-3">{order.service_line}</td>
                   <td className="p-3">{order.assigned_team}</td>
-                  <td className="p-3">
+                  <td className="p-1">
                     <span
                       className={`px-2 py-1 rounded-full text-xs ${
                         order.order_status === "Completed"
@@ -156,9 +156,9 @@ const ProfileDetails = () => {
             onClick={() => navigate(-1)}
             className="text-sm px-4 py-2 rounded-xl 
             bg-gray-200 dark:bg-darkSecBG 
-            hover:shadow-md transition"
+            hover:shadow-md transition flex items-center gap-1 text-sm"
           >
-            ← Back
+            ← <span >Back</span>
           </button>
         </div>
 
