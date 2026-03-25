@@ -25,6 +25,7 @@ import Leader from "./pages/TodoManagement/TodoComponants/Leader";
 import Member from "./pages/TodoManagement/TodoComponants/Member";
 import Mytask from "./pages/TodoManagement/TodoComponants/Mytask";
 import Assigntask from "./pages/TodoManagement/TodoComponants/Assigntask";
+import TaskDetails from "./pages/TodoManagement/TodoComponants/TaskDetails";
 
 const App = () => {
   return (
@@ -51,9 +52,10 @@ const App = () => {
                 element={<Assigntask />}
               ></Route>
             </Route>
-            <Route path="/todo/member" element={<Member></Member>}></Route>{" "}
+            <Route path="/todo/member" element={<Member></Member>}></Route>
           </Route>
 
+       
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />

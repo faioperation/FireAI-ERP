@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, ChevronDown, CheckCircle2, Clock, AlertTriangle } from 'lucide-react';
+import TaskDetails from './TaskDetails'; // TaskDetails file-er path-ti check kore nio
 
 // Shadcn UI Imports
 import {
@@ -13,26 +14,33 @@ import {
 import { Button } from "@/components/ui/button";
 
 const MY_TASK_DATA = [
-  { id: "PRJ-001", client: "Shahriar", task: "Operation Dashboard", deadline: "Mar 30, 2026", assignedBy: "Jihad", priority: "High", status: "in-progress" },
-  { id: "PRJ-002", client: "Tahira", task: "UI Refinement", deadline: "Apr 05, 2026", assignedBy: "Jihad", priority: "Medium", status: "pending" },
-  { id: "PRJ-003", client: "Mehedi", task: "API Integration", deadline: "Apr 10, 2026", assignedBy: "Shahriar", priority: "Low", status: "pending" }
+  { id: "PRJ-001", client: "Shahriar", task: "Operation Dashboard", deadline: "Mar 30, 2026", assignedBy: "Jihad", assignedTo: "Tahira", priority: "High", status: "in-progress", description: "Operation dashboard UI implementation", remarks: "N/A", assignedDate: "Mar 20, 2026" },
+  { id: "PRJ-002", client: "Tahira", task: "UI Refinement", deadline: "Apr 05, 2026", assignedBy: "Jihad", assignedTo: "Tahira", priority: "Medium", status: "pending", description: "Refining UI components", remarks: "N/A", assignedDate: "Mar 22, 2026" },
+  { id: "PRJ-003", client: "Mehedi", task: "API Integration", deadline: "Apr 10, 2026", assignedBy: "Shahriar", assignedTo: "Tahira", priority: "Low", status: "pending", description: "Backend API integration", remarks: "N/A", assignedDate: "Mar 25, 2026" }
 ];
 
 export default function Mytask() {
   const [tasks, setTasks] = useState(MY_TASK_DATA);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const updateTask = (id, field, value) => {
     setTasks(prev => prev.map(t => t.id === id ? { ...t, [field]: value } : t));
   };
 
-  // Priority styling logic (using your variables)
+  const handleViewTask = (task) => {
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+
+  // Priority styling logic
   const getPriorityStyle = (priority) => {
     if (priority === 'High') return 'bg-destructive/10 text-destructive border border-destructive/20';
     if (priority === 'Medium') return 'bg-textOrange/10 text-textOrange border border-textOrange/20';
     return 'bg-textTeal/10 text-textTeal border border-textTeal/20';
   };
 
-  // Status styling logic (using your variables)
+  // Status styling logic
   const getStatusStyle = (status) => {
     if (status === 'in-progress') return 'bg-textTeal/10 text-textTeal border border-textTeal/20';
     if (status === 'completed') return 'bg-textGreen/10 text-textGreen border border-textGreen/20';
@@ -107,7 +115,13 @@ export default function Mytask() {
               {/* Actions Cell */}
               <td className="px-6 py-6 action-cell">
                 <div className="flex items-center justify-center gap-3">
-                  <Button variant="outline" size="icon" className="h-9 w-9 rounded-lg border-border hover:text-textTeal hover:bg-textTeal/5 text-muted-foreground">
+                  {/* Link bad diye onClick handler add kora hoyeche */}
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={() => handleViewTask(item)}
+                    className="h-9 w-9 rounded-lg border-border hover:text-textTeal hover:bg-textTeal/5 text-muted-foreground"
+                  >
                     <Eye size={18} />
                   </Button>
                   
@@ -136,6 +150,13 @@ export default function Mytask() {
           ))}
         </tbody>
       </table>
+
+      {/* TaskDetails Modal-ti ekhane add kora hoyeche */}
+      <TaskDetails 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        taskData={selectedTask} 
+      />
     </div>
   );
 }
