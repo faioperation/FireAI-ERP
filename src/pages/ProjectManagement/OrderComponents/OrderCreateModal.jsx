@@ -105,13 +105,16 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
         ${theme === "dark" ? "bg-[#0B0F1A] text-white" : "bg-white text-gray-900"}
         [&::-webkit-scrollbar]:hidden`}
       >
-        <DialogHeader className="p-6 border-b border-gray-100/10">
+        <DialogHeader className="px-6 pb-4 pt-6  border-gray-100">
           <DialogTitle className="text-xl font-bold">
             Create New Project
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSave} className="p-6 md:p-10 space-y-8">
+        <form
+          onSubmit={handleSave}
+          className="px-6 pb-6 pt-0 md:px-10 space-y-5"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             {/* Project ID */}
             <div className="space-y-2">
@@ -185,7 +188,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Service Type</Label>
               <Input
-                placeholder="e.g. Website Application"
+                placeholder="Website Application"
                 value={formData.serviceType}
                 className={inputBaseClass}
                 onChange={(e) =>
@@ -337,7 +340,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Start Date</Label>
               <Input
-                type="datetime-local"
+                type="date"
                 className={`${inputBaseClass} ${calendarIconClass}`}
                 onChange={(e) =>
                   setFormData({ ...formData, startDate: e.target.value })
@@ -347,7 +350,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Deadline</Label>
               <Input
-                type="datetime-local"
+                type="date"
                 className={`${inputBaseClass} ${calendarIconClass}`}
                 onChange={(e) =>
                   setFormData({ ...formData, deadline: e.target.value })
@@ -401,16 +404,16 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
           </div>
 
           {/* Footer Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 border-t border-gray-100/10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className={`px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[180px] ${theme === "dark" ? "hover:bg-gray-800" : ""}`}
+              className={`px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[180px] ${theme === "dark" ? "bg-black text-[#00d2ff] border border-[#00d2ff]/30 hover:border-[#00d2ff] shadow-[0_0_15px_rgba(0,210,255,0.1)]" : ""}`}
             >
               Cancel
             </Button>
-            f
+
             <Button
               type="submit"
               variant="none"
