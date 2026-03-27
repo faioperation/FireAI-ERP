@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import DynamicButton from '@/SharedComponants/DynamicButton';
+import CreateTask from './CreateTask';
 
 const ASSIGN_TASK_DATA = [
   {
@@ -36,7 +37,7 @@ const ASSIGN_TASK_DATA = [
 
 export default function Assigntask({label}) {
   const [tasks, setTasks] = useState(ASSIGN_TASK_DATA);
-
+const [isModalOpen, setIsModalOpen] = useState(false);
   const updateTask = (id, field, value) => {
     setTasks(prev => prev.map((t, index) => index === id ? { ...t, [field]: value } : t));
   };
@@ -44,7 +45,9 @@ export default function Assigntask({label}) {
   return (
    <div>
     <div className='flex justify-end mb-8'>
-        <DynamicButton label='New Task'></DynamicButton>
+       <div onClick={() => setIsModalOpen(true)}>
+          <DynamicButton label='New Task' />
+        </div>
     </div>
      <div className="w-full bg-background dark:bg-darkBG rounded-[20px] shadow-sm border border-border overflow-x-auto transition-all duration-300">
       <table className="w-full text-left border-collapse min-w-[1000px]">
@@ -130,6 +133,13 @@ export default function Assigntask({label}) {
         </tbody>
       </table>
     </div>
+      {/* Render the Modal */}
+      <CreateTask 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
    </div>
+ 
+    
   );
 }
