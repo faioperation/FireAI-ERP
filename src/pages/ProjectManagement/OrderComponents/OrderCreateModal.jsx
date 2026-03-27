@@ -52,7 +52,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
   // Input styling based on theme
   const inputBaseClass = `py-5.5 rounded-xl border w-full transition-all outline-none ${
     theme === "dark"
-      ? "bg-[#111827] border-gray-800 text-white focus:border-orange-500 placeholder:text-gray-500"
+      ? "bg-[#111827] border-gray-800 text-white focus:border-[#00d2ff]/80 placeholder:text-gray-500"
       : "bg-white border-gray-200 text-gray-900 focus:border-orange-500 placeholder:text-gray-400"
   }`;
 
@@ -221,11 +221,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectTrigger className={inputBaseClass}>
                     <SelectValue placeholder="Select Phase" />
                   </SelectTrigger>
-                  <SelectContent
+                  <SelectContent 
                     className={
-                      theme === "dark"
+                     `${ theme === "dark"
                         ? "bg-[#111827] text-white border-gray-800"
-                        : ""
+                        : ""}`
                     }
                   >
                     <SelectItem value="Discovery">Discovery</SelectItem>
@@ -234,13 +234,13 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   </SelectContent>
                 </Select>
               </div>
-              <button
+              {/* <button
                 type="button"
                 onClick={handleAddPhase}
                 className="p-3.5 bg-orange-500/10 text-orange-500 rounded-xl hover:bg-orange-500 hover:text-white transition-all mb-0.5"
               >
                 <BadgePlus size={20} />
-              </button>
+              </button> */}
             </div>
 
             {/* Team Selection */}

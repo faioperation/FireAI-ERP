@@ -68,7 +68,7 @@ const DynamicOrderForm = () => {
                   placeholder="Order ID"
                   className={`w-full p-2.5 rounded-lg border outline-none transition ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 text-white focus:border-orange-500"
+                      ? "bg-gray-800 border-gray-700 text-white focus:border-[#00d2ff]/80"
                       : "bg-gray-50 border-gray-200 focus:border-orange-500"
                   }`}
                 />
@@ -84,7 +84,7 @@ const DynamicOrderForm = () => {
                   placeholder="Employ ID"
                   className={`w-full p-2.5 rounded-lg border outline-none transition ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 text-white focus:border-orange-500"
+                      ? "bg-gray-800 border-gray-700 text-white focus:border-[#00d2ff]/80"
                       : "bg-gray-50 border-gray-200 focus:border-orange-500"
                   }`}
                 />
@@ -100,7 +100,7 @@ const DynamicOrderForm = () => {
                   placeholder="Assign Value"
                   className={`w-full p-2.5 rounded-lg border outline-none transition ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 text-white focus:border-orange-500"
+                      ? "bg-gray-800 border-gray-700 text-white focus:border-[#00d2ff]/80"
                       : "bg-gray-50 border-gray-200 focus:border-orange-500"
                   }`}
                 />
@@ -114,7 +114,7 @@ const DynamicOrderForm = () => {
                 <select
                   className={`w-full p-2.5 rounded-lg border outline-none appearance-none transition ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 text-white focus:border-orange-500"
+                      ? "bg-gray-800 border-gray-700 text-white focus:border-[#00d2ff]/80"
                       : "bg-gray-50 border-gray-200 focus:border-orange-500"
                   }`}
                 >

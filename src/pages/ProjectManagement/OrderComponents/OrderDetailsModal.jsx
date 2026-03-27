@@ -32,7 +32,7 @@ const OrderDetailsModal = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={onClose}
-            className={`p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-500 transition-colors ${
+            className={`p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-[#00d2ff] transition-colors cursor-pointer ${
               isDark ? "text-gray-400" : "text-gray-400"
             }`}
           >
