@@ -26,6 +26,8 @@ import Member from "./pages/TodoManagement/TodoComponants/Member";
 import Mytask from "./pages/TodoManagement/TodoComponants/Mytask";
 import Assigntask from "./pages/TodoManagement/TodoComponants/Assigntask";
 import TaskDetails from "./pages/TodoManagement/TodoComponants/TaskDetails";
+import AsssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
+import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
 
 const App = () => {
   return (
@@ -52,7 +54,12 @@ const App = () => {
                 element={<Assigntask />}
               ></Route>
             </Route>
-            <Route path="/todo/member" element={<Member></Member>}></Route>
+            <Route path="/todo/member" element={<Member></Member>}>
+             <Route path="/todo/member/assignedtask" element={<AsssignedTask/>}></Route>
+              <Route
+                path="/todo/member/selfLearning"
+                element={<SelfLearning/>}
+              ></Route></Route>
           </Route>
 
        

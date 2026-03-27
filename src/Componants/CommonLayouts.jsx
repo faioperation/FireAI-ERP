@@ -4,8 +4,11 @@ import Sidebar from "./Sidebar";
 
 const CommonLayouts = () => {
   const location = useLocation();
-  if (location.pathname=="/todo"){
+  if ( location.pathname=="/todo/leader"){
     return<Navigate to="/todo/leader/mytask"/>
+  }
+  if ( location.pathname=="/todo/member"){
+    return<Navigate to="/todo/member/assignedtask"/>
   }
   return (
     <div className="flex mx-auto h-screen w-full  overflow-hidden">
