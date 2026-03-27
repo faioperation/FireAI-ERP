@@ -9,7 +9,7 @@ const OverviewDescription = () => {
         Add Overview Description
         <span className="text-red-500">*</span>
       </label>
-      <div className="border border-gray-200 dark:border-gray-200 rounded-xl bg-white dark:bg-gray-200 focus-within:ring-2  transition-all">
+      <div className="border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#0B1220] focus-within:ring-2  transition-all">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
