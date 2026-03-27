@@ -105,13 +105,16 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
         ${theme === "dark" ? "bg-[#0B0F1A] text-white" : "bg-white text-gray-900"}
         [&::-webkit-scrollbar]:hidden`}
       >
-        <DialogHeader className="p-6 border-b border-gray-100/10">
+        <DialogHeader className="px-6 pb-4 pt-6  border-gray-100">
           <DialogTitle className="text-xl font-bold">
             Create New Project
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSave} className="p-6 md:p-10 space-y-8">
+        <form
+          onSubmit={handleSave}
+          className="px-6 pb-6 pt-0 md:px-10 space-y-5"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             {/* Project ID */}
             <div className="space-y-2">
@@ -185,7 +188,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Service Type</Label>
               <Input
-                placeholder="e.g. Website Application"
+                placeholder="Website Application"
                 value={formData.serviceType}
                 className={inputBaseClass}
                 onChange={(e) =>
@@ -221,12 +224,12 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectTrigger className={inputBaseClass}>
                     <SelectValue placeholder="Select Phase" />
                   </SelectTrigger>
-                  <SelectContent 
-                    className={
-                     `${ theme === "dark"
+                  <SelectContent
+                    className={`mt-6 ${
+                      theme === "dark"
                         ? "bg-[#111827] text-white border-gray-800"
-                        : ""}`
-                    }
+                        : ""
+                    }`}
                   >
                     <SelectItem value="Discovery">Discovery</SelectItem>
                     <SelectItem value="Design">UI/UX Design</SelectItem>
@@ -253,11 +256,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Team" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Team A">Team AI Weavers</SelectItem>
                   <SelectItem value="Team B">System Saviors</SelectItem>
@@ -275,11 +278,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Member" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Member 1">Member 1</SelectItem>
                   <SelectItem value="Member 2">Member 2</SelectItem>
@@ -297,11 +300,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Priority" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="High">High</SelectItem>
                   <SelectItem value="Medium">Medium</SelectItem>
@@ -320,11 +323,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Status" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Active">Active</SelectItem>
                   <SelectItem value="Pending">Pending</SelectItem>
@@ -337,7 +340,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Start Date</Label>
               <Input
-                type="datetime-local"
+                type="date"
                 className={`${inputBaseClass} ${calendarIconClass}`}
                 onChange={(e) =>
                   setFormData({ ...formData, startDate: e.target.value })
@@ -347,7 +350,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div className="space-y-2">
               <Label className="text-sm opacity-70">Deadline</Label>
               <Input
-                type="datetime-local"
+                type="date"
                 className={`${inputBaseClass} ${calendarIconClass}`}
                 onChange={(e) =>
                   setFormData({ ...formData, deadline: e.target.value })
@@ -401,18 +404,25 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
           </div>
 
           {/* Footer Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 border-t border-gray-100/10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className={`px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[180px] ${theme === "dark" ? "hover:bg-gray-800" : ""}`}
+              className={`px-12 py-5.5 rounded-xl font-bold border-gray-300 w-full sm:w-[180px] ${theme === "dark" ? "bg-black text-[#00d2ff] border border-[#00d2ff]/30 hover:border-[#00d2ff] shadow-[0_0_15px_rgba(0,210,255,0.1)]" : ""}`}
             >
               Cancel
             </Button>
+
             <Button
               type="submit"
-              className="px-12 py-5.5 rounded-xl bg-[#F97316] hover:bg-orange-600 text-white font-bold w-full sm:w-[180px] shadow-lg shadow-orange-500/20"
+              variant="none"
+              className={`px-12 py-5.5 rounded-xl font-bold w-full sm:w-[180px] transition-all ${
+                theme === "dark"
+                  ? "bg-black text-[#00d2ff] border border-[#00d2ff]/30 hover:border-[#00d2ff] shadow-[0_0_15px_rgba(0,210,255,0.1)]"
+                  : "bg-[#F97316] text-white hover:bg-orange-600 shadow-lg shadow-orange-500/20"
+              } 
+  `}
             >
               Create Project
             </Button>
