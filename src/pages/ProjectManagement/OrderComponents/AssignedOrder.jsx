@@ -1,6 +1,7 @@
+import { ThemeContext } from "@/Componants/Themes/ThemeContext";
 import Heading from "@/SharedComponants/Heading";
 import SearchBar from "@/SharedComponants/SearchBar";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const orders = [
   { id: "ORD-001", employeeId: "EMP-762", value: "$500", status: "WIP" },
@@ -10,6 +11,7 @@ const orders = [
 ];
 
 export default function AssignedOrder() {
+    const { theme } = useContext(ThemeContext);
   const [search, setSearch] = useState("");
 
 
@@ -35,7 +37,7 @@ export default function AssignedOrder() {
 
       <div className="border border-gray-200 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="text-gray-500 bg-gray-50/50">
+          <thead className="text-gray-500 ">
             {" "}
          
             <tr>
@@ -52,7 +54,7 @@ export default function AssignedOrder() {
               filtered.map((order, i) => (
                 <tr
                   key={i}
-                  className="border-t border-gray-100 hover:bg-gray-50 transition-colors"
+                  className={`border-t border-gray-200 transition-colors ${theme === "dark" ? "hover:bg-[#00d2ff]/80" : "hover:bg-orange-50"}`}
                 >
                   <td className="px-5 py-4">{order.id}</td>
                   <td className="px-5 py-4">{order.employeeId}</td>
