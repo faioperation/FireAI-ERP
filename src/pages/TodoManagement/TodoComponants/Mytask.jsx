@@ -50,67 +50,68 @@ export default function Mytask() {
   return (
     <div className="w-full bg-background dark:bg-darkBG rounded-[20px] shadow-sm border border-border overflow-x-auto overflow-y-visible transition-all duration-300">
       <table className="w-full text-left border-collapse min-w-[900px]">
-        <thead>
-          <tr className="border-b border-border bg-muted/20 dark:bg-darkBG">
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest">Project ID</th>
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest">Client</th>
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest">Task</th>
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Priority</th>
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Status</th>
-            <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Actions</th>
-          </tr>
-        </thead>
-
-        <tbody className="divide-y divide-border/50">
-          {tasks.map((item) => (
-            <tr key={item.id} className="hover:bg-accent/30 dark:hover:bg-darkSecBG/20 transition-colors group">
-              <td className="px-6 py-6 text-[14px] text-muted-foreground group-hover:text-foreground">{item.id}</td>
-              <td className="px-6 py-6 text-[14px] font-medium text-foreground">{item.client}</td>
-              <td className="px-6 py-6 text-[14px] text-lightSecText dark:text-darkSecText leading-tight max-w-[200px] truncate">{item.task}</td>
-
-              {/* Priority Cell */}
-              <td className="px-6 py-6 text-center">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className={`inline-flex items-center justify-between px-4 py-2 rounded-lg text-[12px] font-bold min-w-[110px] h-9 gap-1
-                      ${getPriorityStyle(item.priority)}`}>
-                      {item.priority}
-                      <ChevronDown size={14} className="opacity-70" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-32 bg-card rounded-xl shadow-xl">
-                    <DropdownMenuLabel className="text-[11px] text-muted-foreground font-bold uppercase tracking-wide">Set Priority</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    {['High', 'Medium', 'Low'].map(p => (
-                      <DropdownMenuItem key={p} onClick={() => updateTask(item.id, 'priority', p)} className="text-[13px] font-medium py-2.5">
-                        {p}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </td>
-
-              {/* Status Cell */}
-              <td className="px-6 py-6 text-center">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className={`inline-flex items-center justify-between px-4 py-2 rounded-lg text-[12px] font-bold min-w-[125px] h-9 gap-1
-                      ${getStatusStyle(item.status)} capitalize`}>
-                      {item.status}
-                      <ChevronDown size={14} className="opacity-70" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-40 bg-card rounded-xl shadow-xl">
-                    <DropdownMenuLabel className="text-[11px] text-muted-foreground font-bold uppercase tracking-wide">Update Status</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    {['pending', 'in-progress', 'completed'].map(s => (
-                      <DropdownMenuItem key={s} onClick={() => updateTask(item.id, 'status', s)} className="text-[13px] font-medium py-2.5 capitalize">
-                        {s}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </td>
+            <thead>
+                 <tr className="border-b border-border bg-muted/20 dark:bg-darkBG">
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Project ID</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Client Name</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Task Name</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Deadline</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Assigned By</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-nowrap">Assigned To</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Priority</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Status</th>
+                   <th className="px-6 py-5 text-[11px] font-bold text-muted-foreground dark:text-darkSecText uppercase tracking-widest text-center">Actions</th>
+                 </tr>
+               </thead>
+       
+               <tbody className="divide-y divide-border/50">
+                 {tasks.map((item, idx) => (
+                   <tr key={idx} className="hover:bg-accent/30 dark:hover:bg-darkSecBG/20 transition-colors group">
+                     <td className="px-6 py-8 text-[14px] font-medium text-foreground">{item.id}</td>
+                     <td className="px-6 py-8 text-[14px] text-foreground">{item.client}</td>
+                     <td className="px-6 py-8 text-[14px] text-muted-foreground leading-tight max-w-[180px]">
+                       {item.task}
+                     </td>
+                     <td className="px-6 py-8 text-[14px] text-foreground">{item.deadline}</td>
+                     <td className="px-6 py-8 text-[14px] text-foreground">{item.assignedBy}</td>
+                     <td className="px-6 py-8 text-[14px] text-foreground">{item.assignedTo}</td>
+                     
+                     {/* Priority Dropdown */}
+                     <td className="px-6 py-8 text-center">
+                       <DropdownMenu>
+                         <DropdownMenuTrigger asChild>
+                           <Button variant="ghost" className={`inline-flex items-center justify-center px-6 py-2 rounded-lg text-[12px] font-bold min-w-[100px] h-9 gap-1
+                             ${item.priority === 'High' ? 'bg-[#fa3636] text-white hover:bg-[#f32d0a]' : 'bg-textOrange text-white'}`}>
+                             {item.priority}
+                           </Button>
+                         </DropdownMenuTrigger>
+                         <DropdownMenuContent align="center" className="bg-card">
+                           {['High', 'Medium', 'Low'].map(p => (
+                             <DropdownMenuItem key={p} onClick={() => updateTask(idx, 'priority', p)}>
+                               {p}
+                             </DropdownMenuItem>
+                           ))}
+                         </DropdownMenuContent>
+                       </DropdownMenu>
+                     </td>
+       
+                     {/* Status Dropdown */}
+                     <td className="px-6 py-8 text-center">
+                       <DropdownMenu>
+                         <DropdownMenuTrigger asChild>
+                           <Button variant="ghost" className="inline-flex items-center justify-center px-6 py-2 rounded-lg text-[12px] font-bold min-w-[120px] h-9 bg-[#3B82F6] text-white hover:bg-[#2563EB]">
+                             {item.status}
+                           </Button>
+                         </DropdownMenuTrigger>
+                         <DropdownMenuContent align="center" className="bg-card">
+                           {['pending', 'in-progress', 'completed'].map(s => (
+                             <DropdownMenuItem key={s} onClick={() => updateTask(idx, 'status', s)} className="capitalize">
+                               {s}
+                             </DropdownMenuItem>
+                           ))}
+                         </DropdownMenuContent>
+                       </DropdownMenu>
+                     </td>
 
               {/* Actions Cell */}
               <td className="px-6 py-6 action-cell">
