@@ -221,12 +221,12 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectTrigger className={inputBaseClass}>
                     <SelectValue placeholder="Select Phase" />
                   </SelectTrigger>
-                  <SelectContent 
-                    className={
-                     `${ theme === "dark"
+                  <SelectContent
+                    className={`mt-6 ${
+                      theme === "dark"
                         ? "bg-[#111827] text-white border-gray-800"
-                        : ""}`
-                    }
+                        : ""
+                    }`}
                   >
                     <SelectItem value="Discovery">Discovery</SelectItem>
                     <SelectItem value="Design">UI/UX Design</SelectItem>
@@ -253,11 +253,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Team" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Team A">Team AI Weavers</SelectItem>
                   <SelectItem value="Team B">System Saviors</SelectItem>
@@ -275,11 +275,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Member" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Member 1">Member 1</SelectItem>
                   <SelectItem value="Member 2">Member 2</SelectItem>
@@ -297,11 +297,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Priority" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="High">High</SelectItem>
                   <SelectItem value="Medium">Medium</SelectItem>
@@ -320,11 +320,11 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
                   <SelectValue placeholder="Select Status" />
                 </SelectTrigger>
                 <SelectContent
-                  className={
+                  className={`mt-6 ${
                     theme === "dark"
                       ? "bg-[#111827] text-white border-gray-800"
                       : ""
-                  }
+                  }`}
                 >
                   <SelectItem value="Active">Active</SelectItem>
                   <SelectItem value="Pending">Pending</SelectItem>
@@ -410,9 +410,16 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             >
               Cancel
             </Button>
+            f
             <Button
               type="submit"
-              className="px-12 py-5.5 rounded-xl bg-[#F97316] hover:bg-orange-600 text-white font-bold w-full sm:w-[180px] shadow-lg shadow-orange-500/20"
+              variant="none"
+              className={`px-12 py-5.5 rounded-xl font-bold w-full sm:w-[180px] transition-all ${
+                theme === "dark"
+                  ? "bg-black text-[#00d2ff] border border-[#00d2ff]/30 hover:border-[#00d2ff] shadow-[0_0_15px_rgba(0,210,255,0.1)]"
+                  : "bg-[#F97316] text-white hover:bg-orange-600 shadow-lg shadow-orange-500/20"
+              } 
+  `}
             >
               Create Project
             </Button>
