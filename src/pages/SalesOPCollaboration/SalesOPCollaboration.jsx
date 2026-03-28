@@ -1,6 +1,10 @@
+import Meeting from "./SalesOPCollaborationComponents/Meeting"
+
 const SalesOPCollaboration = () => {
   return (
-    <div>SalesOPCollaboration</div>
+    <>
+    <Meeting/>
+    </>
   )
 }
 
