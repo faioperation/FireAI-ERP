@@ -29,6 +29,7 @@ import TaskDetails from "./pages/TodoManagement/TodoComponants/TaskDetails";
 import AsssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
 import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
+import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
           </Route>
+          <Route path="/tasktracker" element={<TaskTracker/>} />
 
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />

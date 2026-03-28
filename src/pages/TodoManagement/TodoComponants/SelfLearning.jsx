@@ -15,7 +15,7 @@ const SelfLearning = () => {
             
             <div className="space-y-4 sm:space-y-5">
               <div className="space-y-2">
-                <label className="text-[13px] sm:text-sm font-bold text-foreground/80 ml-1">Learning Note *</label>
+                <label className="text-[13px] sm:text-sm font-bold text-foreground/80 ml-1">Learning Note *</label>    
                 <textarea 
                   placeholder="What did you learn today?" 
                   className="w-full h-24 sm:h-32 p-4 rounded-xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:outline-none focus:ring-2 focus:ring-orange-500/50 dark:focus:ring-teal-400/50 transition-all text-[14px] sm:text-[15px] text-foreground placeholder:text-muted-foreground/50"

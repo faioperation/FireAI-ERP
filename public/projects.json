@@ -1,0 +1,89 @@
+[
+  {
+    "order_id": 1,
+    "project_id": "PRJ-001",
+    "project_name": "E-commerce Platform Redesign",
+    "company": "TechMart Inc",
+    "category": "Website Application",
+    "current_phase": "UI/UX Design Phase",
+    "description": "The redesign includes a simplified navigation system, improved product pages, a streamlined checkout process, and a responsive layout optimized for both desktop and mobile devices. User-centered design principles and usability testing were applied to ensure the platform meets customer needs and reduces friction during the shopping journey.",
+    "metrics": [
+      {
+        "label": "Deadline",
+        "value": "Mar 30, 2026",
+        "icon_type": "calendar"
+      },
+      {
+       
+        "label": "Total Budget",
+        "value": "$85K",
+        "icon_type": "budget"
+      },
+      {
+      
+        "label": "Phase Cost",
+        "value": "$55K",
+        "icon_type": "cost"
+      }
+    ],
+    "assign_member_count": 3
+  },
+  {
+    "order_id": 2,
+    "project_id": "PRJ-002",
+    "project_name": "Quantum AI 2.0 Dashboard",
+    "company": "NextGen Solutions",
+    "category": "Admin Panel",
+    "current_phase": "Development Phase",
+    "description": "Building a high-performance admin dashboard with real-time analytics, modular React components, and a fully responsive interface using Tailwind CSS. The focus is on data visualization and seamless user experience for operations management.",
+    "metrics": [
+      {
+        
+        "label": "Deadline",
+        "value": "May 15, 2026",
+        "icon_type": "calendar"
+      },
+      {
+        "label": "Total Budget",
+        "value": "$120K",
+        "icon_type": "budget"
+      },
+      {
+        
+        "label": "Phase Cost",
+        "value": "$40K",
+        "icon_type": "cost"
+      }
+    ],
+    "assign_member_count": 5
+  },
+  {
+    "order_id": 3,
+    "project_id": "PRJ-003",
+    "project_name": "Mobile Banking Security Update",
+    "company": "SecureBank Ltd",
+    "category": "Mobile Application",
+    "current_phase": "Security Audit",
+    "description": "Enhancing the security framework of the mobile banking app with biometric authentication, end-to-end encryption, and multi-factor authorization. This phase focuses on identifying vulnerabilities and implementing patches to ensure user data protection.",
+    "metrics": [
+      {
+        "label": "Deadline",
+        "value": "June 10, 2026",
+        "icon_type": "calendar"
+      },
+      {
+       
+        "label": "Total Budget",
+        "value": "$200K",
+        "icon_type": "budget"
+      },
+      {
+        
+        "label": "Phase Cost",
+        "value": "$75K",
+        "icon_type": "cost"
+      }
+    ],
+    "assign_member_count": 8
+  }
+]
