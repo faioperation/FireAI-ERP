@@ -31,6 +31,7 @@ import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import MeetingDetails from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingDetails";
 import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingList";
 
+import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 
 const App = () => {
   return (
@@ -65,6 +66,7 @@ const App = () => {
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
           </Route>
+          <Route path="/tasktracker" element={<TaskTracker/>} />
 
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
