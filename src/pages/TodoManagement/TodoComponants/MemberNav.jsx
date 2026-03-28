@@ -7,7 +7,7 @@ export default function MemberNav() {
       <ul className="flex  gap-6 md:gap-10  my-8">
         <li>
           <NavLink
-            to="/todo/member/assignedtask"
+            to="assignedtask"
             className={({ isActive }) => (isActive ? "text-orange-400 dark:text-teal-300 underline underline-offset-6  " : "")}
           >
            Assigned Task
@@ -15,7 +15,7 @@ export default function MemberNav() {
         </li>
         <li>
           <NavLink
-            to="/todo/member/selflearning"
+            to="selflearning"
             className={({ isActive }) => (isActive ? "text-orange-400 underline underline-offset-6  dark:text-teal-300" : "")}
           >
             Self Learning

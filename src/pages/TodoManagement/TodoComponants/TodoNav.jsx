@@ -7,7 +7,8 @@ export default function TodoNav() {
       <ul className="flex  gap-6 md:gap-10  my-8">
         <li>
           <NavLink
-            to="/todo/leader"
+            to="/todo"
+            end
             className={({ isActive }) => (isActive ? "text-orange-400 dark:text-teal-300 underline underline-offset-6  " : "")}
           >
             Leader
@@ -15,7 +16,7 @@ export default function TodoNav() {
         </li>
         <li>
           <NavLink
-            to="/todo/member"
+            to="member"
             className={({ isActive }) => (isActive ? "text-orange-400 underline underline-offset-6  dark:text-teal-300" : "")}
           >
             Member

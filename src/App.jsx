@@ -47,22 +47,21 @@ const App = () => {
           <Route path="/order-value" element={<DynamicOrderForm />} />
           <Route path="/assign-order" element={<AssignedOrder />} />
           <Route path="/todo" element={<TodoManagement />}>
-            <Route path="/todo/leader" element={<Leader></Leader>}>
-              <Route path="/todo/leader/mytask" element={<Mytask />}></Route>
-              <Route
-                path="/todo/leader/assigntask"
-                element={<Assigntask />}
-              ></Route>
+            <Route element={<Leader />}>
+              <Route index element={<Mytask />} />{" "}
+              {/* Default sub-page: /todo */}
+              <Route path="mytask" element={<Mytask />} /> {/* /todo/mytask */}
+              <Route path="assigntask" element={<Assigntask />} />{" "}
+              {/* /todo/assigntask */}
             </Route>
-            <Route path="/todo/member" element={<Member></Member>}>
-             <Route path="/todo/member/assignedtask" element={<AsssignedTask/>}></Route>
-              <Route
-                path="/todo/member/selfLearning"
-                element={<SelfLearning/>}
-              ></Route></Route>
+
+            {/* Member section-er jonno alada nesting */}
+            <Route path="member" element={<Member />}>
+              <Route path="assignedtask" element={<AsssignedTask />} />
+              <Route path="selfLearning" element={<SelfLearning />} />
+            </Route>
           </Route>
 
-       
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />

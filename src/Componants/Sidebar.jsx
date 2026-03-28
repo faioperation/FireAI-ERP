@@ -204,6 +204,7 @@ export default function Sidebar() {
                       </span>
                     )}
                   </button>
+                  
 
                   {/* Tooltip for Mobile and Collapsed/Active View */}
                   {(isCollapsed || isActive) && (
