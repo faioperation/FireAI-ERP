@@ -31,7 +31,7 @@ const ASSIGN_TASK_DATA = [
     assignedBy: "Jihad",
     assignedTo: "Dipti",
     priority: "High",
-    status: "in-progress",
+    status: "Pending",
   },
   {
     id: "PRJ-001",
@@ -41,7 +41,7 @@ const ASSIGN_TASK_DATA = [
     assignedBy: "Jihad",
     assignedTo: "Dipti",
     priority: "High",
-    status: "in-progress",
+    status: "Pending",
   },
 ];
 
@@ -52,7 +52,15 @@ export default function Assigntask({ label }) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
-  const [editingTask, setEditingTask] = useState(null);
+  const [editingTask, setEditingTask] = useState(null); 
+  const getStatusColor = (status) => {
+  const colors = {
+    'Pending': 'bg-orange-500 hover:bg-orange-600',
+    'WIP': 'bg-blue-500 hover:bg-blue-600',
+    'Completed': 'bg-green-500 hover:bg-green-600',
+  };
+  return colors[status] || 'bg-gray-500';
+};
 
   // Edit button click korle call hobe
   const handleEditClick = (task) => {
@@ -196,13 +204,14 @@ export default function Assigntask({ label }) {
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="inline-flex items-center justify-center px-6 py-2 rounded-lg text-[12px] font-bold min-w-[120px] h-9 bg-[#3B82F6] text-white hover:bg-[#2563EB]"
+                        className={`inline-flex items-center justify-center px-6 py-2 rounded-lg text-[12px] font-bold min-w-[120px] h-9 ... ${getStatusColor(item.status)}`}
+                       
                       >
                         {item.status}
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="center" className="bg-card">
-                      {["pending", "in-progress", "completed"].map((s) => (
+                      {["Pending", "WIP", "Completed"].map((s) => (
                         <DropdownMenuItem
                           key={s}
                           onClick={() => updateTask(idx, "status", s)}

@@ -28,6 +28,7 @@ import Assigntask from "./pages/TodoManagement/TodoComponants/Assigntask";
 import TaskDetails from "./pages/TodoManagement/TodoComponants/TaskDetails";
 import AsssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
+import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
 
             {/* Member section-er jonno alada nesting */}
             <Route path="member" element={<Member />}>
+             <Route index element={<AssignedTask/>} />{" "}
               <Route path="assignedtask" element={<AsssignedTask />} />
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
