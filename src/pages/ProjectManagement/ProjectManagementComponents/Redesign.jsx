@@ -1,13 +1,29 @@
-
+import { ThemeContext } from "@/Componants/Themes/ThemeContext";
 import { ArrowLeft } from "lucide-react";
+import { useContext } from "react";
+import { useNavigate } from "react-router";
 
 export default function Redesign() {
+  const { theme } = useContext(ThemeContext);
+  const isDark = theme === "dark";
+  const navigate = useNavigate();
 
   return (
     <div>
       {/* Back */}
-      <button className="flex items-center gap-2 text-gray-600 dark:text-gray-300 mb-4">
-        <ArrowLeft size={18} /> Back to Projects
+      {/* <button className="flex items-center gap-2 text-gray-600 dark:text-gray-300 mb-4">
+        <ArrowLeft size={18} /> 
+      </button> */}
+      <button
+        onClick={() => navigate("/project")}
+        className={`flex items-center gap-2 text-sm mb-5 cursor-pointer transition-colors ${
+          isDark
+            ? "text-gray-400 hover:text-white"
+            : "text-gray-500 hover:text-gray-800"
+        }`}
+      >
+        <ArrowLeft size={16} />
+        <span>Back to Projects</span>
       </button>
 
       {/* Card */}
@@ -41,11 +57,11 @@ export default function Redesign() {
 
         {/* Description */}
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-          The redesign includes a simplified navigation system, improved product pages,
-          a streamlined checkout process, and a responsive layout optimized for both
-          desktop and mobile devices. User-centered design principles and usability
-          testing were applied to ensure the platform meets customer needs and reduces
-          friction during the shopping journey.
+          The redesign includes a simplified navigation system, improved product
+          pages, a streamlined checkout process, and a responsive layout
+          optimized for both desktop and mobile devices. User-centered design
+          principles and usability testing were applied to ensure the platform
+          meets customer needs and reduces friction during the shopping journey.
         </p>
 
         {/* Info Cards */}
