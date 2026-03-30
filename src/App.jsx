@@ -30,6 +30,8 @@ import AsssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
 import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
+import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
+import Message from "./pages/TodoManagement/TaskTracker/message";
 
 const App = () => {
   return (
@@ -63,8 +65,13 @@ const App = () => {
               <Route path="assignedtask" element={<AsssignedTask />} />
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
-          </Route>
-          <Route path="/tasktracker" element={<TaskTracker/>} />
+          </Route>6
+          <Route path="/tasktracker" element={<TaskTracker/>} >
+          <Route index element={<TaskList/>} />{" "}
+              {/* Default sub-page: /todo */}
+              <Route path="tasklist" element={<TaskList/>} /> {/* /todo/mytask */}
+              <Route path="message" element={<Message/>} />{" "}
+              {/* /todo/assigntask */}</Route>
 
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />
