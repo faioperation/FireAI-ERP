@@ -185,7 +185,7 @@ export default function Mytask() {
                     {["High", "Medium", "Low"].map((p) => (
                       <DropdownMenuItem
                         key={p}
-                        onClick={() => updateTask(item.id, "priority", p)} // Ekhane 'idx' er bodole 'item.id' hobe
+                        onClick={() => updateTask(item.id, "priority", p)}
                       >
                         {p}
                       </DropdownMenuItem>

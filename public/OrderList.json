@@ -1,5 +1,4 @@
-{
-  "order_list": [
+ [
     {
       "id": 1,
       "project_id": "PRJ-001",
@@ -22,4 +21,3 @@
       "status": "Completed"
     }
   ]
-}
