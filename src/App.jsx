@@ -4,7 +4,6 @@
 // import { useContext } from "react"
 
 import { Routes, Route } from "react-router";
-
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CommonLayouts from "./Componants/CommonLayouts";
 import { ThemeProvider } from "./Componants/Themes/ThemeProvider";
@@ -29,6 +28,9 @@ import TaskDetails from "./pages/TodoManagement/TodoComponants/TaskDetails";
 import AsssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
 import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
+import MeetingDetails from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingDetails";
+import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingList";
+
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
 import Message from "./pages/TodoManagement/TaskTracker/message";
@@ -79,6 +81,7 @@ const App = () => {
           <Route path="/addtaskmodule" element={<AddModule />} />
           <Route path="/addmessage" element={<AddMessage/>} />
           <Route path="/sales" element={<SalesOPCollaboration />} />
+          <Route path="/meeting/:id" element={<MeetingDetails />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
