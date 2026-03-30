@@ -33,6 +33,11 @@ import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationCompon
 import NoticePage from "./pages/SalesOPCollaboration/NoticePage"; 
 import NoticeApproval from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/NoticeApproval";
 
+import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
+import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
+import Message from "./pages/TodoManagement/TaskTracker/message";
+import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
+import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
 
 const App = () => {
   return (
@@ -45,7 +50,6 @@ const App = () => {
             element={<ProfileList></ProfileList>}
           ></Route>
           <Route path="/profilelist/:id" element={<ProfileDetails />}></Route>
-
           <Route path="/project" element={<ProjectManagement />} />
           <Route path="/project/view" element={<ProjectView />} />
           <Route path="/order" element={<Order />} />
@@ -67,7 +71,17 @@ const App = () => {
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
           </Route>
-
+          6
+          <Route path="/tasktracker" element={<TaskTracker />}>
+            <Route index element={<TaskList />} />{" "}
+            {/* Default sub-page: /todo */}
+            <Route path="tasklist" element={<TaskList />} />{" "}
+            {/* /todo/mytask */}
+            <Route path="message" element={<Message />} />{" "}
+            {/* /todo/assigntask */}
+          </Route>
+          <Route path="/addtaskmodule" element={<AddModule />} />
+          <Route path="/addmessage" element={<AddMessage/>} />
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
           <Route path="/notice" element={<NoticePage />} />
