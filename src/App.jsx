@@ -32,6 +32,8 @@ import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
 import Message from "./pages/TodoManagement/TaskTracker/message";
+import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
+import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
 
 const App = () => {
   return (
@@ -44,7 +46,6 @@ const App = () => {
             element={<ProfileList></ProfileList>}
           ></Route>
           <Route path="/profilelist/:id" element={<ProfileDetails />}></Route>
-
           <Route path="/project" element={<ProjectManagement />} />
           <Route path="/project/view" element={<ProjectView />} />
           <Route path="/order" element={<Order />} />
@@ -61,18 +62,22 @@ const App = () => {
 
             {/* Member section-er jonno alada nesting */}
             <Route path="member" element={<Member />}>
-             <Route index element={<AssignedTask/>} />{" "}
+              <Route index element={<AssignedTask />} />{" "}
               <Route path="assignedtask" element={<AsssignedTask />} />
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
-          </Route>6
-          <Route path="/tasktracker" element={<TaskTracker/>} >
-          <Route index element={<TaskList/>} />{" "}
-              {/* Default sub-page: /todo */}
-              <Route path="tasklist" element={<TaskList/>} /> {/* /todo/mytask */}
-              <Route path="message" element={<Message/>} />{" "}
-              {/* /todo/assigntask */}</Route>
-
+          </Route>
+          6
+          <Route path="/tasktracker" element={<TaskTracker />}>
+            <Route index element={<TaskList />} />{" "}
+            {/* Default sub-page: /todo */}
+            <Route path="tasklist" element={<TaskList />} />{" "}
+            {/* /todo/mytask */}
+            <Route path="message" element={<Message />} />{" "}
+            {/* /todo/assigntask */}
+          </Route>
+          <Route path="/addtaskmodule" element={<AddModule />} />
+          <Route path="/addmessage" element={<AddMessage/>} />
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />

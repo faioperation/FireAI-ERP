@@ -1,6 +1,7 @@
 import React from 'react';
 import { Plus, MoreVertical, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router';
 
 const Message = () => {
   // Image (download 13.png) onusare dummy data
@@ -24,7 +25,7 @@ const Message = () => {
       {/* Top Header Action */}
       <div className="flex flex-col sm:flex-row justify-end items-center gap-4">
         <Button className="w-full sm:w-auto bg-orange-400 hover:bg-orange-500 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-black py-6 px-8 rounded-2xl shadow-lg shadow-orange-500/20 dark:shadow-teal-500/20 transition-all active:scale-95">
-          <Plus className="mr-2 h-5 w-5 stroke-[3px]" /> Add Message
+          <Plus className="mr-2 h-5 w-5 stroke-[3px]" /> <Link to="/addmessage"> Add Message </Link> 
         </Button>
       </div>
 
@@ -44,7 +45,7 @@ const Message = () => {
                   </th>
                 ))}
               </tr>
-            </thead>
+            </thead> 
             <tbody className="divide-y divide-border/50">
               {messages.map((msg, idx) => (
                 <tr key={idx} className="hover:bg-muted/10 dark:hover:bg-muted/5 transition-colors group">
