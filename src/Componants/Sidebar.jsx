@@ -116,21 +116,51 @@ export default function Sidebar() {
     }
   };
 
+  // const handleChildClick = (child, parentId) => {
+  //   const childLabel = typeof child === "string" ? child : child.label;
+  //   setActiveChild(childLabel);
+
+  //   if (parentId === "project") {
+  //     if (childLabel === "Project") navigate("/project");
+  //     else if (childLabel === "Order") navigate("/order");
+  //     else if (childLabel === "Assigned Order") navigate("/assign-order");
+  //   } else {
+  //     navigate(`/${parentId}`);
+  //   }
+
+  //   if (window.innerWidth < 1024) {
+  //     setIsMobileOpen(false);
+  //   }
+  // };
+
   const handleChildClick = (child, parentId) => {
     const childLabel = typeof child === "string" ? child : child.label;
     setActiveChild(childLabel);
+
+    // চাইল্ড লেবেল অনুযায়ী পাথ ডিক্লেয়ার করুন
+    const routeMap = {
+      "Task-Tracker": "/task-tracker",
+      Notice: "/notice",
+      Message: "/message",
+      "Sit plan": "/sit-plan",
+      "Daily To-do": "/todo",
+      Management: "/diagram",
+      "Team Management": "/workforce",
+      "Employee Management": "/workforce",
+    };
 
     if (parentId === "project") {
       if (childLabel === "Project") navigate("/project");
       else if (childLabel === "Order") navigate("/order");
       else if (childLabel === "Assigned Order") navigate("/assign-order");
+    } else if (routeMap[childLabel]) {
+      // যদি আমাদের ম্যাপে এই চাইল্ড থাকে, তবে সেই পাথে যাও
+      navigate(routeMap[childLabel]);
     } else {
       navigate(`/${parentId}`);
     }
 
-    if (window.innerWidth < 1024) {
-      setIsMobileOpen(false);
-    }
+    if (window.innerWidth < 1024) setIsMobileOpen(false);
   };
 
   const currentItem = menuData.find((m) => m.id === activeParent);
@@ -204,7 +234,6 @@ export default function Sidebar() {
                       </span>
                     )}
                   </button>
-                  
 
                   {/* Tooltip for Mobile and Collapsed/Active View */}
                   {(isCollapsed || isActive) && (

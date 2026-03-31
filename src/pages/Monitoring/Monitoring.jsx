@@ -1,7 +1,15 @@
+import Heading from "@/SharedComponants/Heading";
+import MonitoringGridCard from "./MonitoringComponents.jsx/MonitoringGridCard";
+
 const Monitoring = () => {
   return (
-    <div>Monitoring</div>
-  )
-}
+    <>
+      <Heading heading={"Monitory Dashboard"} />
+      <div className="mt-6">
+        <MonitoringGridCard />
+      </div>
+    </>
+  );
+};
 
-export default Monitoring
+export default Monitoring;
