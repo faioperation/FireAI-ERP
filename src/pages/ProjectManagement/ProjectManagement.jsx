@@ -23,11 +23,13 @@ const ProjectManagement = () => {
           heading={"Project List"}
           subHeading={"Manage all your projects and orders"}
         />
-        <DynamicButton
-          label="New Project"
-          showIcon={true}
-          onClick={() => setIsModalOpen(true)}
-        />
+        <div className="flex items-center justify-between">
+          <DynamicButton
+            label="New Project"
+            showIcon={true}
+            onClick={() => setIsModalOpen(true)}
+          />
+        </div>
       </div>
 
       <ProjectGridCard />
@@ -47,4 +49,3 @@ const ProjectManagement = () => {
 };
 
 export default ProjectManagement;
-

@@ -30,6 +30,8 @@ import SelfLearning from "./pages/TodoManagement/TodoComponants/SelfLearning";
 import AssignedTask from "./pages/TodoManagement/TodoComponants/AsssignedTask";
 import MeetingDetails from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingDetails";
 import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/MeetingList";
+import NoticePage from "./pages/SalesOPCollaboration/NoticePage"; 
+import NoticeApproval from "./pages/SalesOPCollaboration/SalesOPCollaborationComponents/NoticeApproval";
 
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
@@ -82,6 +84,8 @@ const App = () => {
           <Route path="/addmessage" element={<AddMessage/>} />
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
+          <Route path="/notice" element={<NoticePage />} />
+          <Route path="/notice-approval" element={<NoticeApproval />} />
           <Route path="/workforce" element={<WorkForce />} />
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
