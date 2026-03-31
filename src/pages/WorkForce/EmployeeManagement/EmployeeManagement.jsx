@@ -18,7 +18,7 @@ export default function EmployeeManagement() {
   const [activeModal, setActiveModal] = useState(null); // 'add', 'edit', 'terminate'
 
   // Stats Data per reference style
- const stats = [
+  const stats = [
     { label: "Total Member", value: "40", sub: "Active members", icon: <Users size={18} />, color: "text-orange-500" },
     { label: "Active Projects", value: "46", sub: "Across all teams", icon: <Briefcase size={18} />, color: "text-orange-400" },
     { label: "Teams", value: "4", sub: "", icon: <LayoutGrid size={18} />, color: "text-orange-500" },
@@ -35,7 +35,7 @@ export default function EmployeeManagement() {
   ];
   
   return (
-    <div className="p-4 sm:p-6 md:p-8  min-h-screen animate-in fade-in duration-500">
+    <div className="p-4 sm:p-6 md:p-8 min-h-screen animate-in fade-in duration-500">
       
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
@@ -45,7 +45,7 @@ export default function EmployeeManagement() {
         </div>
         <Button 
           onClick={() => setActiveModal('add')}
-          className="bg-orange-500 dark:bg-teal-500 hover:bg-orange-600 dark:hover:bg-teal-600 text-white rounded-xl px-6 py-6 font-bold shadow-lg  active:scale-95 transition-all"
+          className="bg-orange-500 dark:bg-teal-500 hover:bg-orange-600 dark:hover:bg-teal-600 text-white rounded-xl px-6 py-6 font-bold shadow-lg active:scale-95 transition-all"
         >
           <PlusCircle className="mr-2 h-5 w-5" /> Add Employee
         </Button>
@@ -89,11 +89,11 @@ export default function EmployeeManagement() {
               
               {/* Profile & Name */}
               <div className="md:col-span-3 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#FFF7ED] flex items-center justify-center font-black text-[#F97316] text-lg border-2 border-white shadow-sm">SJ</div>
+                <div className="w-14 h-14 rounded-full bg-[#FFF7ED] flex items-center justify-center font-black text-[#F97316]  dark:text-teal-400  dark:text-teal-300 text-lg border-2 border-white shadow-sm">SJ</div>
                 <div>
                   <h4 className="font-black text-[#1E293B] dark:text-white">{emp.name}</h4>
                   <p className="text-xs text-gray-400 font-bold mb-1">{emp.role}</p>
-                  <span className="px-3 py-0.5 bg-[#FFF7ED] text-[#F97316] text-[10px] font-black rounded-md">{emp.shift}</span>
+                  <span className="px-3 py-0.5 bg-[#FFF7ED] text-[#F97316]  dark:text-teal-400  dark:text-teal-300 text-[10px] font-black rounded-md">{emp.shift}</span>
                 </div>
               </div>
 
@@ -110,7 +110,7 @@ export default function EmployeeManagement() {
               {/* Department */}
               <div className="md:col-span-2">
                 <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Department</p>
-                <p className="text-xs font-black text-[#F97316] uppercase">{emp.dept}</p>
+                <p className="text-xs font-black text-[#F97316]  dark:text-teal-400  dark:text-teal-300 uppercase">{emp.dept}</p>
               </div>
 
               {/* Joining Date */}
@@ -124,7 +124,7 @@ export default function EmployeeManagement() {
                 <span className="px-3 py-1 bg-green-50 text-green-600 text-[10px] font-black rounded-full uppercase tracking-widest">{emp.status}</span>
                 <button 
                   onClick={() => setActiveModal('edit')}
-                  className="p-2 text-gray-400 hover:text-[#F97316] transition-colors border-2 border-transparent hover:border-[#FFF7ED] rounded-lg"
+                  className="p-2 text-gray-400 hover:text-[#F97316]  dark:text-teal-400  dark:text-teal-300 transition-colors border-2 border-transparent hover:border-[#FFF7ED] rounded-lg"
                 >
                   <Edit3 size={18} />
                 </button>
@@ -138,7 +138,7 @@ export default function EmployeeManagement() {
       {/* --- MODAL LOGIC --- */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-darkSecBG w-full max-w-2xl rounded-[32px] overflow-hidden shadow-2xl overflow-y-auto max-h-[90vh]">
+          <div className="bg-white dark:bg-darkSecBG w-full max-w-3xl rounded-[32px] overflow-hidden shadow-2xl overflow-y-auto max-h-[90vh]">
             
             {/* Modal Header */}
             <div className="p-6 border-b border-border flex justify-between items-center bg-[#FFF9F1] dark:bg-muted/5">
@@ -179,12 +179,14 @@ export default function EmployeeManagement() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                        <div className="space-y-1.5">
                         <label className="text-xs font-black uppercase ml-1">Termination Type *</label>
-                        <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none"><option className='dark:bg-black'>without notice</option>
-                        <option className='dark:bg-black'>with notice</option></select>
+                        <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none">
+                          <option className='dark:bg-black'>without notice</option>
+                          <option className='dark:bg-black'>with notice</option>
+                        </select>
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-xs font-black uppercase ml-1">Termination Date *</label>
-                        <input type="date" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none" />
+                        <input type="date" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none px-4" />
                       </div>
                     </div>
                     <div className="space-y-1.5">
@@ -198,29 +200,57 @@ export default function EmployeeManagement() {
                   </div>
                 </div>
               ) : (
-                /* Add/Edit Form View */
+                /* Add/Edit Form View (Restored Original Dark Classes with Missing Fields) */
                 <form className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-black uppercase ml-1">First Name *</label>
-                      <input type="text" placeholder="Enter first name" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 focus:ring-orange-400 outline-none" />
+                      <input type="text" placeholder="Enter name" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-black uppercase ml-1">Last Name</label>
-                      <input type="text" placeholder="Enter last name" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 focus:ring-orange-400 outline-none" />
+                      <input type="text" placeholder="Enter last name" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Email *</label>
+                      <input type="email" placeholder="email@company.com" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Phone *</label>
+                      <input type="tel" placeholder="+880" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-black uppercase ml-1">Department</label>
-                      <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none"><option>Operations</option></select>
+                      <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none"><option className='dark:bg-black'>Operations</option><option className='dark:bg-black'>Sales</option> <option className='dark:bg-black'>BDT</option></select>
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-black uppercase ml-1">Employee ID *</label>
                       <input type="text" placeholder="35009" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none" />
                     </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Shift</label>
+                      <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none"><option className='dark:bg-black'>Morning</option><option className='dark:bg-black'>Evening</option><option className='dark:bg-black'>Night</option></select>
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Gender</label>
+                      <select className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none"><option className='dark:bg-black'>Male</option><option className='dark:bg-black'>Female</option></select>
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Join Date</label>
+                      <input type="date" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 outline-none px-4" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black uppercase ml-1">Designation</label>
+                      <input type="text" placeholder="Frontend Developer" className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none" />
+                    </div>
+                    <div className="space-y-1.5 sm:col-span-2">
+                      <label className="text-xs font-black uppercase ml-1">Permanent Address</label>
+                      <textarea rows={2} placeholder="Address details..." className="w-full p-4 rounded-2xl border border-border bg-[#FFF9F1] dark:bg-muted/10 focus:ring-2 dark:focus:ring-teal-500 focus:ring-orange-400 outline-none resize-none" />
+                    </div>
                   </div>
                   <div className="flex gap-4 pt-6">
                     <Button type="button" onClick={() => setActiveModal(null)} variant="outline" className="flex-1 py-7 rounded-2xl font-bold border-2">Cancel</Button>
-                    <Button className="flex-1 py-7 rounded-2xl font-black bg-orange-500 dark:bg-teal-500 text-white">Save</Button>
+                    <Button className="flex-1 py-7 rounded-2xl font-black bg-orange-500 dark:bg-teal-500 text-white shadow-lg">Save</Button>
                   </div>
                 </form>
               )}
