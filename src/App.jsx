@@ -33,6 +33,7 @@ import SitPlan from "./pages/Diagram/SitPlan";
 import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
 import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
 import EmployeeManagement from "./pages/WorkForce/EmployeeManagement/EmployeeManagement";
+import Password from "./pages/Settings/SettingsComponents.jsx/Password";
 
 const App = () => {
   return (
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/sit-plan" element={<SitPlan />} />
           {/* Settings */}
           <Route path="/settings" element={<Settings />} />
+          <Route path="/settings/password" element={<Password />} />
         </Route>
       </Routes>
     </ThemeProvider>
