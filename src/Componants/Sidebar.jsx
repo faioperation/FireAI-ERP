@@ -116,28 +116,10 @@ export default function Sidebar() {
     }
   };
 
-  // const handleChildClick = (child, parentId) => {
-  //   const childLabel = typeof child === "string" ? child : child.label;
-  //   setActiveChild(childLabel);
-
-  //   if (parentId === "project") {
-  //     if (childLabel === "Project") navigate("/project");
-  //     else if (childLabel === "Order") navigate("/order");
-  //     else if (childLabel === "Assigned Order") navigate("/assign-order");
-  //   } else {
-  //     navigate(`/${parentId}`);
-  //   }
-
-  //   if (window.innerWidth < 1024) {
-  //     setIsMobileOpen(false);
-  //   }
-  // };
-
   const handleChildClick = (child, parentId) => {
     const childLabel = typeof child === "string" ? child : child.label;
     setActiveChild(childLabel);
 
-    // চাইল্ড লেবেল অনুযায়ী পাথ ডিক্লেয়ার করুন
     const routeMap = {
       "Task-Tracker": "/task-tracker",
       Notice: "/notice",
@@ -146,7 +128,7 @@ export default function Sidebar() {
       "Daily To-do": "/todo",
       Management: "/diagram",
       "Team Management": "/workforce",
-      "Employee Management": "/workforce",
+      "Employee Management": "/employeemanagement",
     };
 
     if (parentId === "project") {
@@ -154,7 +136,6 @@ export default function Sidebar() {
       else if (childLabel === "Order") navigate("/order");
       else if (childLabel === "Assigned Order") navigate("/assign-order");
     } else if (routeMap[childLabel]) {
-      // যদি আমাদের ম্যাপে এই চাইল্ড থাকে, তবে সেই পাথে যাও
       navigate(routeMap[childLabel]);
     } else {
       navigate(`/${parentId}`);
@@ -348,7 +329,6 @@ export default function Sidebar() {
           </div>
         </aside>
       </div>
-
       {isMobileOpen && (
         <div
           className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[45] lg:hidden"

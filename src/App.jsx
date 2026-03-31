@@ -32,6 +32,7 @@ import Management from "./pages/Diagram/Management";
 import SitPlan from "./pages/Diagram/SitPlan";
 import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
 import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
+import EmployeeManagement from "./pages/WorkForce/EmployeeManagement/EmployeeManagement";
 
 const App = () => {
   return (
@@ -77,6 +78,8 @@ const App = () => {
           <Route path="/notice-approval" element={<NoticeApproval />} />
           {/* Workforce & Monitoring */}
           <Route path="/workforce" element={<WorkForce />} />
+          <Route path="/employeemanagement" element={<EmployeeManagement/>} />
+
           <Route path="/monitoring" element={<Monitoring />} />
           {/* Diagram */}
           <Route path="/diagram" element={<Management />} />
