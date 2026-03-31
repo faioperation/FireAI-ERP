@@ -75,10 +75,17 @@ const menuData = [
   },
 ];
 
+
+
+
 export default function Sidebar() {
+
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
-  const location = useLocation();
+  
+
+
+
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [activeParent, setActiveParent] = useState(null);
   const [activeChild, setActiveChild] = useState(null);
