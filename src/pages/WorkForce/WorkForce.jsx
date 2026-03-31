@@ -1,6 +1,10 @@
+import TeamManagement from "./TeamManagement/TeamManagement"
+
 const WorkForce = () => {
   return (
-    <div>WorkForce</div>
+    <div>
+      <TeamManagement/>
+    </div>
   )
 }
 
