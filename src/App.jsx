@@ -33,9 +33,10 @@ import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationCompon
 
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
-import Message from "./pages/TodoManagement/TaskTracker/message";
+import Message from "./pages/TodoManagement/TaskTracker/Message";
 import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
 import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
+import EmployeeManagement from "./pages/WorkForce/EmployeeManagement/EmployeeManagement";
 
 const App = () => {
   return (
@@ -83,6 +84,8 @@ const App = () => {
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
           <Route path="/workforce" element={<WorkForce />} />
+          <Route path="/workforce/employeemanagement" element={<EmployeeManagement/>} />
+
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/settings" element={<Settings />} />
