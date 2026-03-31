@@ -33,7 +33,7 @@ import MeetingList from "./pages/SalesOPCollaboration/SalesOPCollaborationCompon
 
 import TaskTracker from "./pages/TodoManagement/TaskTracker/TaskTracker";
 import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
-import Message from "./pages/TodoManagement/TaskTracker/message";
+import Message from "./pages/TodoManagement/TaskTracker/Message";
 import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
 import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
 
