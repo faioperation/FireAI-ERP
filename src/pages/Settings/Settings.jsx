@@ -9,7 +9,7 @@ const Settings = () => {
         subHeading={"Manage your personal details and preferences"}
       />
       <div className="mt-6">
-        {/* <ProfileInformation /> */}
+        <ProfileInformation />
       </div>
     </>
   );

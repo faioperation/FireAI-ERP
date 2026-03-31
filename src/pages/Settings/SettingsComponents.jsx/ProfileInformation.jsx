@@ -262,33 +262,7 @@ export default function ProfileInformation() {
       )}
 
       {/* Top bar */}
-      <div style={{
-        backgroundColor: isDark ? "#1E293B" : "#FFFFFF",
-        borderBottom: `1px solid ${border}`,
-        padding: "14px 24px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        position: "sticky", top: 0, zIndex: 100,
-        boxShadow: isDark ? "0 1px 12px rgba(0,0,0,0.3)" : "0 1px 8px rgba(0,0,0,0.06)",
-      }}>
-        <span style={{ fontWeight: 700, fontSize: "16px", color: headingColor, letterSpacing: "-0.3px" }}>
-          ⚙️ Account Settings
-        </span>
-        <button
-          onClick={() => setDark(!dark)}
-          style={{
-            display: "flex", alignItems: "center", gap: "6px",
-            padding: "7px 16px", borderRadius: "999px",
-            border: `1.5px solid ${border}`,
-            backgroundColor: isDark ? "#0F172A" : "#F1F5F9",
-            color: isDark ? "#CBD5E1" : "#475569",
-            cursor: "pointer", fontSize: "13px", fontWeight: 600,
-            transition: "all 0.2s",
-          }}
-        >
-          {isDark ? <SunIcon /> : <MoonIcon />}
-          {isDark ? "Light" : "Dark"}
-        </button>
-      </div>
+  
 
       {/* Page body */}
       <div style={{ maxWidth: "680px", margin: "32px auto", padding: "0 16px 60px" }}>
