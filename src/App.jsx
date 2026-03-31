@@ -67,6 +67,7 @@ const App = () => {
           <Route path="/task-tracker" element={<TaskTracker />}>
             <Route index element={<TaskList />} />
             <Route path="tasklist" element={<TaskList />} />
+            <Route path="message" element={<Message/>} />
           </Route>
           <Route path="/addtaskmodule" element={<AddModule />} />
           <Route path="/addmessage" element={<AddMessage />} />
