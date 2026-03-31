@@ -136,6 +136,7 @@ export default function Sidebar() {
       Management: "/diagram",
       "Team Management": "/workforce",
       "Employee Management": "/employeemanagement",
+      "Password":"/settings/password"
     };
 
     if (parentId === "project") {
