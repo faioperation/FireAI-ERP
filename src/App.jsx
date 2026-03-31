@@ -38,6 +38,7 @@ import TaskList from "./pages/TodoManagement/TaskTracker/TaskList";
 import Message from "./pages/TodoManagement/TaskTracker/Message";
 import AddModule from "./pages/TodoManagement/TaskTracker/AddModule";
 import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
+import EmployeeManagement from "./pages/WorkForce/EmployeeManagement/EmployeeManagement";
 
 const App = () => {
   return (
@@ -87,6 +88,8 @@ const App = () => {
           <Route path="/notice" element={<NoticePage />} />
           <Route path="/notice-approval" element={<NoticeApproval />} />
           <Route path="/workforce" element={<WorkForce />} />
+          <Route path="/workforce/employeemanagement" element={<EmployeeManagement/>} />
+
           <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/settings" element={<Settings />} />
