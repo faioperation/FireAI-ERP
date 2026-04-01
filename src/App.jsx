@@ -75,13 +75,12 @@ const App = () => {
           {/* Sales & Collaboration */}
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
-          <Route path="/message" element={<Message />} />{" "}
-          {/* Sidebar-এ এটি Sales-এর আন্ডারে */}
+          <Route path="/message" element={<Message />} />
           <Route path="/notice" element={<NoticePage />} />
           <Route path="/notice-approval" element={<NoticeApproval />} />
           {/* Workforce & Monitoring */}
           <Route path="/workforce" element={<WorkForce />} />
-          <Route path="/employeemanagement" element={<EmployeeManagement/>} />
+          <Route path="/employeemanagement" element={<EmployeeManagement />} />
 
           <Route path="/monitoring" element={<Monitoring />} />
           {/* Diagram */}
@@ -89,7 +88,7 @@ const App = () => {
           <Route path="/sit-plan" element={<SitPlan />} />
           {/* Settings */}
           <Route path="/settings" element={<Settings />} />
-          <Route path="/signin" element={<SignIn/>} />
+          <Route path="/signin" element={<SignIn />} />
 
           <Route path="/settings/password" element={<Password />} />
         </Route>
