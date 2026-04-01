@@ -21,6 +21,8 @@ import DynamicButton from "@/SharedComponants/DynamicButton";
 import CreateTask from "./CreateTask";
 import TaskDetails from "./TaskDetails";
 import EditTask from "./EditTask";
+import ImportBtn from "@/SharedComponants/ImportBtn";
+import ExportBtn from "@/SharedComponants/ExportBtn";
 
 const ASSIGN_TASK_DATA = [
   {
@@ -29,7 +31,7 @@ const ASSIGN_TASK_DATA = [
     task: "Operation Dashboard",
     deadline: "Mar 30, 2026",
     assignedBy: "Jihad",
-    assignedTo: "Dipti",
+    assignedTo: "Dipti", 
     priority: "High",
     status: "Pending",
   },
@@ -109,10 +111,13 @@ export default function Assigntask({ label }) {
 
   return (
     <div>
-      <div className="flex justify-end mb-8">
+      <div className="sm:flex space-y-2  sm:gap-3 justify-end mb-8">
+        
         <div onClick={() => setIsModalOpen(true)}>
           <DynamicButton label="New Task" />
         </div>
+        <ImportBtn/>
+        <ExportBtn/>
       </div>
       <div className="w-full bg-background dark:bg-darkBG rounded-[20px] shadow-sm border border-border overflow-x-auto transition-all duration-300">
         <table className="w-full text-left border-collapse min-w-[1000px]">
