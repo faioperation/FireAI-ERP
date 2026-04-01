@@ -34,7 +34,7 @@ export default function TaskTracker() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <button className="mb-4 text-xs dark:text-black px-4 py-2 rounded-lg bg-gray-200">
+        <button className="mb-4 text-xs dark:text-black px-4 py-2 rounded-lg text-white bg-orange-400  dark:bg-teal-400">
           <Link to="/project/view">← back to projects</Link>
         </button>
 
