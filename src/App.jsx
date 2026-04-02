@@ -86,7 +86,7 @@ const App = () => {
           <Route path="/notice-approval" element={<NoticeApproval />} />
           {/* Workforce & Monitoring */}
           <Route path="/workforce" element={<WorkForce />} />
-          <Route path="/employeemanagement" element={<EmployeeManagement/>} />
+          <Route path="/employeemanagement" element={<EmployeeManagement />} />
 
           <Route path="/monitoring" element={<Monitoring />} />
           {/* Diagram */}
