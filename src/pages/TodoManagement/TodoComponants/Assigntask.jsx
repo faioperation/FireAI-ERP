@@ -23,6 +23,7 @@ import TaskDetails from "./TaskDetails";
 import EditTask from "./EditTask";
 import ImportBtn from "@/SharedComponants/ImportBtn";
 import ExportBtn from "@/SharedComponants/ExportBtn";
+import { Link } from "react-router";
 
 const ASSIGN_TASK_DATA = [
   {
@@ -47,9 +48,8 @@ const ASSIGN_TASK_DATA = [
   },
 ];
 
-export default function Assigntask({ label }) {
+export default function Assigntask() {
   const [tasks, setTasks] = useState(ASSIGN_TASK_DATA);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   // View Modal er jonno notun state
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
@@ -99,9 +99,7 @@ export default function Assigntask({ label }) {
   // };
 
   // New task add korar logic
-  const addNewTask = (newTask) => {
-    setTasks((prev) => [newTask, ...prev]);
-  };
+
 
   const updateTask = (id, field, value) => {
     setTasks((prev) =>
@@ -113,9 +111,9 @@ export default function Assigntask({ label }) {
     <div>
       <div className="sm:flex space-y-2  sm:gap-3 justify-end mb-8">
         
-        <div onClick={() => setIsModalOpen(true)}>
+        <Link to="/newtask">
           <DynamicButton label="New Task" />
-        </div>
+     </Link>
         <ImportBtn/>
         <ExportBtn/>
       </div>
@@ -256,11 +254,7 @@ export default function Assigntask({ label }) {
         </table>
       </div>
       {/* Render the Modal */}
-      <CreateTask
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onAddTask={addNewTask}
-      />
+     
       
       <TaskDetails
         isOpen={isDetailsOpen}
