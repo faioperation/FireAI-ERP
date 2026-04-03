@@ -388,7 +388,7 @@ export default function OrderCreateModal({ isOpen, onClose, onSubmit }) {
             <div
               onClick={() => fileInputRef.current.click()}
               className={`border-2 border-dashed rounded-2xl p-10 flex flex-col items-center gap-2 cursor-pointer transition-all
-              ${theme === "dark" ? "border-gray-800 bg-[#111827]/30 hover:bg-[#111827]/50" : "border-gray-200 bg-gray-50 hover:bg-gray-100"}`}
+              ${theme === "dark" ? "border-gray-800 bg-[#111827]/30 hover:bg-[#111827]/50" : "border-gray-200"}`}
             >
               <Upload className="text-gray-400" size={32} />
               <p className="font-bold">Click to upload or drag and drop</p>
