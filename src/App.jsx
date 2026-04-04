@@ -35,6 +35,8 @@ import AddMessage from "./pages/TodoManagement/TaskTracker/AddMessage";
 import EmployeeManagement from "./pages/WorkForce/EmployeeManagement/EmployeeManagement";
 import SignIn from "./pages/SignIn/SignIn";
 import Password from "./pages/Settings/SettingsComponents.jsx/Password";
+import ProjectCreateModal from "./pages/ProjectManagement/ProjectManagementComponents/ProjectCreateModal";
+import ProjectEditModal from "./pages/ProjectManagement/ProjectManagementComponents/ProjectEditModal";
 import CreateTask from "./pages/TodoManagement/TodoComponants/CreateTask";
 
 const App = () => {
@@ -48,7 +50,9 @@ const App = () => {
           <Route path="/profilelist/:id" element={<ProfileDetails />} />
           {/* Project Management */}
           <Route path="/project" element={<ProjectManagement />} />
-          <Route path="/project/view" element={<ProjectView />} />
+          <Route path="/create-project" element={<ProjectCreateModal />} />
+          <Route path="/project/edit/:id" element={<ProjectEditModal />} />
+          <Route path="/project/view/:id" element={<ProjectView />} />
           <Route path="/order" element={<Order />} />
           <Route path="/order-value" element={<DynamicOrderForm />} />
           <Route path="/assign-order" element={<AssignedOrder />} />
@@ -72,6 +76,7 @@ const App = () => {
           <Route path="/task-tracker" element={<TaskTracker />}> 
             <Route index element={<TaskList />} />
             <Route path="tasklist" element={<TaskList />} />
+            <Route path="message" element={<Message />} />
            <Route path="message" element={<Message />} />
           </Route>
           <Route path="/addtaskmodule" element={<AddModule />} />
@@ -94,6 +99,7 @@ const App = () => {
           <Route path="/sit-plan" element={<SitPlan />} />
           {/* Settings */}
           <Route path="/settings" element={<Settings />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/newtask" element={<CreateTask/>} />
 

@@ -1,20 +1,14 @@
+
 import { useState } from "react";
 import DynamicButton from "@/SharedComponants/DynamicButton";
 import Heading from "@/SharedComponants/Heading";
 import SearchBar from "@/SharedComponants/SearchBar";
 import ProjectGridCard from "./ProjectManagementComponents/ProjectGridCard";
-import ProjectCreateModal from "./ProjectManagementComponents/ProjectCreateModal";
 import ProjectList from "./ProjectManagementComponents/ProjectList";
+import { Link } from "react-router";
 
 const ProjectManagement = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleCreateProject = (e) => {
-    e.preventDefault();
-
-    console.log("Project Created!");
-    setIsModalOpen(false);
-  };
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <>
@@ -23,27 +17,18 @@ const ProjectManagement = () => {
           heading={"Project List"}
           subHeading={"Manage all your projects and orders"}
         />
-        <div className="flex items-center justify-between">
-          <DynamicButton
-            label="New Project"
-            showIcon={true}
-            onClick={() => setIsModalOpen(true)}
-          />
-        </div>
+        <Link to="/create-project">
+          <DynamicButton label="New Project" showIcon={true} />
+        </Link>
       </div>
 
       <ProjectGridCard />
 
       <div className="my-10">
-        <SearchBar />
+        <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       </div>
-      <ProjectList />
 
-      <ProjectCreateModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSubmit={handleCreateProject}
-      />
+      <ProjectList searchQuery={searchQuery} />
     </>
   );
 };

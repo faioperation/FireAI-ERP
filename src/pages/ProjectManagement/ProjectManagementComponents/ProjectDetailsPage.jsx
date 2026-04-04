@@ -21,9 +21,9 @@ const ProjectDetailsPage = () => {
 
   return (
     <div
-      className={` transition-colors duration-300 ${isDark ? "bg-[#0B0F1A] text-white" : "bg-gray-50 text-gray-900"}`}
+      className={` transition-colors duration-300 ${isDark ? "bg-[#0B0F1A] text-white" : " text-gray-900"}`}
     >
-      <div className="max-w-5xl mx-auto space-y-6">
+      <div className="space-y-6">
         <div
           className={`p-6 rounded-2xl border ${isDark ? "bg-[#111827] border-gray-800" : "bg-white border-gray-200"}`}
         >

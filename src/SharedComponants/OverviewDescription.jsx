@@ -4,7 +4,7 @@ const OverviewDescription = () => {
   const [text, setText] = useState("");
 
   return (
-    <div className="w-full max-w-3xl">
+    <div className="w-full">
       <label className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 flex gap-1">
         Add Overview Description
         <span className="text-red-500">*</span>
