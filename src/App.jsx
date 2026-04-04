@@ -62,31 +62,30 @@ const App = () => {
               <Route index element={<Mytask />} />
               <Route path="mytask" element={<Mytask />} />
               <Route path="assigntask" element={<Assigntask />} >
-              
-              </Route> 
+
+              </Route>
             </Route>
             <Route path="member" element={<Member />}>
               <Route index element={<AssignedTask />} />
               <Route path="assignedtask" element={<AsssignedTask />} />
               <Route path="selfLearning" element={<SelfLearning />} />
             </Route>
-            
+
           </Route>
           {/* Task Tracker (Child of Todo in Sidebar) */}
-          <Route path="/task-tracker" element={<TaskTracker />}> 
+          <Route path="/task-tracker" element={<TaskTracker />}>
             <Route index element={<TaskList />} />
             <Route path="tasklist" element={<TaskList />} />
             <Route path="message" element={<Message />} />
-           <Route path="message" element={<Message />} />
           </Route>
           <Route path="/addtaskmodule" element={<AddModule />} />
-          
+
           <Route path="/addmessage" element={<AddMessage />} />
           {/* Sales & Collaboration */}
           <Route path="/sales" element={<SalesOPCollaboration />} />
           <Route path="/meeting/:id" element={<MeetingDetails />} />
-          {" "}
-          {/* Sidebar-এ এটি Sales-এর আন্ডারে */}
+
+
           <Route path="/notice" element={<NoticePage />} />
           <Route path="/notice-approval" element={<NoticeApproval />} />
           {/* Workforce & Monitoring */}
@@ -100,8 +99,8 @@ const App = () => {
           {/* Settings */}
           <Route path="/settings" element={<Settings />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signin" element={<SignIn/>} />
-          <Route path="/newtask" element={<CreateTask/>} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/newtask" element={<CreateTask />} />
 
           <Route path="/settings/password" element={<Password />} />
         </Route>
