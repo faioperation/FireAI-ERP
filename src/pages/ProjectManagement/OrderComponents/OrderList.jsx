@@ -439,7 +439,7 @@
 // }
 
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Eye,
   Pencil,
@@ -447,235 +447,245 @@ import {
   UserCircle,
   Clock,
   Filter,
+  Search,
+  X,
+  Check
 } from "lucide-react";
 import OrderDetailsModal from "./OrderDetailsModal";
 import { Link } from "react-router";
 
+// --- INITIAL DATA ---
 const initialData = [
-  {
-    id: "#78894",
-    projectId: "#8998778",
-    client: "Rifat",
-    team: "AI Weavers",
-    assignStatus: "Done",
-    priority: "High",
-    totalValue: "$800",
-    status: "In Progress",
-    timeRemaining: "03 Days",
-    deadline: "Mar 15, 2026",
-  },
-  {
-    id: "#78895",
-    projectId: "#8998779",
-    client: "Anik",
-    team: "System Saviors",
-    assignStatus: "WIP",
-    priority: "Low",
-    totalValue: "$1200",
-    status: "Completed",
-    timeRemaining: "00 Days",
-    deadline: "Mar 10, 2026",
-  },
-  {
-    id: "#78894",
-    projectId: "#8998778",
-    client: "Rifat",
-    team: "AI Weavers",
-    assignStatus: "Done",
-    priority: "High",
-    totalValue: "$800",
-    status: "In Progress",
-    timeRemaining: "03 Days",
-    deadline: "Mar 15, 2026",
-  },
-  {
-    id: "#78895",
-    projectId: "#8998779",
-    client: "Anik",
-    team: "System Saviors",
-    assignStatus: "WIP",
-    priority: "Low",
-    totalValue: "$1200",
-    status: "Completed",
-    timeRemaining: "00 Days",
-    deadline: "Mar 10, 2026",
-  },
-  {
-    id: "#78894",
-    projectId: "#8998778",
-    client: "Rifat",
-    team: "AI Weavers",
-    assignStatus: "Done",
-    priority: "High",
-    totalValue: "$800",
-    status: "In Progress",
-    timeRemaining: "03 Days",
-    deadline: "Mar 15, 2026",
-  },
-  {
-    id: "#78895",
-    projectId: "#8998779",
-    client: "Anik",
-    team: "System Saviors",
-    assignStatus: "WIP",
-    priority: "Low",
-    totalValue: "$1200",
-    status: "Completed",
-    timeRemaining: "00 Days",
-    deadline: "Mar 10, 2026",
-  },
+  { id: "#78894", projectId: "#8998778", client: "Anik", team: "AI Weavers", assignStatus: "Done", priority: "high", totalValue: "$800", status: "In Progress", timeRemaining: "03 Days", deadline: "Mar 15, 2026" },
+  { id: "#78895", projectId: "#8998779", client: "Moumita", team: "Dev Squad", assignStatus: "Pending", priority: "medium", totalValue: "$500", status: "Completed", timeRemaining: "07 Days", deadline: "Mar 20, 2026" },
+  { id: "#78896", projectId: "#8998780", client: "Rakib", team: "UI Hunters", assignStatus: "Review", priority: "low", totalValue: "$300", status: "Pending", timeRemaining: "10 Days", deadline: "Mar 25, 2026" },
 ];
 
-const ColHeader = ({ label, filterable = true }) => (
-  <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap border-b border-gray-200 dark:border-gray-700">
-    <div className="flex items-center gap-2">
-      {label}
-      {filterable && <Filter size={12} className="text-gray-400 cursor-pointer" />}
-    </div>
-  </th>
-);
+// --- FILTER POPUP COMPONENT ---
+const FilterPopup = ({ label, options, selectedOptions, onSelect, onSelectAll, onClear }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const dropdownRef = useRef(null);
 
-export default function OrderList() {
-  const [dark] = useState(false);
-  const [data, setData] = useState(initialData);
-  const [showOrderDetails, setShowOrderDetails] = useState(false);
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setIsOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  const updateField = (index, field, value) => {
-    const updatedData = [...data];
-    updatedData[index][field] = value;
-    setData(updatedData);
-  };
-
-  const deleteRow = (idx) =>
-    setData((prev) => prev.filter((_, i) => i !== idx));
+  const filteredOptions = options.filter(opt => opt.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className={dark ? "dark" : ""}>
-      <div className=" min-h-screen transition-colors duration-300">
+    <div className="relative inline-block" ref={dropdownRef}>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition ${selectedOptions.length > 0 ? 'text-blue-500' : 'text-gray-400'}`}
+      >
+        <Filter size={12} />
+      </button>
 
-        <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden">
+      {isOpen && (
+        <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl rounded-xl z-50 overflow-hidden">
+          {/* Search Box */}
+          <div className="p-3 border-b border-gray-100 dark:border-gray-700">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-2.5 text-gray-400" size={14} />
+              <input 
+                type="text" 
+                placeholder={`Search ${label}...`}
+                className="w-full pl-8 pr-3 py-1.5 text-xs bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-1 focus:ring-blue-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
 
-          {/* Scrollbar Container */}
-          <div className="overflow-x-auto custom-scrollbar">
-            <table className="w-full min-w-[1200px] border-collapse">
-              <thead className="bg-gray-50 dark:bg-gray-700/50">
-                <tr>
-                  <ColHeader label="Order ID" />
-                  <ColHeader label="Project ID" />
-                  <ColHeader label="Client Name" />
-                  <ColHeader label="Assigned Team" />
-                  <ColHeader label="Assign Status" />
-                  <ColHeader label="Priority" />
-                  <ColHeader label="Total Value" />
-                  <ColHeader label="Status" />
-                  <ColHeader label="Remaining" />
-                  <ColHeader label="Deadline" />
-                  <ColHeader label="Actions" filterable={false} />
-                </tr>
-              </thead>
+          {/* Options List */}
+          <div className="max-h-48 overflow-y-auto p-1">
+            {filteredOptions.map((option) => (
+              <label key={option} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg cursor-pointer transition">
+                <input 
+                  type="checkbox" 
+                  className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  checked={selectedOptions.includes(option)}
+                  onChange={() => onSelect(option)}
+                />
+                <span className="text-sm text-gray-700 dark:text-gray-300">{option}</span>
+              </label>
+            ))}
+          </div>
 
-              <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
-                {data.map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
-                    <td className="px-4 py-3.5 text-sm font-medium text-gray-700 dark:text-gray-300">{row.id}</td>
-                    <td className="px-4 py-3.5 text-sm text-gray-600 dark:text-gray-400">{row.projectId}</td>
-                    <td className="px-4 py-3.5 text-sm text-gray-700 dark:text-gray-300">{row.client}</td>
-
-                    {/* Assigned Team Select */}
-                    <td className="px-4 py-3.5">
-                      <select
-                        value={row.team}
-                        onChange={(e) => updateField(i, 'team', e.target.value)}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                      >
-                        <option value="AI Weavers">AI Weavers</option>
-                        <option value="System Saviors">System Saviors</option>
-                        <option value="Nightingale">Nightingale</option>
-                      </select>
-                    </td>
-
-                    {/* Assign Status Select */}
-                    <td className="px-4 py-3.5">
-                      <select
-                        value={row.assignStatus}
-                        onChange={(e) => updateField(i, 'assignStatus', e.target.value)}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                      >
-                        <option value="WIP">WIP</option>
-                        <option value="Done">Done</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Issue">Issue</option>
-                      </select>
-                    </td>
-
-                    {/* Priority Select */}
-                    <td className="px-4 py-3.5">
-                      <select
-                        value={row.priority}
-                        onChange={(e) => updateField(i, 'priority', e.target.value)}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                      >
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                      </select>
-                    </td>
-
-                    <td className="px-4 py-3.5 text-sm font-semibold text-gray-700 dark:text-gray-200">{row.totalValue}</td>
-
-                    {/* Status Select */}
-                    <td className="px-4 py-3.5">
-                      <select
-                        value={row.status}
-                        onChange={(e) => updateField(i, 'status', e.target.value)}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                      >
-                        <option value="In Progress">In Progress</option>
-                        <option value="Completed">Completed</option>
-                      </select>
-                    </td>
-
-                    <td className="px-4 py-3.5 text-sm text-gray-600 dark:text-gray-400">{row.timeRemaining}</td>
-                    <td className="px-4 py-3.5 text-sm text-gray-600 dark:text-gray-400">{row.deadline}</td>
-
-                    {/* Actions */}
-                    <td className="px-4 py-3.5">
-                      <div className="flex items-center gap-1">
-                        <Link to="/order-value">
-                          <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400"><UserCircle size={16} /></button>
-                        </Link>
-                        <button onClick={() => setShowOrderDetails(true)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400"><Eye size={16} /></button>
-                        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400"><Pencil size={16} /></button>
-                        <button onClick={() => deleteRow(i)} className="p-1.5 rounded-lg hover:bg-red-50 text-red-400"><Trash2 size={16} /></button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Footer Actions */}
+          <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700">
+            <button onClick={onSelectAll} className="text-[11px] font-bold text-blue-600 hover:text-blue-700 px-2 py-1">SELECT ALL</button>
+            <button onClick={onClear} className="text-[11px] font-bold text-red-500 hover:text-red-600 px-2 py-1">CLEAR</button>
           </div>
         </div>
+      )}
+    </div>
+  );
+};
 
-        {/* Custom CSS for Scrollbar */}
-        <style jsx>{`
-          .custom-scrollbar::-webkit-scrollbar {
-            height: 8px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 10px;
-          }
-          .dark .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1f2937;
-          }
-          .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #4b5563;
-          }
-        `}</style>
+// --- BADGE COMPONENTS ---
+const AssignBadge = ({ status }) => {
+  const styles = {
+    Done: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400",
+    Pending: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400",
+    Review: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400",
+  };
+  return <span className={`px-2.5 py-0.5 rounded text-[11px] font-medium ${styles[status] || styles.Pending}`}>{status}</span>;
+};
+
+const PriorityBadge = ({ priority }) => {
+  const styles = {
+    high: "text-orange-600 font-bold capitalize",
+    medium: "text-yellow-600 font-bold capitalize",
+    low: "text-green-600 font-bold capitalize",
+  };
+  return <span className={`text-xs ${styles[priority]}`}>{priority}</span>;
+};
+
+// --- MAIN COMPONENT ---
+export default function OrderList() {
+  const [data, setData] = useState(initialData);
+  const [filters, setFilters] = useState({ client: [], team: [], assignStatus: [], priority: [] });
+  const [showOrderDetails, setShowOrderDetails] = useState(false);
+
+  // Function to handle filter selection
+  const toggleFilter = (column, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [column]: prev[column].includes(value) 
+        ? prev[column].filter(i => i !== value) 
+        : [...prev[column], value]
+    }));
+  };
+
+  const handleSelectAll = (column, options) => setFilters(prev => ({ ...prev, [column]: options }));
+  const handleClear = (column) => setFilters(prev => ({ ...prev, [column]: [] }));
+
+  // Dynamic Filtering Logic
+  const filteredData = data.filter(row => {
+    return (
+      (filters.client.length === 0 || filters.client.includes(row.client)) &&
+      (filters.team.length === 0 || filters.team.includes(row.team)) &&
+      (filters.assignStatus.length === 0 || filters.assignStatus.includes(row.assignStatus)) &&
+      (filters.priority.length === 0 || filters.priority.includes(row.priority))
+    );
+  });
+
+  // Get unique options for filters
+  const getUnique = (col) => [...new Set(data.map(item => item[col]))];
+
+  return (
+    <div className="min-h-screen">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+        
+        {/* Responsive Container: overflow-x-auto keeps table scrollable on mobile */}
+        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700">
+          <table className="w-full min-w-[1100px]">
+            <thead className="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
+              <tr>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Order ID</th>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Project ID</th>
+                
+                {/* Filterable Headers */}
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center justify-between">
+                    Client Name
+                    <FilterPopup 
+                      label="Client" options={getUnique('client')} 
+                      selectedOptions={filters.client}
+                      onSelect={(val) => toggleFilter('client', val)}
+                      onSelectAll={() => handleSelectAll('client', getUnique('client'))}
+                      onClear={() => handleClear('client')}
+                    />
+                  </div>
+                </th>
+
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center justify-between">
+                    Assigned Team
+                    <FilterPopup 
+                      label="Team" options={getUnique('team')} 
+                      selectedOptions={filters.team}
+                      onSelect={(val) => toggleFilter('team', val)}
+                      onSelectAll={() => handleSelectAll('team', getUnique('team'))}
+                      onClear={() => handleClear('team')}
+                    />
+                  </div>
+                </th>
+
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center justify-between">
+                    Assign Status
+                    <FilterPopup 
+                      label="Status" options={getUnique('assignStatus')} 
+                      selectedOptions={filters.assignStatus}
+                      onSelect={(val) => toggleFilter('assignStatus', val)}
+                      onSelectAll={() => handleSelectAll('assignStatus', getUnique('assignStatus'))}
+                      onClear={() => handleClear('assignStatus')}
+                    />
+                  </div>
+                </th>
+
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center justify-between">
+                    Priority
+                    <FilterPopup 
+                      label="Priority" options={getUnique('priority')} 
+                      selectedOptions={filters.priority}
+                      onSelect={(val) => toggleFilter('priority', val)}
+                      onSelectAll={() => handleSelectAll('priority', getUnique('priority'))}
+                      onClear={() => handleClear('priority')}
+                    />
+                  </div>
+                </th>
+
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Total Value</th>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider whitespace-nowrap">Times remaining</th>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Deadline</th>
+                <th className="px-4 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              {filteredData.map((row, idx) => (
+                <tr key={idx} className="hover:bg-gray-50/80 dark:hover:bg-gray-800/40 transition-colors">
+                  <td className="px-4 py-4 text-sm font-bold text-gray-700 dark:text-gray-300">{row.id}</td>
+                  <td className="px-4 py-4 text-sm text-gray-500">{row.projectId}</td>
+                  <td className="px-4 py-4 text-sm font-medium text-gray-800 dark:text-gray-100">{row.client}</td>
+                  <td className="px-4 py-4 text-sm text-gray-600 dark:text-gray-400">{row.team}</td>
+                  <td className="px-4 py-4"><AssignBadge status={row.assignStatus} /></td>
+                  <td className="px-4 py-4"><PriorityBadge priority={row.priority} /></td>
+                  <td className="px-4 py-4 text-sm font-bold text-gray-900 dark:text-white">{row.totalValue}</td>
+                  <td className="px-4 py-4">
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-orange-500">
+                      <Clock size={14} /> {row.status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-4 text-sm text-gray-500">{row.timeRemaining}</td>
+                  <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">{row.deadline}</td>
+                  <td className="px-4 py-4">
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => setShowOrderDetails(true)} className="p-1.5 rounded-lg text-gray-400 hover:text-blue-500 hover:bg-gray-100 transition-all"><Eye size={16} /></button>
+                      <button className="p-1.5 rounded-lg text-gray-400 hover:text-green-500 hover:bg-gray-100 transition-all"><Pencil size={16} /></button>
+                      <button className="p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-all"><Trash2 size={16} /></button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          
+          {filteredData.length === 0 && (
+            <div className="py-20 text-center text-gray-400 font-medium">No data found matching current filters.</div>
+          )}
+        </div>
       </div>
 
       {showOrderDetails && (
