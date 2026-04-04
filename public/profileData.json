@@ -24,7 +24,7 @@
         "assigned_team": "AI Wavers",
         "order_status": "WIP"
       },
-      {
+      { 
         "project_id": "02",
         "order_id": "BC102",
         "order_value": "1800",
