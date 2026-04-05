@@ -56,23 +56,18 @@ const ProfileDetails = () => {
     return globalMatch && serviceMatch && teamMatch && statusMatch;
   });
 
-  // 2. Sorting Logic (Updated for Asc/Desc)
+  // 2. Sorting Logic
   const sortedOrders = [...filteredOrders].sort((a, b) => {
     if (sortConfig.key) {
       let aValue = a[sortConfig.key];
       let bValue = b[sortConfig.key];
-
-      // Number conversion for Order Value or IDs if needed
-      if (sortConfig.key === 'order_value' || sortConfig.key === 'project_id') {
+      if (sortConfig.key === 'order_value' || sortConfig.key === 'project_id' || sortConfig.key === 'order_id') {
         aValue = parseFloat(aValue);
         bValue = parseFloat(bValue);
       }
-
       if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
       if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
     }
-    
-    // Default Search Relevance Sort if no column sort is active
     const keyword = search.toLowerCase();
     const matchScore = (item) => {
       let score = 0;
@@ -92,35 +87,64 @@ const ProfileDetails = () => {
     setSortConfig({ key, direction });
   };
 
-  const FilterBox = ({ column }) => (
-    <div 
-      ref={filterRef} 
-      className="absolute mt-2 p-3 bg-white dark:bg-[#1F2937] border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl z-[999] w-64 left-0 top-full"
-    >
-      <input
-        autoFocus
-        type="text"
-        placeholder={`Search ${column.replace('_', ' ')}...`}
-        value={columnFilters[column]}
-        onChange={(e) => setColumnFilters({ ...columnFilters, [column]: e.target.value })}
-        onKeyDown={(e) => e.key === 'Enter' && setActiveFilter(null)}
-        className="w-full px-3 py-2 text-xs border rounded-lg dark:bg-[#111827] dark:border-gray-600 outline-none focus:ring-1 focus:ring-cyan-500 mb-3"
-      />
-      <div className="flex justify-between items-center px-1 text-[11px] font-bold uppercase cursor-pointer select-none">
-        <span className="text-blue-500" onClick={() => setColumnFilters({...columnFilters, [column]: ""})}>Select All</span>
-        <span className="text-red-500" onClick={() => {
-          setColumnFilters({...columnFilters, [column]: ""});
-          setActiveFilter(null);
-        }}>Clear</span>
-      </div>
-    </div>
-  );
+  // 🔥 Updated Filter Box with Checkbox Options (As per your images)
+  const FilterBox = ({ column }) => {
+    const uniqueOptions = [...new Set(profile.orders.map(order => order[column]))];
 
-  return (
+    return (
+      <div 
+        ref={filterRef} 
+        className="absolute mt-2 p-3 bg-white dark:bg-[#1F2937] border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl z-[999] w-64 left-0 top-full"
+      >
+        <input
+          autoFocus
+          type="text"
+          placeholder={`Search...`}
+          value={columnFilters[column]}
+          onChange={(e) => setColumnFilters({ ...columnFilters, [column]: e.target.value })}
+          onKeyDown={(e) => e.key === 'Enter' && setActiveFilter(null)}
+          className="w-full px-3 py-2 text-xs border rounded-lg dark:bg-[#111827] dark:border-gray-600 outline-none focus:ring-1 focus:ring-cyan-500 mb-3 text-gray-700 dark:text-gray-200"
+        />
+
+        <div className="flex justify-between items-center px-1 text-[11px] font-bold uppercase cursor-pointer select-none mb-3">
+          <span className="text-blue-500 hover:text-blue-400" onClick={() => setColumnFilters({...columnFilters, [column]: ""})}>Select All</span>
+          <span className="text-red-500 hover:text-red-400" onClick={() => {
+            setColumnFilters({...columnFilters, [column]: ""});
+            setActiveFilter(null);
+          }}>Clear</span>
+        </div>
+
+        {/* Checkbox List Section */}
+        <div className="max-h-[160px] overflow-y-auto space-y-1 custom-scrollbar pr-1">
+          {uniqueOptions
+            .filter(opt => opt.toLowerCase().includes(columnFilters[column].toLowerCase()))
+            .map((option, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-center gap-3 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md cursor-pointer transition-colors"
+                onClick={() => setColumnFilters({ ...columnFilters, [column]: columnFilters[column] === option ? "" : option })}
+              >
+                <input 
+                  type="checkbox" 
+                  checked={columnFilters[column] === option}
+                  readOnly
+                  className="w-4 h-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+                />
+                <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">
+                  {option}
+                </span>
+              </div>
+            ))}
+        </div>
+      </div>
+    );
+  };
+
+  return (   
     <div className="p-4 md:p-2">
       <div className="dark:border-[#1F2937] rounded-2xl p-2 hover:shadow-gray-400 duration-300">
         
-        {/* Header & Stats (Keep your current UI) */}
+        {/* Header & Stats */}
         <div className="flex justify-between items-center mb-6">
           <div>
             <h2 className="text-xl font-semibold">{profile.company}</h2>
@@ -144,7 +168,6 @@ const ProfileDetails = () => {
           <table className="min-w-full text-sm">
             <thead className="bg-gray-100 dark:bg-darkSecBG text-left">
               <tr>
-                {/* 🔥 Sortable Columns */}
                 <th className="p-3 cursor-pointer select-none" onClick={() => handleSort('order_id')}>
                   ORDER LIST <span className="text-gray-400">{sortConfig.key === 'order_id' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : '⇅'}</span>
                 </th>
@@ -155,7 +178,6 @@ const ProfileDetails = () => {
                   ORDER VALUE <span className="text-gray-400">{sortConfig.key === 'order_value' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : '⇅'}</span>
                 </th>
                 
-                {/* Filterable Columns */}
                 <th className="p-3 relative">
                   <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveFilter(activeFilter === 'service_line' ? null : 'service_line')}>
                     SERVICE LINE <CiFilter className={columnFilters.service_line ? "text-cyan-500" : "text-gray-400"} />
@@ -178,7 +200,7 @@ const ProfileDetails = () => {
                 </th>
               </tr>
             </thead>
-
+ 
             <tbody>
               {sortedOrders.map((order, i) => (
                 <tr key={i} className="border-t border-gray-200 dark:border-[#1F2937] hover:bg-gray-50 dark:hover:bg-[#111827] transition">

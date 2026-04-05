@@ -129,7 +129,7 @@
 //                   </tr>
 //                 ))
 //               ) : (
-//                 <tr>
+                // <tr>
 //                   <td colSpan={10} className="p-12 text-center text-gray-400">
 //                     <p className="text-lg font-semibold">No data found</p>
 //                     <p className="text-sm mt-1">No projects match "{searchQuery}"</p>
@@ -175,7 +175,7 @@ const FilterDropdown = ({ columnKey, label, data, onFilterChange, isDark }) => {
     setSelectedItems(options);
     onFilterChange(columnKey, options);
   };
-
+  
   const handleClearAll = () => {
     setSelectedItems([]);
     onFilterChange(columnKey, []);
