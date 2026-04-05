@@ -36,7 +36,7 @@ const Stats = () => {
         const IconComponent = iconMap[stat.icon] || Folder;
 
         return (
-          <div
+          <div        
             key={stat.id}
             className=" border shadow shadow-orange-300 dark:shadow-teal-400 duration-500 border-gray-100 dark:border-none rounded-3xl p-4 shadow-sm flex flex-col lg:items-start lg:text-start items-center text-center dark:bg-darkSecBG  "
           >

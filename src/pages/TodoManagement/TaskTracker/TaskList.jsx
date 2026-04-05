@@ -14,7 +14,7 @@ export default function TaskList() {
     name: "Email Analysis",
     details: "Analysis On Risk...",
     timeline: "0.3 DAYS",
-    assignedBy: "ANIK",
+    assignedBy: "JIHAD",
     completedBy: "ANIK", // Missing before
     status: "Select Status",
     notes: "SALMAN", // Missing before
@@ -28,7 +28,7 @@ export default function TaskList() {
     name: "Quantum AI 2.0",
     details: "Dashboard Logic...",
     timeline: "1.2 DAYS",
-    assignedBy: "AKASH",
+    assignedBy: "JIHAD",
     completedBy: "AKASH",
     status: "Select Status",
     notes: "JIHAD",
@@ -42,7 +42,7 @@ export default function TaskList() {
     name: "Email Analysis",
     details: "Analysis On Risk...",
     timeline: "0.3 DAYS",
-    assignedBy: "ANIK",
+    assignedBy: "JIHAD",
     completedBy: "ANIK", // Missing before
     status: "Select Status",
     notes: "SALMAN", // Missing before
@@ -56,7 +56,7 @@ export default function TaskList() {
     name: "Quantum AI 2.0",
     details: "Dashboard Logic...",
     timeline: "1.2 DAYS",
-    assignedBy: "AKASH",
+    assignedBy: "JIHAD",
     completedBy: "AKASH",
     status: "Select Status",
     notes: "JIHAD",
@@ -70,7 +70,7 @@ export default function TaskList() {
     name: "Email Analysis",
     details: "Analysis On Risk...",
     timeline: "0.3 DAYS",
-    assignedBy: "ANIK",
+    assignedBy: "JIHAD",
     completedBy: "ANIK", // Missing before
     status: "Select Status",
     notes: "SALMAN", // Missing before
@@ -84,7 +84,7 @@ export default function TaskList() {
     name: "Quantum AI 2.0",
     details: "Dashboard Logic...",
     timeline: "1.2 DAYS",
-    assignedBy: "AKASH",
+    assignedBy: "JIHAD",
     completedBy: "AKASH",
     status: "Select Status",
     notes: "JIHAD",
