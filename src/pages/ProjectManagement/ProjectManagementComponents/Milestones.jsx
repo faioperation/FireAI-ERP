@@ -170,7 +170,7 @@ const Milestones = ({ projectId }) => {
 
 
   const handleRowClick = (e, idx) => {
-    navigate("/task-tracker");
+    navigate("/task-tracker/:id");
   };
 
   return (

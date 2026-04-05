@@ -73,7 +73,7 @@ const App = () => {
 
           </Route>
           {/* Task Tracker (Child of Todo in Sidebar) */}
-          <Route path="/task-tracker" element={<TaskTracker />}>
+          <Route path="/task-tracker/:id" element={<TaskTracker />}>
             <Route index element={<TaskList />} />
             <Route path="tasklist" element={<TaskList />} />
             <Route path="message" element={<Message />} />

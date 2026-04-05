@@ -128,7 +128,7 @@ export default function Sidebar() {
     setActiveChild(childLabel);
 
     const routeMap = {
-      "Task-Tracker": "/task-tracker",
+      "Task-Tracker": "/task-tracker/:id",
       Notice: "/notice",
       "Sit plan": "/sit-plan",
       "Daily To-do": "/todo",
