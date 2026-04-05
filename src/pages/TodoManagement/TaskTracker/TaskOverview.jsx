@@ -103,9 +103,9 @@ export default function TaskOverview({ findProject }) {
             ))}
 
             {/* Members Metric */}
-            <div className="p-5 rounded-[24px] border border-border bg-muted/5 dark:bg-muted/10">
+            <div className="p-5 rounded-[24px] border border-border bg-muted/5 dark:bg-muted/10 hover:border-orange-500/30 dark:hover:border-teal-500/30 transition-all duration-300">
               <div className="flex items-center gap-4">
-                <div className="p-3.5 rounded-2xl bg-white dark:bg-darkBG shadow-sm text-blue-500">
+                <div className="p-3.5 rounded-2xl bg-white dark:bg-darkBG shadow-sm text-blue-500 group-hover:scale-110 transition-transform">
                   <Users size={20} strokeWidth={2.5} />
                 </div>
                 <div>
