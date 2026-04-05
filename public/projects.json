@@ -1,89 +1,452 @@
 [
   {
     "order_id": 1,
-    "project_id": "PRJ-001",
+    "project_id": "FWY12UZS",
     "project_name": "E-commerce Platform Redesign",
     "company": "TechMart Inc",
-    "category": "Website Application",
-    "current_phase": "UI/UX Design Phase",
-    "description": "The redesign includes a simplified navigation system, improved product pages, a streamlined checkout process, and a responsive layout optimized for both desktop and mobile devices. User-centered design principles and usability testing were applied to ensure the platform meets customer needs and reduces friction during the shopping journey.",
+    "category": "MOBILE APPS",
+    "current_phase": "UI/UX Design",
+    "description": "The redesign includes a simplified navigation system, improved product pages, and a responsive layout optimized for mobile.",
     "metrics": [
-      {
-        "label": "Deadline",
-        "value": "Mar 30, 2026",
-        "icon_type": "calendar"
-      },
-      {
-       
-        "label": "Total Budget",
-        "value": "$85K",
-        "icon_type": "budget"
-      },
-      {
-      
-        "label": "Phase Cost",
-        "value": "$55K",
-        "icon_type": "cost"
-      }
+      { "label": "Deadline", "value": "Feb 10, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 200", "icon_type": "cost" }
     ],
-    "assign_member_count": 3
+    "assign_member_count": 2
   },
   {
     "order_id": 2,
-    "project_id": "PRJ-002",
-    "project_name": "Quantum AI 2.0 Dashboard",
-    "company": "NextGen Solutions",
-    "category": "Admin Panel",
-    "current_phase": "Development Phase",
-    "description": "Building a high-performance admin dashboard with real-time analytics, modular React components, and a fully responsive interface using Tailwind CSS. The focus is on data visualization and seamless user experience for operations management.",
+    "project_id": "FWY12UZS",
+    "project_name": "E-commerce Platform Redesign",
+    "company": "TechMart Inc",
+    "category": "MOBILE APPS",
+    "current_phase": "Front-End Development",
+    "description": "The redesign includes a simplified navigation system, improved product pages, and a responsive layout optimized for mobile.",
     "metrics": [
-      {
-        
-        "label": "Deadline",
-        "value": "May 15, 2026",
-        "icon_type": "calendar"
-      },
-      {
-        "label": "Total Budget",
-        "value": "$120K",
-        "icon_type": "budget"
-      },
-      {
-        
-        "label": "Phase Cost",
-        "value": "$40K",
-        "icon_type": "cost"
-      }
+      { "label": "Deadline", "value": "Feb 28, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
     ],
-    "assign_member_count": 5
+    "assign_member_count": 2
   },
   {
     "order_id": 3,
-    "project_id": "PRJ-003",
-    "project_name": "Mobile Banking Security Update",
-    "company": "SecureBank Ltd",
-    "category": "Mobile Application",
-    "current_phase": "Security Audit",
-    "description": "Enhancing the security framework of the mobile banking app with biometric authentication, end-to-end encryption, and multi-factor authorization. This phase focuses on identifying vulnerabilities and implementing patches to ensure user data protection.",
+    "project_id": "FWY12UZS",
+    "project_name": "E-commerce Platform Redesign",
+    "company": "TechMart Inc",
+    "category": "MOBILE APPS",
+    "current_phase": "MOBILE APPS",
+    "description": "The redesign includes a simplified navigation system, improved product pages, and a responsive layout optimized for mobile.",
     "metrics": [
-      {
-        "label": "Deadline",
-        "value": "June 10, 2026",
-        "icon_type": "calendar"
-      },
-      {
-       
-        "label": "Total Budget",
-        "value": "$200K",
-        "icon_type": "budget"
-      },
-      {
-        
-        "label": "Phase Cost",
-        "value": "$75K",
-        "icon_type": "cost"
-      }
+      { "label": "Deadline", "value": "Mar 10, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 300", "icon_type": "cost" }
     ],
-    "assign_member_count": 8
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 4,
+    "project_id": "FWY12UZS",
+    "project_name": "E-commerce Platform Redesign",
+    "company": "TechMart Inc",
+    "category": "MOBILE APPS",
+    "current_phase": " AI Development",
+    "description": "The redesign includes a simplified navigation system, improved product pages, and a responsive layout optimized for mobile.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 15, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 900", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 5,
+    "project_id": "FWY12UZS",
+    "project_name": "E-commerce Platform Redesign",
+    "company": "TechMart Inc",
+    "category": "MOBILE APPS",
+    "current_phase": " Back-End Development",
+    "description": "The redesign includes a simplified navigation system, improved product pages, and a responsive layout optimized for mobile.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 30, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 200", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 6,
+    "project_id": "Camel",
+    "project_name": "AI Customer Support Bot",
+    "company": "ServiceHub",
+    "category": " AI Development",
+    "current_phase": "Testing and Deployment",
+    "description": "Developing an advanced AI chatbot to handle customer inquiries 24/7 and reduce response times.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 05, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 150", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 7,
+    "project_id": "Camel",
+    "project_name": "AI Customer Support Bot",
+    "company": "ServiceHub",
+    "category": " AI Development",
+    "current_phase": "Maintanance",
+    "description": "Developing an advanced AI chatbot to handle customer inquiries 24/7 and reduce response times.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 12, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 300", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 8,
+    "project_id": "Camel",
+    "project_name": "AI Customer Support Bot",
+    "company": "ServiceHub",
+    "category": " AI Development",
+    "current_phase": "UI/UX Design",
+    "description": "Developing an advanced AI chatbot to handle customer inquiries 24/7 and reduce response times.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 20, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 200", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 9,
+    "project_id": "Camel",
+    "project_name": "AI Customer Support Bot",
+    "company": "ServiceHub",
+    "category": " AI Development",
+    "current_phase": "Front-End Development",
+    "description": "Developing an advanced AI chatbot to handle customer inquiries 24/7 and reduce response times.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 1200", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 10,
+    "project_id": "Camel",
+    "project_name": "AI Customer Support Bot",
+    "company": "ServiceHub",
+    "category": " AI Development",
+    "current_phase": "MOBILE APPS",
+    "description": "Developing an advanced AI chatbot to handle customer inquiries 24/7 and reduce response times.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 05, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 11,
+    "project_id": "Demet",
+    "project_name": "Enterprise Resource Management",
+    "company": "TechMart Inc",
+    "category": "Front-End Development",
+    "current_phase": " AI Development",
+    "description": "A comprehensive ERM solution designed to streamline business processes and track resources in real-time.",
+    "metrics": [
+      { "label": "Deadline", "value": "Jan 20, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 500", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 12,
+    "project_id": "Demet",
+    "project_name": "Enterprise Resource Management",
+    "company": "TechMart Inc",
+    "category": "Front-End Development",
+    "current_phase": " Back-End Development",
+    "description": "A comprehensive ERM solution designed to streamline business processes and track resources in real-time.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 10, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 800", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 13,
+    "project_id": "Demet",
+    "project_name": "Enterprise Resource Management",
+    "company": "TechMart Inc",
+    "category": "Testing and Deployment",
+    "current_phase": "MOBILE APPS",
+    "description": "A comprehensive ERM solution designed to streamline business processes and track resources in real-time.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 600", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 14,
+    "project_id": "Demet",
+    "project_name": "Enterprise Resource Management",
+    "company": "TechMart Inc",
+    "category": "Front-End Development",
+    "current_phase": " Maintenace",
+    "description": "A comprehensive ERM solution designed to streamline business processes and track resources in real-time.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 30, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 2500", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 15,
+    "project_id": "Demet",
+    "project_name": "Enterprise Resource Management",
+    "company": "TechMart Inc",
+    "category": "Front-End Development",
+    "current_phase": "UI/UX Design",
+    "description": "A comprehensive ERM solution designed to streamline business processes and track resources in real-time.",
+    "metrics": [
+      { "label": "Deadline", "value": "May 15, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 700", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 16,
+    "project_id": "Mercen",
+    "project_name": "Marketing Automation Tool",
+    "company": "ServiceHub",
+    "category": "MOBILE APPS",
+    "current_phase": "Front-End Development",
+    "description": "Building an automation tool that helps marketing teams manage campaigns and track leads without manual intervention.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 200", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 17,
+    "project_id": "Mercen",
+    "project_name": "Marketing Automation Tool",
+    "company": "ServiceHub",
+    "category": "MOBILE APPS",
+    "current_phase": "MOBILE APPS",
+    "description": "Building an automation tool that helps marketing teams manage campaigns and track leads without manual intervention.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 05, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 18,
+    "project_id": "Mercen",
+    "project_name": "Marketing Automation Tool",
+    "company": "ServiceHub",
+    "category": "MOBILE APPS",
+    "current_phase": " AI Development",
+    "description": "Building an automation tool that helps marketing teams manage campaigns and track leads without manual intervention.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 12, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 300", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 19,
+    "project_id": "Mercen",
+    "project_name": "Marketing Automation Tool",
+    "company": "ServiceHub",
+    "category": "MOBILE APPS",
+    "current_phase": " Back-End Development",
+    "description": "Building an automation tool that helps marketing teams manage campaigns and track leads without manual intervention.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 15, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 1500", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 20,
+    "project_id": "Mercen",
+    "project_name": "Marketing Automation Tool",
+    "company": "ServiceHub",
+    "category": "MOBILE APPS",
+    "current_phase": "Testing and Deployment",
+    "description": "Building an automation tool that helps marketing teams manage campaigns and track leads without manual intervention.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 21,
+    "project_id": "Kharah",
+    "project_name": "Cloud Infrastructure Audit",
+    "company": "TechMart Inc",
+    "category": "UI/UX Design",
+    "current_phase": "Maintanance",
+    "description": "An intensive audit for existing cloud assets to ensure security compliance and cost-effectiveness.",
+    "metrics": [
+      { "label": "Deadline", "value": "Jan 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 600", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 22,
+    "project_id": "Kharah",
+    "project_name": "Cloud Infrastructure Audit",
+    "company": "TechMart Inc",
+    "category": "UI/UX Design",
+    "current_phase": "Front-End Development",
+    "description": "An intensive audit for existing cloud assets to ensure security compliance and cost-effectiveness.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 05, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 23,
+    "project_id": "Kharah",
+    "project_name": "Cloud Infrastructure Audit",
+    "company": "TechMart Inc",
+    "category": "UI/UX Design",
+    "current_phase": "Front-End Development",
+    "description": "An intensive audit for existing cloud assets to ensure security compliance and cost-effectiveness.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 12, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 200", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 24,
+    "project_id": "Kharah",
+    "project_name": "Cloud Infrastructure Audit",
+    "company": "TechMart Inc",
+    "category": "UI/UX Design",
+    "current_phase": "MOBILE APPS",
+    "description": "An intensive audit for existing cloud assets to ensure security compliance and cost-effectiveness.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 15, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 2000", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 25,
+    "project_id": "Kharah",
+    "project_name": "Cloud Infrastructure Audit",
+    "company": "TechMart Inc",
+    "category": "UI/UX Design",
+    "current_phase": " AI Development",
+    "description": "An intensive audit for existing cloud assets to ensure security compliance and cost-effectiveness.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 25, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$85K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 800", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 26,
+    "project_id": "Ates",
+    "project_name": "Sales Prediction Engine",
+    "company": "ServiceHub",
+    "category": " Back-End Development",
+    "current_phase": " Back-End Development",
+    "description": "An AI-powered engine that analyzes historical sales data to predict future trends and high-priority leads.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 12, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 300", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 27,
+    "project_id": "Ates",
+    "project_name": "Sales Prediction Engine",
+    "company": "ServiceHub",
+    "category": " Back-End Development",
+    "current_phase": "Testing and Deployment",
+    "description": "An AI-powered engine that analyzes historical sales data to predict future trends and high-priority leads.",
+    "metrics": [
+      { "label": "Deadline", "value": "Feb 22, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 500", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 28,
+    "project_id": "Ates",
+    "project_name": "Sales Prediction Engine",
+    "company": "ServiceHub",
+    "category": " Back-End Development",
+    "current_phase": "Maintanance",
+    "description": "An AI-powered engine that analyzes historical sales data to predict future trends and high-priority leads.",
+    "metrics": [
+      { "label": "Deadline", "value": "Mar 02, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 400", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 29,
+    "project_id": "Ates",
+    "project_name": "Sales Prediction Engine",
+    "company": "ServiceHub",
+    "category": " Back-End Development",
+    "current_phase": "UI/UX Design",
+    "description": "An AI-powered engine that analyzes historical sales data to predict future trends and high-priority leads.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 05, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 1800", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
+  },
+  {
+    "order_id": 30,
+    "project_id": "Ates",
+    "project_name": "Sales Prediction Engine",
+    "company": "ServiceHub",
+    "category": " Back-End Development",
+    "current_phase": " Front-End Development",
+    "description": "An AI-powered engine that analyzes historical sales data to predict future trends and high-priority leads.",
+    "metrics": [
+      { "label": "Deadline", "value": "Apr 15, 2026", "icon_type": "calendar" },
+      { "label": "Total Budget", "value": "$45K", "icon_type": "budget" },
+      { "label": "Phase Cost", "value": "$ 600", "icon_type": "cost" }
+    ],
+    "assign_member_count": 2
   }
 ]
