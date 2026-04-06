@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from "react-router";
 import TaskOverview from "./TaskOverview";
 import ProjectList from "@/pages/ProjectManagement/ProjectManagementComponents/ProjectList";
 import { Target } from "lucide-react";
+import TaskList from "./TaskList";
 
 export default function TaskTracker() {
   const [projects, setProjects] = useState([]);
@@ -40,7 +41,7 @@ export default function TaskTracker() {
           <TaskOverview findProject={findProject} />
         ) : (
           <div className="text-center   text-gray-500 text-sm space-y-2  ">
-             <div>
+             {/* <div>
               <select
               onChange={handleSelect}
               className="border border-orange-400 dark:border-teal-400 rounded-md p-2 text-sm flex justify-end"
@@ -63,8 +64,8 @@ export default function TaskTracker() {
         <p className="text-muted-foreground font-semibold">
           Select an order to view the specific task tracker
         </p>
-      </div>
-           
+      </div> */}
+           <ProjectList/>
           </div>
         )}
       </div>
