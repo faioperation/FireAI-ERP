@@ -56,9 +56,9 @@ function Field({ label, error, touched, children, required, hint }) {
 
 function inputCls(error, touched, disabled = false) {
   const base = "w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 focus:outline-none focus:ring-2 placeholder-slate-400";
-  if (disabled) return `${base} bg-slate-50 border-slate-200 text-slate-400 cursor-not-allowed`;
+  if (disabled) return `${base}  border-slate-200 text-slate-400 cursor-not-allowed`;
   if (touched && error) return `${base} border-red-400 bg-red-50/60 text-slate-800 focus:ring-red-200 focus:border-red-400`;
-  return `${base} bg-white border-slate-200 text-slate-800 hover:border-orange-300 focus:ring-orange-200 focus:border-orange-400`;
+  return `${base} border-slate-200 text-slate-800 hover:border-orange-300 focus:ring-orange-200 focus:border-orange-400`;
 }
 
 export default function ProfileSettings() {
@@ -137,16 +137,16 @@ export default function ProfileSettings() {
     }
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-orange-50/40 to-slate-50 flex items-start justify-center px-4 py-8 sm:py-12">
+    <div className="min-h-screen  flex items-start justify-center px-4 py-8 sm:py-12">
       {/* wrapping in form for keyboard support */}
       <form onSubmit={handleSave} className="w-full max-w-2xl space-y-4">
 
-        <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/80 border border-slate-100 overflow-hidden">
-          <div className="h-1.5 bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400" />
+        <div className="rounded-2xl shadow-lg border  overflow-hidden">
+          <div />
 
           <div className="p-5 sm:p-8 space-y-6">
             {/* AVATAR SECTION */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-6 border-b border-slate-100">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-6 ">
               <div className="relative flex-shrink-0">
                 <div className="w-20 h-20 rounded-full bg-orange-100 border-2 border-orange-200 flex items-center justify-center overflow-hidden shadow">
                   {avatarPreview ? (
@@ -281,7 +281,7 @@ export default function ProfileSettings() {
             </Field>
 
             {/* FOOTER */}
-            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-slate-100">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
               <div className="text-sm text-center sm:text-left min-h-[20px]">
                 {saveStatus === "success" && (
                   <span className="text-emerald-600 font-medium flex items-center gap-1.5">
