@@ -154,7 +154,7 @@ const Milestones = ({ projectId }) => {
   const navigate = useNavigate();
 
   const project = projectsData.find((p) => p.id === projectId);
-
+  
 
   const [completedMilestones, setCompletedMilestones] = useState([]);
 
@@ -169,8 +169,8 @@ const Milestones = ({ projectId }) => {
   };
 
 
-  const handleRowClick = (e, idx) => {
-    navigate("/task-tracker/:id");
+  const handleRowClick = (e, m) => {
+    navigate(`/task-tracker/${m.id}`);
   };
 
   return (
@@ -195,7 +195,7 @@ const Milestones = ({ projectId }) => {
                   <div
                     key={idx}
 
-                    onClick={(e) => handleRowClick(e, idx)}
+                    onClick={(e) => handleRowClick(e, m)}
                     className={`flex items-center justify-between p-3 sm:p-4 border rounded-xl cursor-pointer transition-all ${isDone
                       ? isDark
                         ? "bg-green-900/10 border-green-500/50"
