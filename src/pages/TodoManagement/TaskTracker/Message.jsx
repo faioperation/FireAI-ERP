@@ -21,7 +21,7 @@ const INITIAL_MESSAGES = Array(12).fill({
 }).map((item, index) => ({ ...item, id: index })); // Added unique ID for mapping
 
 const Message = () => {
-  const [messages] = useState(INITIAL_MESSAGES);
+  const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [activeFilter, setActiveFilter] = useState(null);
   const [columnFilters, setColumnFilters] = useState({
     profileName: "",
@@ -109,6 +109,16 @@ const Message = () => {
       </div>
     </div>
   );
+  const handleImport = (excelData) => {
+  console.log("Imported Data:", excelData); // Console-e check korun data ashlo kina
+  // setMessages(excelData); // State update korle table-e data chole ashbe
+  if (excelData && excelData.length > 0) {
+      // setMessages(excelData); 
+      // Jodi puran data thakbe + notun add hobe emon chan, tobe:
+      setMessages((prev) => [...prev, ...excelData]);
+    }
+};
+
 
   return (
     <div className="w-full space-y-6 animate-in fade-in zoom-in-95 duration-500">
@@ -116,8 +126,8 @@ const Message = () => {
       {/* Top Header Action */}
       <div className="flex flex-col sm:flex-row justify-end items-center gap-4">
         <div className="md:flex space-y-2 md:space-y-0 items-center gap-3 w-full sm:w-auto">
-          <ImportBtn />
-          <ExportBtn />
+          <ImportBtn onDataImported={handleImport} />
+          <ExportBtn data={messages} fileName="Message_List_2026" />
           <Button className="w-full sm:w-auto bg-orange-400 hover:bg-orange-500 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-black py-6 px-8 rounded-2xl shadow-lg shadow-orange-500/20 dark:shadow-teal-500/20 transition-all active:scale-95">
             <Plus className="mr-2 h-5 w-5 stroke-[3px]" /> <Link to="/addmessage"> Add Message </Link>
           </Button>

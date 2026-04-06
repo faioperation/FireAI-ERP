@@ -158,12 +158,20 @@ export default function Assigntask() {
         </div>
     </div>
   );
-
+  const handleImport = (excelData) => {
+  console.log("Imported Data:", excelData); // Console-e check korun data ashlo kina
+  // setMessages(excelData); // State update korle table-e data chole ashbe
+  if (excelData && excelData.length > 0) {
+      // setMessages(excelData); 
+      // Jodi puran data thakbe + notun add hobe emon chan, tobe:
+      setTasks((prev) => [...prev, ...excelData]);
+    }
+};
   return (
     <div className="p-4 sm:p-0">
       <div className="sm:flex space-y-2 sm:gap-3 justify-end mb-8">
         <Link to="/newtask"><DynamicButton label="New Task" /></Link>
-        <ImportBtn/><ExportBtn/>
+        <ImportBtn onDataImported={handleImport}/><ExportBtn data={tasks} fileName="AssignTask_List_2026"/>
       </div>
       <div className="w-full bg-white dark:bg-darkBG rounded-[20px] shadow-sm border border-gray-200 dark:border-border overflow-x-auto overflow-y-visible transition-all duration-300">
         <table className="w-full text-left border-collapse min-w-[1000px]">
