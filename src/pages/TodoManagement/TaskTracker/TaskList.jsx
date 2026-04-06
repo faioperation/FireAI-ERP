@@ -102,7 +102,15 @@ export default function TaskList() {
         </div>
     </div>
   );
-
+  const handleImport = (excelData) => {
+  console.log("Imported Data:", excelData); // Console-e check korun data ashlo kina
+  // setMessages(excelData); // State update korle table-e data chole ashbe
+  if (excelData && excelData.length > 0) {
+      // setMessages(excelData); 
+      // Jodi puran data thakbe + notun add hobe emon chan, tobe:
+      setTasks((prev) => [...prev, ...excelData]);
+    }
+};
   return (
     <div className="w-full space-y-6 animate-in fade-in duration-500">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-darkSecBG p-4 rounded-2xl border border-border shadow-sm">
@@ -110,10 +118,8 @@ export default function TaskList() {
           <Button className="flex-1 sm:flex-none bg-orange-400 hover:bg-orange-500 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-bold h-11 rounded-xl px-6">
             <Plus className="mr-2 h-4 w-4 stroke-[3px]" /> <Link to="/addtaskmodule">Add Task</Link> 
           </Button>
-          <Button variant="outline" className="flex-1 sm:flex-none border-orange-500/50 dark:border-teal-500/50 text-orange-600 dark:text-teal-400 font-bold h-11 rounded-xl px-6">
-            <FileDown className="mr-2 h-4 w-4" /> Import From Excel
-          </Button>
-          <ExportBtn/>
+         <ImportBtn  onDataImported={handleImport}/>
+          <ExportBtn data={tasks} fileName="Tasks_List_2026"/>
         </div>
       </div>
 
